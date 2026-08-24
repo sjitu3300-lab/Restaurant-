@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Fast Food Menu | The Royal Dine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c59d5f;
+      --primary-hover: #dfb271;
+      --dark-bg: #0d0d0d;
+      --card-bg: #181818;
+      --border-color: #2a2a2a;
+      --text: #ffffff;
+      --text-muted: #a5a5a5;
+      --veg-color: #27ae60;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    /* Header */
+    header {
+      background: #141414;
+      padding: 1.5rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .back-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      border: 1px solid var(--border-color);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+    }
+    .back-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+    /* Page Intro */
+    .menu-header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    .menu-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .menu-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hint-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: rgba(197, 157, 95, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px dashed var(--primary);
+    }
+
+    /* Menu Container & Grid */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(197, 157, 95, 0.15);
+    }
+    .card-img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .menu-card:hover .card-img-wrap img {
+      transform: scale(1.08);
+    }
+    .calorie-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card-content { padding: 1.2rem; }
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.4rem;
+    }
+    .card-title { font-size: 1.15rem; font-weight: 600; }
+    .card-price { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
+    
+    .veg-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--veg-color);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .veg-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--veg-color);
+      border-radius: 50%;
+    }
+    .card-short-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+    .view-detail-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #161616;
+      border: 1px solid #333;
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.85) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .modal-overlay.active .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: 0.2s;
+    }
+    .close-btn:hover { background: var(--primary); color: #000; }
+
+    .modal-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .modal-body { padding: 1.8rem; }
+    .modal-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; }
+    .modal-price { color: var(--primary); font-size: 1.6rem; font-weight: 700; }
+
+    /* Nutrition Grid */
+    .nutrition-box {
+      background: #202020;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1.2rem 0;
+      border: 1px solid #2d2d2d;
+    }
+    .nutrition-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      text-align: center;
+    }
+    .nutri-item { background: #161616; padding: 0.6rem 0.4rem; border-radius: 6px; }
+    .nutri-val { font-size: 1.1rem; font-weight: 700; color: #fff; display: block; }
+    .nutri-label { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* Recipe / How it is made */
+    .recipe-box { margin: 1.5rem 0; }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .recipe-text { color: #d0d0d0; font-size: 0.9rem; line-height: 1.6; }
+    .ingredient-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+    .ing-tag { background: #262626; color: #ccc; font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; }
+
+    /* Order Button */
+    .whatsapp-order-btn {
+      display: block;
+      width: 100%;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.3s;
+      margin-top: 1rem;
+    }
+    .whatsapp-order-btn:hover { background: #1eb956; }
+
+    @media (max-width: 600px) {
+      .nutrition-grid { grid-template-columns: repeat(2, 1fr); }
+      .modal-title { font-size: 1.4rem; }
+      .modal-price { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <a href="index.html" class="logo">The Royal Dine</a>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </header>
+
+  <!-- Title & Description -->
+  <div class="menu-header">
+    <h1>Fast Food & Snacks Menu</h1>
+    <p>Har ek item par click karein aur uske preparation method aur calories ki puri details dekhein.</p>
+    <span class="hint-badge">👆 Click any dish to view Recipe & Nutrition</span>
+  </div>
+
+  <!-- Menu Grid -->
+  <div class="container">
+    <div class="menu-grid" id="fastFoodGrid">
+      <!-- Items dynamically populated by JS -->
+    </div>
+  </div>
+
+  <!-- Animated Detail Modal Popup -->
+  <div class="modal-overlay" id="detailModal" onclick="closeModalOnOutsideClick(event)">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal()">✕</button>
+      <img src="" alt="" class="modal-img" id="modalImg">
+      <div class="modal-body">
+        <div class="modal-header-row">
+          <h2 class="modal-title" id="modalTitle">Dish Name</h2>
+          <span class="modal-price" id="modalPrice">₹0</span>
+        </div>
+        <div class="veg-indicator">
+          <div class="veg-dot"></div>
+          <span>100% Pure Vegetarian</span>
+        </div>
+
+        <!-- Nutrition / Calories -->
+        <div class="nutrition-box">
+          <div class="nutrition-title">⚡ Nutritional Values</div>
+          <div class="nutrition-grid">
+            <div class="nutri-item">
+              <span class="nutri-val" id="modalCalories">0</span>
+              <span class="nutri-label">Calories (kcal)</span>
+            </div>
+            <div class="nutri-item">
+              <span class="nutri-val" id="modalProtein">0g</span>
+              <span class="nutri-label">Protein</span>
+            </div>
+            <div class="nutri-item">
+              <span class="nutri-val" id="modalCarbs">0g</span>
+              <span class="nutri-label">Carbs</span>
+            </div>
+            <div class="nutri-item">
+              <span class="nutri-val" id="modalFat">0g</span>
+              <span class="nutri-label">Fat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- How it is made -->
+        <div class="recipe-box">
+          <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation)</div>
+          <p class="recipe-text" id="modalRecipe">Description here...</p>
+          <div class="ingredient-tags" id="modalIngredients">
+            <!-- Tags dynamically populated -->
+          </div>
+        </div>
+
+        <!-- WhatsApp Order Button -->
+        <a href="#" target="_blank" class="whatsapp-order-btn" id="modalOrderBtn">📱 Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Comprehensive Fast Food Items Data
+    const fastFoodItems = [
+      {
+        id: 1,
+        name: "Double Cheese Gourmet Burger",
+        price: "₹149",
+        calories: "450",
+        protein: "14g",
+        carbs: "52g",
+        fat: "21g",
+        img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Crispy herb patty, double cheddar cheese, lettuce aur secret chipotle sauce.",
+        recipe: "Fresh aloo-peas aur Italian herbs se bani crispy patty ko golden fry kiya jata hai. Iske baad toasted brioche bun ke beech melted cheddar cheese slices, crunchy iceberg lettuce, juicy tomato slices aur chef's special secret burger mayonnaise ke sath layer kiya jata hai.",
+        ingredients: ["Toasted Brioche Bun", "Crispy Veg Patty", "Cheddar Cheese", "Iceberg Lettuce", "Chipotle Mayo", "Tomatoes"]
+      },
+      {
+        id: 2,
+        name: "Farmhouse Loaded Pizza (10 Inch)",
+        price: "₹299",
+        calories: "780",
+        protein: "26g",
+        carbs: "94g",
+        fat: "32g",
+        img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Capsicum, grilled mushrooms, sweet corn aur 100% pure mozzarella cheese.",
+        recipe: "Daily freshly prepared hand-tossed dough par authentic Italian basil tomato sauce spread ki jati hai. Iske upar generous quantity me 100% mozzarella cheese, fresh capsicum, diced red onion, sautéed mushrooms aur golden sweet corn daalkar 300°C stone-oven me bake kiya jata hai.",
+        ingredients: ["Fresh Dough", "Mozzarella Cheese", "Stone-baked Tomato Sauce", "Mushrooms", "Sweet Corn", "Capsicum", "Oregano"]
+      },
+      {
+        id: 3,
+        name: "Peri-Peri Crispy Fries",
+        price: "₹110",
+        calories: "320",
+        protein: "5g",
+        carbs: "44g",
+        fat: "14g",
+        img: "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Crunchy golden potato fries spicy peri-peri dust aur cheesy dip ke sath.",
+        recipe: "Selected high-grade potatoes ko thin cut karke double-fry technique se super crispy banaya jata hai. Garam fries ko instant spicy African peri-peri seasoning aur rock salt ke sath shake kiya jata hai, jisse uniform coating milti hai.",
+        ingredients: ["Cut Potatoes", "Spicy Peri-Peri Seasoning", "Refined Sunflower Oil", "Rock Salt", "Garlic Mayo Dip"]
+      },
+      {
+        id: 4,
+        name: "Tandoori Paneer Grilled Sandwich",
+        price: "₹169",
+        calories: "410",
+        protein: "18g",
+        carbs: "48g",
+        fat: "16g",
+        img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Marinated malai paneer, mint chutney aur melted mozzarella in jumbo bread.",
+        recipe: "Soft malai paneer cubes ko tandoori masala aur curd me marinate kiya jata hai. Jumbo whole wheat bread slices par desi mint-coriander chutney aur butter lagakar marinated paneer, onion rings aur cheese bhar ke sandwich griller me golden grill kiya jata hai.",
+        ingredients: ["Jumbo Bread", "Fresh Malai Paneer", "Tandoori Marinade", "Mint Chutney", "Mozzarella Cheese", "Butter"]
+      },
+      {
+        id: 5,
+        name: "Steamed Veg Momos (8 Pcs)",
+        price: "₹120",
+        calories: "260",
+        protein: "8g",
+        carbs: "46g",
+        fat: "4g",
+        img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Finely minced cabbage, carrot, paneer filling aur authentic spicy red chutney.",
+        recipe: "Thin flour wrap ke andar finely chopped cabbage, carrot, paneer, crushed ginger aur black pepper ki stuffing ki jati hai. Inhe traditional steamer me 10–12 minutes ke liye steam kiya jata hai aur teekhi garlic red chilli chutney ke sath serve kiya jata hai.",
+        ingredients: ["Thin Wheat Wrapper", "Finely Chopped Cabbage", "Carrots", "Paneer", "Garlic Chilli Chutney", "Black Pepper"]
+      },
+      {
+        id: 6,
+        name: "Creamy Alfredo White Sauce Pasta",
+        price: "₹210",
+        calories: "520",
+        protein: "15g",
+        carbs: "62g",
+        fat: "24g",
+        img: "https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Penne pasta in rich butter, fresh cream, garlic, sweet corn aur black olives.",
+        recipe: "Penne pasta ko al-dente boil kiya jata hai. Pan me butter aur minced garlic ko fry karke fresh cream, milk aur parmesan-cheddar cheese ka rich bechamel sauce banaya jata hai. Isme sweet corn, black olives aur Italian herbs mix kiye jate hain.",
+        ingredients: ["Penne Pasta", "Fresh Dairy Cream", "Butter & Garlic", "Black Olives", "Sweet Corn", "Italian Herbs"]
+      },
+      {
+        id: 7,
+        name: "Desi Veg Hakka Noodles",
+        price: "₹150",
+        calories: "380",
+        protein: "9g",
+        carbs: "58g",
+        fat: "12g",
+        img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "High flame wok-tossed noodles with crunchy bell peppers and soya-chili glaze.",
+        recipe: "Boiled noodles ko high-flame Chinese wok me julienne cut capsicum, shredded cabbage, carrots aur green onions ke sath toss kiya jata hai. Light soya sauce, vinegar aur green chilli sauce ki authentic seasoning di jati hai.",
+        ingredients: ["Noodles", "Bell Peppers", "Shredded Cabbage", "Dark Soya Sauce", "Green Chili Sauce", "Spring Onions"]
+      },
+      {
+        id: 8,
+        name: "Cheesy Garlic Breadsticks (4 Pcs)",
+        price: "₹139",
+        calories: "340",
+        protein: "11g",
+        carbs: "38g",
+        fat: "15g",
+        img: "https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=800&q=80",
+        shortDesc: "Fresh baked artisan bread with garlic herb butter and oozing mozzarella.",
+        recipe: "Fresh dough base par roasted garlic butter, parsley aur oregano spread karke andar dher saara mozzarella cheese fold kiya jata hai. Oven me bake karne ke baad upar se chilli flakes aur herb dust daal kar slice kiya jata hai.",
+        ingredients: ["Artisan Bread Dough", "Roasted Garlic", "Pure Butter", "Mozzarella Cheese", "Oregano & Chili Flakes"]
+      }
+    ];
+
+    // Render Cards
+    const grid = document.getElementById('fastFoodGrid');
+    grid.innerHTML = fastFoodItems.map(item => `
+      <div class="menu-card" onclick="openDetailModal(${item.id})">
+        <div class="card-img-wrap">
+          <img src="${item.img}" alt="${item.name}">
+          <span class="calorie-pill">🔥 ${item.calories} kcal</span>
+        </div>
+        <div class="card-content">
+          <div class="card-title-row">
+            <h3 class="card-title">${item.name}</h3>
+            <span class="card-price">${item.price}</span>
+          </div>
+          <div class="veg-indicator">
+            <div class="veg-dot"></div>
+            <span>VEG SPECIAL</span>
+          </div>
+          <p class="card-short-desc">${item.shortDesc}</p>
+          <span class="view-detail-link">View Recipe & Details →</span>
+        </div>
+      </div>
+    `).join('');
+
+    // Modal Control Functions
+    function openDetailModal(id) {
+      const item = fastFoodItems.find(x => x.id === id);
+      if (!item) return;
+
+      document.getElementById('modalImg').src = item.img;
+      document.getElementById('modalTitle').innerText = item.name;
+      document.getElementById('modalPrice').innerText = item.price;
+      document.getElementById('modalCalories').innerText = item.calories;
+      document.getElementById('modalProtein').innerText = item.protein;
+      document.getElementById('modalCarbs').innerText = item.carbs;
+      document.getElementById('modalFat').innerText = item.fat;
+      document.getElementById('modalRecipe').innerText = item.recipe;
+
+      // Ingredients Tags
+      const ingContainer = document.getElementById('modalIngredients');
+      ingContainer.innerHTML = item.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
+
+      // WhatsApp Order Link (Replace with your actual restaurant WhatsApp number)
+      const phone = "919876543210"; 
+      const msg = encodeURIComponent(`Hello, I want to order ${item.name} (${item.price}) from your website menu.`);
+      document.getElementById('modalOrderBtn').href = `https://wa.me/${phone}?text=${msg}`;
+
+      // Open Modal
+      document.getElementById('detailModal').classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal() {
+      document.getElementById('detailModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnOutsideClick(e) {
+      if (e.target.id === 'detailModal') {
+        closeModal();
+  }
+    }
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
