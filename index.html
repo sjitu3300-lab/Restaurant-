@@ -3,140 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Royal Dine | Restaurant & Cafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Foodzilla Fast Food (F3) | Crispy, Juicy & Fast!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #c59d5f;
-      --dark: #111111;
-      --dark-card: #1c1c1c;
-      --text: #f0f0f0;
-      --muted: #a0a0a0;
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'Poppins', sans-serif;
+      --primary: #FF4757;
+      --secondary: #FFA502;
+      --dark: #0f0f0f;
+      --card-bg: #1a1a1a;
+      --text: #ffffff;
+      --muted: #b0b0b0;
+      --font-main: 'Poppins', sans-serif;
+      --font-heading: 'Rubik', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--font-body); background-color: var(--dark); color: var(--text); line-height: 1.6; }
+    body { font-family: var(--font-main); background-color: var(--dark); color: var(--text); overflow-x: hidden; }
 
-    /* Navbar */
+    /* Header / Navbar */
     header {
       position: sticky;
       top: 0;
-      background: rgba(17, 17, 17, 0.95);
-      backdrop-filter: blur(8px);
+      background: rgba(15, 15, 15, 0.95);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 8%;
-      border-bottom: 1px solid #2a2a2a;
-      z-index: 100;
+      padding: 1rem 8%;
+      border-bottom: 2px solid #222;
+      z-index: 1000;
     }
-    .logo { font-family: var(--font-heading); font-size: 1.6rem; color: var(--primary); font-weight: 700; text-decoration: none; }
-    nav a { color: var(--text); text-decoration: none; margin: 0 1rem; font-size: 0.95rem; transition: 0.3s; }
-    nav a:hover { color: var(--primary); }
-    .btn {
+    .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-badge {
       background: var(--primary);
-      color: #000;
-      padding: 0.6rem 1.4rem;
-      border-radius: 4px;
+      color: white;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 1.3rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    }
+    .logo-text { font-family: var(--font-heading); font-size: 1.4rem; color: #fff; font-weight: 700; letter-spacing: 0.5px; }
+    .logo-text span { color: var(--secondary); }
+
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a { color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+    nav a:hover { color: var(--primary); }
+
+    .btn {
+      background: linear-gradient(135deg, var(--primary), #ff6b81);
+      color: white;
+      padding: 0.7rem 1.6rem;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.9rem;
-      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
       border: none;
       cursor: pointer;
     }
-    .btn:hover { background: #b0894e; }
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      margin-left: 0.8rem;
-    }
-    .btn-outline:hover { background: var(--primary); color: #000; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6); }
 
     /* Hero Section */
     .hero {
-      min-height: 80vh;
+      min-height: 85vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 2rem 10%;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      justify-content: space-between;
+      padding: 2rem 8%;
+      background: radial-gradient(circle at 80% 50%, rgba(255, 71, 87, 0.15) 0%, transparent 60%);
     }
-    .hero h1 { font-family: var(--font-heading); font-size: 3.2rem; margin-bottom: 1rem; color: #fff; }
-    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin-bottom: 2rem; }
+    .hero-content { max-width: 600px; }
+    .badge-tag {
+      display: inline-block;
+      background: rgba(255, 165, 2, 0.15);
+      color: var(--secondary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(255, 165, 2, 0.3);
+    }
+    .hero h1 { font-family: var(--font-heading); font-size: 3.5rem; line-height: 1.2; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--primary); }
+    .hero p { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
+    .hero-image img { width: 100%; max-width: 480px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5)); animation: float 4s ease-in-out infinite; }
 
-    /* Section Styling */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Section Global */
     section { padding: 5rem 8%; }
-    .section-title { text-align: center; margin-bottom: 3rem; }
-    .section-title h2 { font-family: var(--font-heading); font-size: 2.4rem; color: var(--primary); }
-    .section-title p { color: var(--muted); font-size: 0.95rem; }
+    .section-title { text-align: center; margin-bottom: 3.5rem; }
+    .section-title h2 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .section-title h2 span { color: var(--primary); }
+    .section-title p { color: var(--muted); font-size: 1rem; }
 
-    /* Menu Grid */
+    /* Menu Categories / Grid */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
     .menu-card {
-      background: var(--dark-card);
-      border-radius: 8px;
+      background: var(--card-bg);
+      border-radius: 16px;
       overflow: hidden;
       border: 1px solid #282828;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
     }
-    .menu-card:hover { transform: translateY(-5px); }
-    .menu-card img { width: 100%; height: 200px; object-fit: cover; }
-    .menu-info { padding: 1.2rem; }
-    .menu-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
-    .menu-title { font-size: 1.1rem; font-weight: 600; }
-    .menu-price { color: var(--primary); font-weight: 700; font-size: 1.1rem; }
-    .menu-desc { color: var(--muted); font-size: 0.85rem; }
-
-    /* Reservation Form */
-    .reservation-box {
-      max-width: 650px;
-      margin: 0 auto;
-      background: var(--dark-card);
-      padding: 2.5rem;
-      border-radius: 8px;
-      border: 1px solid #282828;
-    }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .form-group input, .form-group select {
+    .menu-card:hover { transform: translateY(-8px); border-color: var(--primary); }
+    .menu-card img { width: 100%; height: 210px; object-fit: cover; }
+    .menu-body { padding: 1.5rem; }
+    .menu-tag { background: rgba(255,71,87,0.1); color: var(--primary); font-size: 0.75rem; padding: 4px 10px; border-radius: 6px; font-weight: 600; text-transform: uppercase; }
+    .menu-head { display: flex; justify-content: space-between; align-items: center; margin: 0.8rem 0; }
+    .menu-title { font-size: 1.2rem; font-weight: 700; font-family: var(--font-heading); }
+    .menu-price { color: var(--secondary); font-weight: 800; font-size: 1.2rem; }
+    .menu-desc { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.2rem; }
+    .order-btn {
       width: 100%;
-      padding: 0.8rem;
-      background: #111;
-      border: 1px solid #333;
+      background: #262626;
       color: #fff;
-      border-radius: 4px;
-      outline: none;
+      border: 1px solid #383838;
+      padding: 0.7rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+    .order-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+    /* Combo Banner */
+    .promo-banner {
+      background: linear-gradient(135deg, #1f1214, #2a1014);
+      border: 2px dashed var(--primary);
+      border-radius: 20px;
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 3rem 0;
+    }
+    .promo-text h3 { font-family: var(--font-heading); font-size: 2rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .promo-text p { color: var(--muted); }
 
     /* Footer */
     footer {
-      background: #0a0a0a;
-      padding: 3rem 8% 1.5rem;
+      background: #080808;
+      padding: 4rem 8% 2rem;
       border-top: 1px solid #222;
-      text-align: center;
     }
-    .footer-info { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; text-align: left; }
-    .footer-col h4 { color: var(--primary); margin-bottom: 0.8rem; }
-    .footer-col p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-family: var(--font-heading); font-size: 1.1rem; color: var(--secondary); margin-bottom: 1.2rem; }
+    .footer-col p, .footer-col a { color: var(--muted); text-decoration: none; display: block; margin-bottom: 0.6rem; font-size: 0.9rem; transition: 0.3s; }
+    .footer-col a:hover { color: var(--primary); }
+    .copyright { text-align: center; color: #666; font-size: 0.85rem; border-top: 1px solid #1a1a1a; padding-top: 1.5rem; }
 
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .form-grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; text-align: center; gap: 3rem; padding-top: 3rem; }
+      .hero-content { max-width: 100%; }
+      .promo-banner { flex-direction: column; text-align: center; gap: 2rem; }
       nav { display: none; }
     }
   </style>
@@ -145,121 +177,141 @@
 
   <!-- Navbar -->
   <header>
-    <a href="#" class="logo">The Royal Dine</a>
+    <a href="#" class="logo-container">
+      <div class="logo-badge">F3</div>
+      <div class="logo-text">Foodzilla <span>Fast Food</span></div>
+    </a>
     <nav>
       <a href="#home">Home</a>
       <a href="#menu">Menu</a>
-      <a href="#reservation">Reservation</a>
+      <a href="#combos">Combos</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a href="#reservation" class="btn">Book Table</a>
+    <a href="#menu" class="btn">Order Now 🛒</a>
   </header>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <h1>Experience Culinary Excellence</h1>
-    <p>Authentic flavors crafted with fresh ingredients in a warm and luxurious atmosphere.</p>
-    <div>
-      <a href="#menu" class="btn">Explore Menu</a>
-      <a href="#reservation" class="btn btn-outline">Reserve a Table</a>
+    <div class="hero-content">
+      <span class="badge-tag">🔥 100% Crispy & Juicy Delight</span>
+      <h1>Fast, Fresh & <span>Furious</span> Fast Food!</h1>
+      <p>Burgers jo mooh me ghul jayein, crispy fries aur cheesy pizzas jo aapki cravings ko turant satisfy karein. Welcome to F3!</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#menu" class="btn">Explore Menu</a>
+        <a href="#combos" class="btn" style="background: transparent; border: 2px solid var(--secondary); color: var(--secondary); box-shadow: none;">View Deals 🔥</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Delicious Burger">
     </div>
   </section>
 
-  <!-- Specials / Menu -->
+  <!-- Menu Section -->
   <section id="menu">
     <div class="section-title">
-      <h2>Chef's Recommendations</h2>
-      <p>Handpicked signature dishes prepared with authentic spices</p>
+      <h2>Our Spicy & Crispy <span>Menu</span></h2>
+      <p>Fresh ingredients, secret spices aur lajawab taste!</p>
     </div>
+
     <div class="menu-grid">
+      <!-- Item 1 -->
       <div class="menu-card">
-        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Special Thali">
-        <div class="menu-info">
-          <div class="menu-header">
-            <span class="menu-title">Royal Special Thali</span>
-            <span class="menu-price">₹350</span>
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Burger">
+        <div class="menu-body">
+          <span class="menu-tag">Bestseller</span>
+          <div class="menu-head">
+            <span class="menu-title">Monster Cheese Burger</span>
+            <span class="menu-price">₹199</span>
           </div>
-          <p class="menu-desc">Complete authentic meal with signature curries, breads, dessert & beverages.</p>
+          <p class="menu-desc">Double crispy patty, molten cheddar cheese, fresh lettuce and signature sauce.</p>
+          <button class="order-btn">Add to Cart</button>
         </div>
       </div>
+
+      <!-- Item 2 -->
       <div class="menu-card">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80" alt="Paneer Tikka">
-        <div class="menu-info">
-          <div class="menu-header">
-            <span class="menu-title">Paneer Tikka Special</span>
-            <span class="menu-price">₹240</span>
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" alt="Pizza">
+        <div class="menu-body">
+          <span class="menu-tag">Hot & Spicy</span>
+          <div class="menu-head">
+            <span class="menu-title">Loaded Peri-Peri Pizza</span>
+            <span class="menu-price">₹349</span>
           </div>
-          <p class="menu-desc">Marinated cottage cheese cubes roasted to perfection in traditional tandoor.</p>
+          <p class="menu-desc">Loaded with bell peppers, jalapeños, corn and extra mozzarella cheese.</p>
+          <button class="order-btn">Add to Cart</button>
         </div>
       </div>
+
+      <!-- Item 3 -->
       <div class="menu-card">
-        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80" alt="Biryani">
-        <div class="menu-info">
-          <div class="menu-header">
-            <span class="menu-title">Dum Handi Biryani</span>
-            <span class="menu-price">₹280</span>
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Fries">
+        <div class="menu-body">
+          <span class="menu-tag">Crispy</span>
+          <div class="menu-head">
+            <span class="menu-title">Loaded Cheese Fries</span>
+            <span class="menu-price">₹149</span>
           </div>
-          <p class="menu-desc">Fragrant basmati rice slow-cooked with aromatic spices and served with raita.</p>
+          <p class="menu-desc">Golden crispy French fries drenched in hot liquid cheese and herbs.</p>
+          <button class="order-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=500&q=80" alt="Wrap">
+        <div class="menu-body">
+          <span class="menu-tag">Crispy Roll</span>
+          <div class="menu-head">
+            <span class="menu-title">Spicy Paneer/Chicken Wrap</span>
+            <span class="menu-price">₹179</span>
+          </div>
+          <p class="menu-desc">Crispy strips wrapped in a soft tortilla with spicy mayo and crunchy onions.</p>
+          <button class="order-btn">Add to Cart</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Reservation Section -->
-  <section id="reservation">
-    <div class="section-title">
-      <h2>Table Reservation</h2>
-      <p>Book your table in advance for a hassle-free dining experience</p>
-    </div>
-    <div class="reservation-box">
-      <form>
-        <div class="form-grid">
-          <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="tel" placeholder="Phone Number" required>
-          </div>
-          <div class="form-group">
-            <input type="date" required>
-          </div>
-          <div class="form-group">
-            <select required>
-              <option value="">Number of Guests</option>
-              <option value="1">1 Person</option>
-              <option value="2">2 People</option>
-              <option value="4">4-6 People</option>
-              <option value="8">Family / Group (8+)</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit" class="btn" style="width: 100%; padding: 0.9rem;">Confirm Reservation</button>
-      </form>
+  <!-- Combo Deals Banner -->
+  <section id="combos" style="padding-top: 0;">
+    <div class="promo-banner">
+      <div class="promo-text">
+        <h3>⚡ F3 Mega Combo Offer!</h3>
+        <p>Get 1 Burger + Large Fries + Cold Drink @ just ₹299 only. Save Big!</p>
+      </div>
+      <a href="#menu" class="btn">Grab Deal Now</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer id="contact">
-    <div class="footer-info">
+    <div class="footer-grid">
       <div class="footer-col">
-        <h4>Location</h4>
-        <p>Main Road, Nagaur, Rajasthan</p>
-        <p>Phone: +91 98765 43210</p>
+        <h4>Foodzilla Fast Food (F3)</h4>
+        <p>Your ultimate destination for quick bites, burgers, pizzas, and endless flavors.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#menu">Our Menu</a></p>
+        <p><a href="#combos">Combo Offers</a></p>
       </div>
       <div class="footer-col">
         <h4>Opening Hours</h4>
-        <p>Monday – Sunday</p>
-        <p>11:00 AM – 11:00 PM</p>
+        <p>Monday - Sunday</p>
+        <p>10:00 AM - 11:30 PM</p>
       </div>
       <div class="footer-col">
-        <h4>Speciality</h4>
-        <p>Pure Veg & Family Dining</p>
-        <p>Party & Event Hall Available</p>
+        <h4>Contact Us</h4>
+        <p>Main Market Road</p>
+        <p>Phone: +91 98765 XXXXX</p>
       </div>
     </div>
-    <p style="color: #666; font-size: 0.85rem;">&copy; 2026 The Royal Dine. All rights reserved.</p>
+    <div class="copyright">
+      <p>&copy; 2026 Foodzilla Fast Food (F3). All rights reserved.</p>
+    </div>
   </footer>
 
 </body>
-                                             </html>
-          
+          </html>
+              
