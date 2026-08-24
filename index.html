@@ -3,88 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Royal Dine | Luxury Restaurant & Cafe</title>
+  <title>The Royal Dine | Luxury Restaurant & Fast Food</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #c59d5f;
-      --primary-hover: #b0894e;
-      --dark: #0f0f0f;
-      --dark-card: #1a1a1a;
-      --text: #f5f5f5;
-      --muted: #a0a0a0;
-      --border: #282828;
+      --primary-hover: #dfb271;
+      --dark-bg: #0c0c0c;
+      --card-bg: #161616;
+      --border-color: #272727;
+      --text: #ffffff;
+      --text-muted: #a5a5a5;
+      --veg-color: #27ae60;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-    /* Header / Navbar */
+    /* ================= 1. HEADER (Left Menu, Center Logo, Right Order) ================= */
     header {
       position: sticky;
       top: 0;
-      background: rgba(15, 15, 15, 0.95);
+      background: rgba(12, 12, 12, 0.95);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 8%;
-      border-bottom: 1px solid var(--border);
+      padding: 1rem 6%;
+      border-bottom: 1px solid var(--border-color);
       z-index: 100;
     }
-    .logo {
+
+    /* Left Menu Bar Button */
+    .menu-bar-btn {
+      background: #1f1f1f;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+    .menu-bar-btn:hover { background: var(--primary); color: #000; }
+
+    /* Center Logo & Name */
+    .header-center-logo {
+      text-align: center;
+      text-decoration: none;
+    }
+    .header-center-logo .logo-icon { font-size: 1.4rem; display: block; margin-bottom: -4px; }
+    .header-center-logo .logo-text {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
-      color: var(--primary);
       font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.5px;
+      color: var(--primary);
+      letter-spacing: 1px;
     }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin: 0 1rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: var(--primary); }
 
-    .btn {
+    /* Right Order Now Button */
+    .order-now-nav-btn {
       background: var(--primary);
       color: #000;
-      padding: 0.65rem 1.4rem;
-      border-radius: 4px;
+      padding: 0.6rem 1.4rem;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.9rem;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(197, 157, 95, 0.25);
     }
-    .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
-    
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      margin-left: 0.8rem;
-    }
-    .btn-outline:hover { background: var(--primary); color: #000; }
+    .order-now-nav-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
 
-    /* Hero Video Section */
+    /* ================= SIDEBAR / DRAWER MENU ================= */
+    .sidebar-drawer {
+      position: fixed;
+      top: 0;
+      left: -320px;
+      width: 300px;
+      height: 100%;
+      background: #141414;
+      border-right: 1px solid var(--border-color);
+      z-index: 1000;
+      transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+    }
+    .sidebar-drawer.active { left: 0; }
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-title { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.3rem; }
+    .sidebar-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .sidebar-close:hover { color: #fff; }
+    .sidebar-links a {
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.75rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid #1f1f1f;
+      transition: 0.2s;
+    }
+    .sidebar-links a:hover { color: var(--primary); padding-left: 6px; }
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+    }
+    .drawer-overlay.active { display: block; }
+
+    /* ================= 2. HERO VIDEO SECTION ================= */
     .hero-video-section {
       position: relative;
-      height: 88vh;
-      min-height: 550px;
+      height: 85vh;
+      min-height: 520px;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       overflow: hidden;
     }
-
     .bg-video {
       position: absolute;
       top: 50%;
@@ -97,24 +166,21 @@
       object-fit: cover;
       z-index: 1;
     }
-
     .video-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);
       z-index: 2;
     }
-
     .hero-content {
       position: relative;
       z-index: 3;
       padding: 0 1.5rem;
-      max-width: 800px;
+      max-width: 850px;
     }
-
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3.4rem;
@@ -122,235 +188,836 @@
       line-height: 1.2;
       text-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
-
     .hero-content p {
       font-size: 1.15rem;
       color: #e0e0e0;
       margin-bottom: 2rem;
       text-shadow: 0 2px 10px rgba(0,0,0,0.8);
     }
+    .hero-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      background: var(--primary);
+      color: #000;
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary); color: #000; }
 
-    /* Section Global Styles */
-    section { padding: 5.5rem 8%; }
-    .section-title { text-align: center; margin-bottom: 3.5rem; }
-    .section-title h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 0.4rem; }
-    .section-title p { color: var(--muted); font-size: 0.95rem; }
+    /* ================= 3. FAST FOOD CATEGORIES & ITEMS ================= */
+    .menu-section {
+      padding: 5rem 6%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .section-header p { color: var(--text-muted); font-size: 1rem; }
 
-    /* Featured Menu Grid */
+    /* Category Buttons */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 3rem;
+    }
+    .tab-btn {
+      background: #1c1c1c;
+      color: var(--text);
+      border: 1px solid var(--border-color);
+      padding: 0.65rem 1.4rem;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Cards Grid */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
     }
     .menu-card {
-      background: var(--dark-card);
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform 0.3s ease, border-color 0.3s;
-    }
-    .menu-card:hover { transform: translateY(-6px); border-color: var(--primary); }
-    .menu-card img { width: 100%; height: 210px; object-fit: cover; }
-    .menu-info { padding: 1.3rem; }
-    .menu-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
-    .menu-title { font-size: 1.15rem; font-weight: 600; }
-    .menu-price { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
-    .menu-desc { color: var(--muted); font-size: 0.85rem; }
-
-    .menu-cta-banner {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2.5rem;
-      background: #141414;
-      border-radius: 10px;
-      border: 1px dashed var(--primary);
-    }
-
-    /* Reservation Form */
-    .reservation-box {
-      max-width: 680px;
-      margin: 0 auto;
-      background: var(--dark-card);
-      padding: 2.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
-      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
     }
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin-bottom: 1.5rem;
+    .menu-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 25px rgba(197, 157, 95, 0.2);
     }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 0.85rem;
+    .card-img-wrap {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
       background: #111;
-      border: 1px solid #333;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.95);
+    }
+    .menu-card:hover .card-img-wrap img {
+      transform: scale(1.12);
+      filter: brightness(1.1);
+    }
+    .calorie-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
       color: #fff;
-      border-radius: 5px;
-      outline: none;
-      font-family: inherit;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+      z-index: 2;
     }
-    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
-
-    /* Footer */
-    footer {
-      background: #080808;
-      padding: 4rem 8% 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .footer-info {
+    .card-content { padding: 1.2rem; }
+    .card-title-row {
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-      text-align: left;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
     }
-    .footer-col h4 { color: var(--primary); margin-bottom: 1rem; font-size: 1.1rem; }
-    .footer-col p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .card-title { font-size: 1.15rem; font-weight: 600; }
+    .card-price { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
+    .veg-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--veg-color);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+    .veg-dot { width: 8px; height: 8px; background-color: var(--veg-color); border-radius: 50%; }
+    .card-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; margin-bottom: 1rem; }
+    .view-3d-hint {
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ================= 4. 3D ROTATING FOOD MODAL ================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      padding: 1rem;
+    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+    .modal-card {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.85) translateY(30px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      position: relative;
+      padding: 2rem 1.8rem;
+    }
+    .modal-overlay.active .modal-card { transform: scale(1) translateY(0); }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #252525;
+      color: #fff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+    }
+    .close-btn:hover { background: var(--primary); color: #000; }
+
+    /* 3D Food Spinning Animation */
+    .food-3d-stage {
+      text-align: center;
+      padding: 1rem 0;
+      perspective: 1000px;
+    }
+    .food-3d-disc {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--primary);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(197, 157, 95, 0.4);
+      animation: rotate3DFood 18s linear infinite;
+      transform-style: preserve-3d;
+    }
+    .food-3d-disc img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes rotate3DFood {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .rotate-hint { font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Modal Nutrition & Details */
+    .modal-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; }
+    .modal-price { color: var(--primary); font-size: 1.5rem; font-weight: 700; }
+
+    .nutrition-box {
+      background: #1f1f1f;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1.2rem 0;
+      border: 1px solid #2d2d2d;
+    }
+    .nutrition-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      text-align: center;
+    }
+    .nutri-item { background: #141414; padding: 0.6rem 0.4rem; border-radius: 6px; }
+    .nutri-val { font-size: 1.1rem; font-weight: 700; color: #fff; display: block; }
+    .nutri-label { font-size: 0.75rem; color: var(--text-muted); }
+
+    .recipe-box { margin: 1.4rem 0; }
+    .section-subtitle { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.4rem; font-weight: 600; }
+    .recipe-text { color: #d0d0d0; font-size: 0.9rem; line-height: 1.6; }
+    .ingredient-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+    .ing-tag { background: #242424; color: #ccc; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; border: 1px solid #333; }
+
+    .whatsapp-order-btn {
+      display: block;
+      width: 100%;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.3s;
+      margin-top: 1.2rem;
+    }
+    .whatsapp-order-btn:hover { background: #1eb956; }
+
+    /* ================= 5. FOOTER & QUICK LINKS ================= */
+    footer {
+      background: #080808;
+      padding: 4.5rem 6% 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .footer-col h4 {
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.6rem; }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      display: inline-block;
+    }
+    .footer-links a:hover { color: var(--primary); transform: translateX(4px); }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #1a1a1a;
+      color: #666;
+      font-size: 0.85rem;
+    }
 
     @media (max-width: 768px) {
       .hero-content h1 { font-size: 2.3rem; }
-      .form-grid { grid-template-columns: 1fr; }
-      nav { display: none; }
+      .header-center-logo .logo-text { font-size: 1.3rem; }
+      .nutrition-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- ================= HEADER ================= -->
   <header>
-    <a href="#" class="logo">The Royal Dine</a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="menu.html" target="_blank">Full Menu ↗</a>
-      <a href="#specials">Chef's Specials</a>
-      <a href="#reservation">Reservation</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="#reservation" class="btn">Book Table</a>
+    <!-- Left Menu Bar Button -->
+    <button class="menu-bar-btn" onclick="toggleSidebar()">
+      <span>☰</span> Menu
+    </button>
+
+    <!-- Center Logo & Name -->
+    <a href="#" class="header-center-logo">
+      <span class="logo-icon">👑</span>
+      <span class="logo-text">The Royal Dine</span>
+    </a>
+
+    <!-- Right Order Now Button -->
+    <a href="#menu-section" class="order-now-nav-btn">Order Now</a>
   </header>
 
-  <!-- Hero Section with Background Video -->
+  <!-- ================= SIDEBAR DRAWER NAVIGATION ================= -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleSidebar()"></div>
+  <div class="sidebar-drawer" id="sidebarDrawer">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Explore</span>
+      <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
+    </div>
+    <div class="sidebar-links">
+      <a href="#home" onclick="toggleSidebar()">🏠 Home</a>
+      <a href="#menu-section" onclick="toggleSidebar()">🍔 Fast Food Menu</a>
+      <a href="about.html" target="_blank">📖 About Us ↗</a>
+      <a href="contact.html" target="_blank">📞 Contact & Location ↗</a>
+      <a href="privacy-policy.html" target="_blank">🔒 Privacy Policy ↗</a>
+      <a href="terms-conditions.html" target="_blank">📜 Terms & Conditions ↗</a>
+      <a href="disclaimer.html" target="_blank">⚠️ Disclaimer ↗</a>
+    </div>
+  </div>
+
+  <!-- ================= HERO VIDEO BACKGROUND ================= -->
   <section class="hero-video-section" id="home">
     <video autoplay muted loop playsinline class="bg-video">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-cooking-food-in-a-pan-42686-large.mp4" type="video/mp4">
     </video>
     <div class="video-overlay"></div>
     <div class="hero-content">
-      <h1>Experience The Art of Good Food</h1>
-      <p>Authentic spices, fresh ingredients, and a luxurious family dining ambiance.</p>
-      <div>
-        <a href="menu.html" target="_blank" class="btn">Explore Full Menu ↗</a>
-        <a href="#reservation" class="btn btn-outline">Reserve a Table</a>
+      <h1>Experience The Art of Fast Food</h1>
+      <p>Authentic taste, freshly crafted recipes & sizzling fast food in Nagaur.</p>
+      <div class="hero-btns">
+        <a href="#menu-section" class="btn">Explore All Dishes</a>
+        <a href="contact.html" target="_blank" class="btn btn-outline">Find Our Location ↗</a>
       </div>
     </div>
   </section>
 
-  <!-- Chef's Specials -->
-  <section id="specials">
-    <div class="section-title">
-      <h2>Chef's Recommendations</h2>
-      <p>Popular signature recipes prepared fresh daily</p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Royal Thali">
-        <div class="menu-info">
-          <div class="menu-header">
-            <span class="menu-title">Royal Special Thali</span>
-            <span class="menu-price">₹350</span>
-          </div>
-          <p class="menu-desc">Authentic North Indian thali with paneer curry, dal makhani, breads & sweet.</p>
-        </div>
-      </div>
-      <div class="menu-card">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Double Cheese Burger">
-        <div class="menu-info">
-          <div class="menu-header">
-            <span class="menu-title">Double Cheese Burger</span>
-            <span class="menu-price">₹149</span>
-          </div>
-          <p class="menu-desc">Crispy herb patty loaded with melted cheddar cheese and chipotle mayo.</p>
-        </div>
-      </div>
-      <div class="menu-card">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Farmhouse Pizza">
-        <div class="menu-info">
-          <div class="menu-header">
-            <span class="menu-title">Farmhouse Special Pizza</span>
-            <span class="menu-price">₹299</span>
-          </div>
-          <p class="menu-desc">Stone-baked crust loaded with mushrooms, capsicum, sweet corn & mozzarella.</p>
-        </div>
-      </div>
+  <!-- ================= FAST FOOD MENU SECTION WITH CATEGORY FILTER ================= -->
+  <section class="menu-section" id="menu-section">
+    <div class="section-header">
+      <h2>Fast Food Categories</h2>
+      <p>Kisi bhi category par click karein aur uske sabhi varieties aur 3D food animation dekhein</p>
     </div>
 
-    <!-- Banner Linking to Full Menu -->
-    <div class="menu-cta-banner">
-      <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Looking for More Fast Food & Detailed Recipes?</h3>
-      <p style="color: var(--muted); margin-bottom: 1.2rem;">Hamare Fast Food Menu me har dish ke calories aur recipe details ke sath interactive view dekhein.</p>
-      <a href="menu.html" target="_blank" class="btn">Open Interactive Menu in New Tab ↗</a>
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+      <button class="tab-btn active" onclick="filterCategory('burger', this)">🍔 Burgers</button>
+      <button class="tab-btn" onclick="filterCategory('pizza', this)">🍕 Pizzas</button>
+      <button class="tab-btn" onclick="filterCategory('sandwich', this)">🥪 Sandwiches</button>
+      <button class="tab-btn" onclick="filterCategory('momos', this)">🥟 Momos & Noodles</button>
+      <button class="tab-btn" onclick="filterCategory('fries', this)">🍟 Fries & Sides</button>
+      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Drinks</button>
     </div>
+
+    <!-- Menu Cards Grid -->
+    <div class="menu-grid" id="menuGrid"></div>
   </section>
 
-  <!-- Reservation Section -->
-  <section id="reservation" style="background: #121212;">
-    <div class="section-title">
-      <h2>Table Reservation</h2>
-      <p>Reserve your table in advance for family dining and events</p>
-    </div>
-    <div class="reservation-box">
-      <form onsubmit="event.preventDefault(); alert('Aapki reservation request receive ho gayi hai. Hamari team jald hi confirm karegi.');">
-        <div class="form-grid">
-          <div class="form-group">
-            <input type="text" placeholder="Full Name" required>
+  <!-- ================= 3D FOOD DETAIL MODAL POPUP ================= -->
+  <div class="modal-overlay" id="detailModal" onclick="closeModalOnOutsideClick(event)">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal()">✕</button>
+
+      <!-- 3D Rotating Food Disc -->
+      <div class="food-3d-stage">
+        <div class="food-3d-disc">
+          <img src="" alt="" id="modalImg">
+        </div>
+        <span class="rotate-hint">🔄 360° 3D Rotating Dish View</span>
+      </div>
+
+      <!-- Item Details -->
+      <div class="modal-header-row">
+        <h2 class="modal-title" id="modalTitle">Dish Name</h2>
+        <span class="modal-price" id="modalPrice">₹0</span>
+      </div>
+      <div class="veg-indicator">
+        <div class="veg-dot"></div>
+        <span>100% Pure Vegetarian Special</span>
+      </div>
+
+      <!-- Nutrition & Calories -->
+      <div class="nutrition-box">
+        <div class="nutrition-title">⚡ Nutritional Values per Serving</div>
+        <div class="nutrition-grid">
+          <div class="nutri-item">
+            <span class="nutri-val" id="modalCalories">0</span>
+            <span class="nutri-label">Calories</span>
           </div>
-          <div class="form-group">
-            <input type="tel" placeholder="Mobile Number" required>
+          <div class="nutri-item">
+            <span class="nutri-val" id="modalProtein">0g</span>
+            <span class="nutri-label">Protein</span>
           </div>
-          <div class="form-group">
-            <input type="date" required>
+          <div class="nutri-item">
+            <span class="nutri-val" id="modalCarbs">0g</span>
+            <span class="nutri-label">Carbs</span>
           </div>
-          <div class="form-group">
-            <select required>
-              <option value="">Guests Count</option>
-              <option value="1">1 Person</option>
-              <option value="2">2 Persons</option>
-              <option value="4">4-6 Persons</option>
-              <option value="8">Family / Party Group (8+)</option>
-            </select>
+          <div class="nutri-item">
+            <span class="nutri-val" id="modalFat">0g</span>
+            <span class="nutri-label">Fat</span>
           </div>
         </div>
-        <button type="submit" class="btn" style="width: 100%; padding: 0.9rem;">Confirm Reservation Request</button>
-      </form>
-    </div>
-  </section>
+      </div>
 
-  <!-- Footer -->
+      <!-- Preparation Recipe -->
+      <div class="recipe-box">
+        <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation Method)</div>
+        <p class="recipe-text" id="modalRecipe">Description here...</p>
+        <div class="ingredient-tags" id="modalIngredients"></div>
+      </div>
+
+      <!-- WhatsApp Order CTA -->
+      <a href="#" target="_blank" class="whatsapp-order-btn" id="modalOrderBtn">📱 Order on WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER & ALL QUICK LINKS ================= -->
   <footer id="contact">
-    <div class="footer-info">
+    <div class="footer-grid">
+      <!-- Col 1: About -->
       <div class="footer-col">
-        <h4>Location & Contact</h4>
-        <p>Main Road, Nagaur, Rajasthan</p>
-        <p>Phone: +91 98765 43210</p>
+        <h4>The Royal Dine</h4>
+        <p>Nagaur's favorite destination for luxury dining, artisanal fast foods, and authentic taste.</p>
+        <p>📍 Didwana Road, Nagaur, Rajasthan</p>
+        <p>📞 +91 98765 43210</p>
       </div>
+
+      <!-- Col 2: Timings -->
       <div class="footer-col">
-        <h4>Working Hours</h4>
-        <p>Monday – Sunday</p>
-        <p>11:00 AM – 11:00 PM</p>
+        <h4>Opening Hours</h4>
+        <p>Monday – Friday: 11:00 AM – 11:00 PM</p>
+        <p>Saturday – Sunday: 10:00 AM – 11:30 PM</p>
+        <p style="color: var(--primary); margin-top: 0.8rem;">● Dine-in & Takeaway Available</p>
       </div>
+
+      <!-- Col 3: Quick Links (Clickable in New Tab) -->
       <div class="footer-col">
         <h4>Quick Links</h4>
-        <p><a href="menu.html" target="_blank" style="color: var(--primary); text-decoration: none;">Interactive Menu ↗</a></p>
-        <p>Pure Veg & Family Dine-in</p>
+        <ul class="footer-links">
+          <li><a href="about.html" target="_blank">About Us ↗</a></li>
+          <li><a href="contact.html" target="_blank">Contact Us ↗</a></li>
+          <li><a href="privacy-policy.html" target="_blank">Privacy Policy ↗</a></li>
+          <li><a href="terms-conditions.html" target="_blank">Terms & Conditions ↗</a></li>
+          <li><a href="disclaimer.html" target="_blank">Disclaimer ↗</a></li>
+        </ul>
       </div>
     </div>
-    <p style="color: #666; font-size: 0.85rem;">&copy; 2026 The Royal Dine. All rights reserved.</p>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Royal Dine Restaurant. All rights reserved.</p>
+    </div>
   </footer>
 
-</body>
-</html>
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Comprehensive Food Database categorized by types
+    const foodDatabase = [
+      // 1. BURGERS VARIETY
+      {
+        id: 1,
+        category: 'burger',
+        name: 'Double Cheese Gourmet Burger',
+        price: '₹149',
+        calories: '450 kcal',
+        protein: '14g',
+        carbs: '52g',
+        fat: '21g',
+        img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Crispy herb patty, double cheddar cheese, lettuce aur secret chipotle sauce.',
+        recipe: 'Fresh aloo-peas aur Italian herbs se bani crispy patty ko golden fry kiya jata hai. Iske baad toasted brioche bun ke beech melted cheddar cheese slices, crunchy iceberg lettuce, juicy tomato slices aur chef special chipotle mayo ke sath layer kiya jata hai.',
+        ingredients: ['Toasted Brioche Bun', 'Crispy Veg Patty', 'Cheddar Cheese', 'Iceberg Lettuce', 'Chipotle Mayo', 'Tomatoes']
+      },
+      {
+        id: 2,
+        category: 'burger',
+        name: 'Crispy Spicy Paneer Burger',
+        price: '₹169',
+        calories: '490 kcal',
+        protein: '18g',
+        carbs: '48g',
+        fat: '23g',
+        img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Thick marinated paneer patty coated in spicy crunch and mint tandoori mayo.',
+        recipe: 'Fresh malai paneer slab ko spicy peri-peri aur herbs ke batter me dip karke cornflakes crust ke sath crispy deep fry kiya jata hai. Sesame bun me fresh onion rings aur spicy mint tandoori sauce ke sath serve hota hai.',
+        ingredients: ['Crispy Paneer Slab', 'Sesame Bun', 'Tandoori Mayo', 'Onion Rings', 'Spicy Batter']
+      },
+      {
+        id: 3,
+        category: 'burger',
+        name: 'Classic Crunchy Aloo Tikki Burger',
+        price: '₹89',
+        calories: '360 kcal',
+        protein: '8g',
+        carbs: '54g',
+        fat: '12g',
+        img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Traditional spiced potato patty, sliced onions, tomatoes & tangy sauce.',
+        recipe: 'Desi style mashed potatoes me cumin, coriander aur green chilies mix karke crunchy patty banai jati hai. Soft buns par sweet-tangy tomato sauce aur cucumber-tomato slices ke sath assemble kiya jata hai.',
+        ingredients: ['Potato Spiced Patty', 'Soft Bun', 'Tangy Tomato Relish', 'Sliced Cucumber', 'Onions']
+      },
+      {
+        id: 4,
+        category: 'burger',
+        name: 'Peri-Peri Smoky Cheese Burger',
+        price: '₹159',
+        calories: '470 kcal',
+        protein: '13g',
+        carbs: '50g',
+        fat: '22g',
+        img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Smoky grilled veg patty dusted with fiery African peri-peri and cheese sauce.',
+        recipe: 'Veggie patty ko flame grill karke uspar authentic African peri-peri seasoning dust ki jati hai aur warm melted cheese blend daala jata hai.',
+        ingredients: ['Grilled Veggie Patty', 'Peri-Peri Seasoning', 'Melted Cheese Sauce', 'Pickles', 'Lettuce']
+      },
 
+      // 2. PIZZAS VARIETY
+      {
+        id: 5,
+        category: 'pizza',
+        name: 'Farmhouse Loaded Pizza (10 Inch)',
+        price: '₹299',
+        calories: '780 kcal',
+        protein: '26g',
+        carbs: '94g',
+        fat: '32g',
+        img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Capsicum, grilled mushrooms, sweet corn aur 100% pure mozzarella cheese.',
+        recipe: 'Daily freshly prepared hand-tossed dough par authentic Italian basil tomato sauce spread ki jati hai. Iske upar generous mozzarella cheese, fresh capsicum, diced red onion, sautéed mushrooms aur golden sweet corn daalkar stone-oven me bake kiya jata hai.',
+        ingredients: ['Fresh Dough', 'Mozzarella Cheese', 'Basil Tomato Sauce', 'Mushrooms', 'Sweet Corn', 'Capsicum']
+      },
+      {
+        id: 6,
+        category: 'pizza',
+        name: 'Tandoori Paneer Tikka Pizza',
+        price: '₹329',
+        calories: '820 kcal',
+        protein: '31g',
+        carbs: '90g',
+        fat: '36g',
+        img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Tandoori marinated paneer cubes, red paprika, onions & extra cheese.',
+        recipe: 'Spicy tandoori sauce base par roasted paneer tikka chunks, sliced red onions aur red paprika spread karke 300°C par crispy bake kiya jata hai.',
+        ingredients: ['Tandoori Paneer', 'Red Paprika', 'Mozzarella', 'Tandoori Sauce', 'Oregano']
+      },
+      {
+        id: 7,
+        category: 'pizza',
+        name: 'Classic Margherita Double Cheese',
+        price: '₹229',
+        calories: '650 kcal',
+        protein: '24g',
+        carbs: '82g',
+        fat: '26g',
+        img: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Rich tomato herb sauce with double layer 100% pure mozzarella.',
+        recipe: 'San Marzano style tomato puree, fresh basil leaves aur double layer mozzarella cheese ke sath simple aur authentic Italian style me bake kiya jata hai.',
+        ingredients: ['Hand-stretched Base', 'Tomato Puree', 'Fresh Basil', 'Double Mozzarella']
+      },
+
+      // 3. SANDWICHES VARIETY
+      {
+        id: 8,
+        category: 'sandwich',
+        name: 'Tandoori Paneer Grilled Sandwich',
+        price: '₹169',
+        calories: '410 kcal',
+        protein: '18g',
+        carbs: '48g',
+        fat: '16g',
+        img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Marinated malai paneer, mint chutney aur melted mozzarella in jumbo bread.',
+        recipe: 'Soft malai paneer cubes ko tandoori masala me marinate karke jumbo whole wheat bread slices par mint-coriander chutney, onion rings aur cheese ke sath golden grill kiya jata hai.',
+        ingredients: ['Jumbo Bread', 'Fresh Malai Paneer', 'Mint Chutney', 'Mozzarella Cheese', 'Butter']
+      },
+      {
+        id: 9,
+        category: 'sandwich',
+        name: 'Bombay Masala Cheese Toast',
+        price: '₹129',
+        calories: '350 kcal',
+        protein: '11g',
+        carbs: '46g',
+        fat: '13g',
+        img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Spicy potato masala, beetroot, capsicum, cheese and sandwich masala.',
+        recipe: 'Boiled potatoes ka spicy tadka masala, thinly sliced beetroot, cucumber, tomatoes aur grated cheese ko sandwich griller me crisp toast kiya jata hai.',
+        ingredients: ['Spiced Potato Masala', 'Beetroot', 'Cucumber', 'Grated Cheese', 'Sandwich Masala']
+      },
+
+      // 4. MOMOS & CHINESE
+      {
+        id: 10,
+        category: 'momos',
+        name: 'Steamed Veg Momos (8 Pcs)',
+        price: '₹120',
+        calories: '260 kcal',
+        protein: '8g',
+        carbs: '46g',
+        fat: '4g',
+        img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Finely minced cabbage, carrot, paneer filling aur authentic spicy red chutney.',
+        recipe: 'Thin flour wrap ke andar finely chopped cabbage, carrot, paneer aur black pepper stuffed karke traditional steamer me steam kiya jata hai.',
+        ingredients: ['Thin Flour Wrapper', 'Cabbage', 'Carrots', 'Paneer', 'Garlic Chilli Chutney']
+      },
+      {
+        id: 11,
+        category: 'momos',
+        name: 'Desi Veg Hakka Noodles',
+        price: '₹150',
+        calories: '380 kcal',
+        protein: '9g',
+        carbs: '58g',
+        fat: '12g',
+        img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'High flame wok-tossed noodles with crunchy bell peppers and soya-chili glaze.',
+        recipe: 'Boiled noodles ko high-flame wok me julienne cut capsicum, shredded cabbage aur green onions ke sath toss karke soya aur chilli sauce se flavor kiya jata hai.',
+        ingredients: ['Noodles', 'Bell Peppers', 'Cabbage', 'Dark Soya Sauce', 'Spring Onions']
+      },
+      {
+        id: 12,
+        category: 'momos',
+        name: 'Creamy Alfredo White Sauce Pasta',
+        price: '₹210',
+        calories: '520 kcal',
+        protein: '15g',
+        carbs: '62g',
+        fat: '24g',
+        img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Penne pasta in rich butter, fresh cream, garlic, sweet corn aur black olives.',
+        recipe: 'Penne pasta ko al-dente boil karke butter aur garlic me fresh cream, parmesan cheese aur sweet corn-olives ke sath cook kiya jata hai.',
+        ingredients: ['Penne Pasta', 'Dairy Cream', 'Garlic Butter', 'Black Olives', 'Sweet Corn']
+      },
+
+      // 5. FRIES & SIDES
+      {
+        id: 13,
+        category: 'fries',
+        name: 'Peri-Peri Crispy Fries',
+        price: '₹110',
+        calories: '320 kcal',
+        protein: '5g',
+        carbs: '44g',
+        fat: '14g',
+        img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Crunchy golden potato fries spicy peri-peri dust aur cheesy dip ke sath.',
+        recipe: 'Double-fried golden crispy potatoes par garam-garam African peri-peri spice mix karke cheesy mayo dip ke sath serve kiya jata hai.',
+        ingredients: ['Potatoes', 'Peri-Peri Seasoning', 'Sunflower Oil', 'Cheese Dip']
+      },
+      {
+        id: 14,
+        category: 'fries',
+        name: 'Cheesy Garlic Breadsticks (4 Pcs)',
+        price: '₹139',
+        calories: '340 kcal',
+        protein: '11g',
+        carbs: '38g',
+        fat: '15g',
+        img: 'https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Fresh baked artisan bread with garlic herb butter and oozing mozzarella.',
+        recipe: 'Fresh dough me roasted garlic butter aur oregano daalkar mozzarella cheese bhar ke oven me golden bake kiya jata hai.',
+        ingredients: ['Artisan Dough', 'Roasted Garlic Butter', 'Mozzarella', 'Oregano']
+      },
+
+      // 6. BEVERAGES & SHAKES
+      {
+        id: 15,
+        category: 'beverages',
+        name: 'Thick Belgian Cold Coffee',
+        price: '₹120',
+        calories: '240 kcal',
+        protein: '6g',
+        carbs: '34g',
+        fat: '9g',
+        img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Espresso blended with rich whole milk, dark chocolate fudge and ice cream scoop.',
+        recipe: 'Fresh espresso shot, chilled whole milk aur Belgian dark chocolate syrup ko vanilla ice cream ke sath thick blend kiya jata hai.',
+        ingredients: ['Brewed Coffee', 'Whole Milk', 'Vanilla Ice Cream', 'Chocolate Fudge']
+      },
+      {
+        id: 16,
+        category: 'beverages',
+        name: 'Refreshing Virgin Mint Mojito',
+        price: '₹99',
+        calories: '110 kcal',
+        protein: '1g',
+        carbs: '26g',
+        fat: '0g',
+        img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80',
+        shortDesc: 'Fresh garden mint, crushed lime wedges, sparkling club soda and rock ice.',
+        recipe: 'Fresh mint leaves aur lemon wedges ko brown sugar ke sath muddle karke chilled club soda aur crushed ice me serve kiya jata hai.',
+        ingredients: ['Fresh Mint', 'Lemon Wedges', 'Club Soda', 'Crushed Ice']
+      }
+    ];
+
+    // Render Category Items in Grid
+    function renderMenu(items) {
+      const grid = document.getElementById('menuGrid');
+      grid.innerHTML = items.map(item => `
+        <div class="menu-card" onclick="openDetailModal(${item.id})">
+          <div class="card-img-wrap">
+            <img src="${item.img}" alt="${item.name}">
+            <span class="calorie-pill">🔥 ${item.calories}</span>
+          </div>
+          <div class="card-content">
+            <div class="card-title-row">
+              <h3 class="card-title">${item.name}</h3>
+              <span class="card-price">${item.price}</span>
+            </div>
+            <div class="veg-indicator">
+              <div class="veg-dot"></div>
+              <span>PURE VEG</span>
+            </div>
+            <p class="card-desc">${item.shortDesc}</p>
+            <span class="view-3d-hint">🔄 Click for 3D View & Recipe →</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter Items by category (Burgers, Pizzas, etc.)
+    function filterCategory(category, btnElement) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const filtered = foodDatabase.filter(item => item.category === category);
+      renderMenu(filtered);
+    }
+
+    // Open 3D Detail Modal
+    function openDetailModal(id) {
+      const item = foodDatabase.find(x => x.id === id);
+      if (!item) return;
+
+      document.getElementById('modalImg').src = item.img;
+      document.getElementById('modalImg').alt = item.name;
+      document.getElementById('modalTitle').innerText = item.name;
+      document.getElementById('modalPrice').innerText = item.price;
+      document.getElementById('modalCalories').innerText = item.calories;
+      document.getElementById('modalProtein').innerText = item.protein;
+      document.getElementById('modalCarbs').innerText = item.carbs;
+      document.getElementById('modalFat').innerText = item.fat;
+      document.getElementById('modalRecipe').innerText = item.recipe;
+
+      // Ingredients Tags
+      const ingEl = document.getElementById('modalIngredients');
+      ingEl.innerHTML = item.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
+
+      // WhatsApp Order Link
+      const phone = "919876543210"; // Replace with your restaurant number
+      const msg = encodeURIComponent(`Namaste! I would like to order ${item.name} (${item.price}) from The Royal Dine menu.`);
+      document.getElementById('modalOrderBtn').href = `https://wa.me/${phone}?text=${msg}`;
+
+      // Show Modal
+      document.getElementById('detailModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('detailModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnOutsideClick(e) {
+      if (e.target.id === 'detailModal') closeModal();
+    }
+
+    // Drawer / Sidebar Toggle
+    function toggleSidebar() {
+      const drawer = document.getElementById('sidebarDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      drawer.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Default Load: Burgers category
+    filterCategory('burger', document.querySelector('.tab-btn.active'));
+  </script>
+</body>
+  </html>
