@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Reservation | The Royal Dine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e63946;
+      --gold: #f5a623;
+      --dark-bg: #09090b;
+      --card-bg: #141419;
+      --border: #24242e;
+      --text: #f8f9fa;
+      --text-muted: #9e9ea7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text); line-height: 1.7; }
+    header { background: #111116; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); text-decoration: none; font-weight: 700; }
+    .nav-btn { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border); padding: 0.4rem 1.1rem; border-radius: 20px; transition: 0.3s; }
+    .nav-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+    .hero-banner { text-align: center; padding: 3.5rem 1rem 2.5rem; background: radial-gradient(circle at center, rgba(230,57,70,0.15) 0%, rgba(9,9,11,1) 80%); }
+    .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #fff; margin-bottom: 0.5rem; }
+    .hero-banner h1 span { color: var(--primary); }
+    .hero-banner p { color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+
+    .container { max-width: 1150px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+
+    /* Contact Details Grid */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin-bottom: 3.5rem; }
+    .contact-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; text-align: center; transition: 0.3s; }
+    .contact-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .contact-icon { font-size: 2.2rem; margin-bottom: 0.8rem; display: inline-block; }
+    .contact-card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 0.4rem; font-family: 'Playfair Display', serif; }
+    .contact-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .contact-card a { color: var(--gold); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 0.5rem; }
+
+    /* Form and Steps Layout */
+    .form-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; }
+    .form-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
+    .form-subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.85rem; color: #d1d1db; margin-bottom: 0.4rem; font-weight: 500; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.85rem; background: #0f0f13; border: 1px solid #2e2e3a; border-radius: 6px; color: #fff; outline: none; font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
+    .submit-btn {
+      width: 100%; background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%); color: #fff; padding: 0.95rem; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s;
+    }
+    .submit-btn:hover { opacity: 0.95; transform: translateY(-2px); }
+
+    /* Reservation Steps on the right */
+    .steps-container h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); margin-bottom: 1.2rem; }
+    .step-item { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; }
+    .step-badge {
+      width: 38px; height: 38px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .step-info h4 { font-size: 1.05rem; color: #fff; margin-bottom: 0.2rem; }
+    .step-info p { font-size: 0.85rem; color: var(--text-muted); }
+
+    footer { background: #060608; padding: 2.5rem 6%; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+    @media (max-width: 850px) { .form-layout { grid-template-columns: 1fr; padding: 2rem 1.5rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">👑 Foodzilla Fast Food</a>
+    <a href="index.html" class="nav-btn">← Back to Home</a>
+  </header>
+
+  <div class="hero-banner">
+    <h1>Contact & <span>Table Reservation</span></h1>
+    <p>Get in touch with us for party bookings, bulk orders, customer queries, or quick table reservations.</p>
+  </div>
+
+  <div class="container">
+    <!-- Contact Info -->
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <h3>Visit Restaurant</h3>
+        <p>Main Didwana Road, Nagaur, Rajasthan - 341001</p>
+        <a href="https://maps.google.com" target="_blank">View on Google Maps →</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📞</span>
+        <h3>Phone & WhatsApp</h3>
+        <p>Direct Table Booking & Fast Takeaway Service</p>
+        <a href="https://wa.me/919876543210" target="_blank">+91 98765 43210</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">⏰</span>
+        <h3>Opening Hours</h3>
+        <p>Monday to Sunday: 11:00 AM – 11:30 PM</p>
+        <p style="color: var(--primary); font-size: 0.85rem; margin-top: 0.3rem;">Open all 7 days for Lunch & Dinner</p>
+      </div>
+    </div>
+
+    <!-- Form & Steps -->
+    <div class="form-layout">
+      <!-- Left Form -->
+      <div>
+        <h2 class="form-title">Send a Message / Reserve</h2>
+        <p class="form-subtitle">Fill in your details below and our team will get in touch immediately.</p>
+        <form onsubmit="event.preventDefault(); alert('Dhanyawad! Aapka message receive ho gaya hai. Hum jaldi sampark karenge.');">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Apna naam likhein" required>
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp Number</label>
+            <input type="tel" placeholder="+91 98765 XXXXX" required>
+          </div>
+          <div class="form-group">
+            <label>Inquiry Type</label>
+            <select required>
+              <option value="">Select option</option>
+              <option value="table">Table Reservation</option>
+              <option value="party">Birthday / Family Party Booking</option>
+              <option value="feedback">General Inquiry / Feedback</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message / Special Request</label>
+            <textarea rows="4" placeholder="Guest count, date, time ya koi specific requirement..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit Inquiry</button>
+        </form>
+      </div>
+
+      <!-- Right Steps -->
+      <div class="steps-container">
+        <h3>How Table Reservation Works:</h3>
+        <div class="step-item">
+          <div class="step-badge">1</div>
+          <div class="step-info">
+            <h4>Select Date & Time</h4>
+            <p>Apna preferred dining time aur total guests count select karein taaki hum table tayar rakh sakein.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">2</div>
+          <div class="step-info">
+            <h4>Instant WhatsApp / Call Confirmation</h4>
+            <p>Aapke request aate hi restaurant desk se call ya WhatsApp text ke through confirmation diya jayega.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">3</div>
+          <div class="step-info">
+            <h4>Arrive & Enjoy Royal Dining</h4>
+            <p>Aapke arrival par table fully sanitised aur ready milegi bina kisi wait time ke.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">4</div>
+          <div class="step-info">
+            <h4>Custom Party Arrangements</h4>
+            <p>Agar birthday ya anniversary celebration hai to cake arrangement aur decoration service bhi available hai.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 The Royal Dine Restaurant. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
