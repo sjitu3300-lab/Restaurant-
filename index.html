@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Royal Dine | Restaurant & Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c59d5f;
+      --dark: #111111;
+      --dark-card: #1c1c1c;
+      --text: #f0f0f0;
+      --muted: #a0a0a0;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-body); background-color: var(--dark); color: var(--text); line-height: 1.6; }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 8%;
+      border-bottom: 1px solid #2a2a2a;
+      z-index: 100;
+    }
+    .logo { font-family: var(--font-heading); font-size: 1.6rem; color: var(--primary); font-weight: 700; text-decoration: none; }
+    nav a { color: var(--text); text-decoration: none; margin: 0 1rem; font-size: 0.95rem; transition: 0.3s; }
+    nav a:hover { color: var(--primary); }
+    .btn {
+      background: var(--primary);
+      color: #000;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: #b0894e; }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      margin-left: 0.8rem;
+    }
+    .btn-outline:hover { background: var(--primary); color: #000; }
+
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 10%;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .hero h1 { font-family: var(--font-heading); font-size: 3.2rem; margin-bottom: 1rem; color: #fff; }
+    .hero p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin-bottom: 2rem; }
+
+    /* Section Styling */
+    section { padding: 5rem 8%; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-family: var(--font-heading); font-size: 2.4rem; color: var(--primary); }
+    .section-title p { color: var(--muted); font-size: 0.95rem; }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .menu-card {
+      background: var(--dark-card);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #282828;
+      transition: transform 0.3s ease;
+    }
+    .menu-card:hover { transform: translateY(-5px); }
+    .menu-card img { width: 100%; height: 200px; object-fit: cover; }
+    .menu-info { padding: 1.2rem; }
+    .menu-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+    .menu-title { font-size: 1.1rem; font-weight: 600; }
+    .menu-price { color: var(--primary); font-weight: 700; font-size: 1.1rem; }
+    .menu-desc { color: var(--muted); font-size: 0.85rem; }
+
+    /* Reservation Form */
+    .reservation-box {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--dark-card);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border: 1px solid #282828;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      background: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 4px;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      padding: 3rem 8% 1.5rem;
+      border-top: 1px solid #222;
+      text-align: center;
+    }
+    .footer-info { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; text-align: left; }
+    .footer-col h4 { color: var(--primary); margin-bottom: 0.8rem; }
+    .footer-col p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <a href="#" class="logo">The Royal Dine</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#reservation">Reservation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#reservation" class="btn">Book Table</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Experience Culinary Excellence</h1>
+    <p>Authentic flavors crafted with fresh ingredients in a warm and luxurious atmosphere.</p>
+    <div>
+      <a href="#menu" class="btn">Explore Menu</a>
+      <a href="#reservation" class="btn btn-outline">Reserve a Table</a>
+    </div>
+  </section>
+
+  <!-- Specials / Menu -->
+  <section id="menu">
+    <div class="section-title">
+      <h2>Chef's Recommendations</h2>
+      <p>Handpicked signature dishes prepared with authentic spices</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Special Thali">
+        <div class="menu-info">
+          <div class="menu-header">
+            <span class="menu-title">Royal Special Thali</span>
+            <span class="menu-price">₹350</span>
+          </div>
+          <p class="menu-desc">Complete authentic meal with signature curries, breads, dessert & beverages.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80" alt="Paneer Tikka">
+        <div class="menu-info">
+          <div class="menu-header">
+            <span class="menu-title">Paneer Tikka Special</span>
+            <span class="menu-price">₹240</span>
+          </div>
+          <p class="menu-desc">Marinated cottage cheese cubes roasted to perfection in traditional tandoor.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=600&q=80" alt="Biryani">
+        <div class="menu-info">
+          <div class="menu-header">
+            <span class="menu-title">Dum Handi Biryani</span>
+            <span class="menu-price">₹280</span>
+          </div>
+          <p class="menu-desc">Fragrant basmati rice slow-cooked with aromatic spices and served with raita.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section id="reservation">
+    <div class="section-title">
+      <h2>Table Reservation</h2>
+      <p>Book your table in advance for a hassle-free dining experience</p>
+    </div>
+    <div class="reservation-box">
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number" required>
+          </div>
+          <div class="form-group">
+            <input type="date" required>
+          </div>
+          <div class="form-group">
+            <select required>
+              <option value="">Number of Guests</option>
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="4">4-6 People</option>
+              <option value="8">Family / Group (8+)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn" style="width: 100%; padding: 0.9rem;">Confirm Reservation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-info">
+      <div class="footer-col">
+        <h4>Location</h4>
+        <p>Main Road, Nagaur, Rajasthan</p>
+        <p>Phone: +91 98765 43210</p>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Monday – Sunday</p>
+        <p>11:00 AM – 11:00 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Speciality</h4>
+        <p>Pure Veg & Family Dining</p>
+        <p>Party & Event Hall Available</p>
+      </div>
+    </div>
+    <p style="color: #666; font-size: 0.85rem;">&copy; 2026 The Royal Dine. All rights reserved.</p>
+  </footer>
+
+</body>
+                                             </html>
+          
