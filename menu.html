@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Fast Food Menu | The Royal Dine</title>
+  <title>Fast Food & Delights Menu | The Royal Dine</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #c59d5f;
-      --primary-hover: #dfb271;
-      --dark-bg: #0d0d0d;
+      --primary-hover: #e0b475;
+      --dark-bg: #0c0c0c;
       --card-bg: #181818;
-      --border-color: #2a2a2a;
+      --border-color: #262626;
       --text: #ffffff;
-      --text-muted: #a5a5a5;
+      --text-muted: #a0a0a0;
       --veg-color: #27ae60;
     }
 
@@ -29,7 +29,7 @@
     /* Header */
     header {
       background: #141414;
-      padding: 1.5rem 8%;
+      padding: 1.2rem 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -48,10 +48,10 @@
     .back-btn {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       transition: 0.3s;
       border: 1px solid var(--border-color);
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 1.1rem;
       border-radius: 20px;
     }
     .back-btn:hover { color: var(--primary); border-color: var(--primary); }
@@ -59,34 +59,36 @@
     /* Page Intro */
     .menu-header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 3rem 1rem 1.5rem;
     }
     .menu-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       color: var(--primary);
       margin-bottom: 0.5rem;
     }
     .menu-header p {
       color: var(--text-muted);
       font-size: 1rem;
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
     }
-    .hint-badge {
+    .hint-pill {
       display: inline-block;
-      margin-top: 1rem;
-      background: rgba(197, 157, 95, 0.1);
+      margin-top: 1.2rem;
+      background: rgba(197, 157, 95, 0.12);
       color: var(--primary);
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
+      padding: 0.35rem 1.2rem;
+      border-radius: 30px;
       font-size: 0.85rem;
+      font-weight: 500;
       border: 1px dashed var(--primary);
     }
 
-    /* Menu Container & Grid */
+    /* Container */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
+    /* Menu Grid & Cards */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -100,40 +102,70 @@
       border-radius: 12px;
       overflow: hidden;
       cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       position: relative;
     }
     .menu-card:hover {
       transform: translateY(-8px);
       border-color: var(--primary);
-      box-shadow: 0 12px 30px rgba(197, 157, 95, 0.15);
+      box-shadow: 0 12px 25px rgba(197, 157, 95, 0.18);
     }
+
+    /* Food Image Container & Shimmer Animation */
     .card-img-wrap {
       position: relative;
-      height: 200px;
+      height: 210px;
       overflow: hidden;
+      background: #111;
     }
+
+    /* Light Shimmer Effect on Card Image Hover */
+    .card-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 25%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      transition: all 0.75s ease;
+      pointer-events: none;
+    }
+    .menu-card:hover .card-img-wrap::after {
+      left: 140%;
+    }
+
     .card-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+      filter: brightness(0.95);
     }
     .menu-card:hover .card-img-wrap img {
-      transform: scale(1.08);
+      transform: scale(1.12) rotate(1deg);
+      filter: brightness(1.1);
     }
+
     .calorie-pill {
       position: absolute;
       top: 12px;
       right: 12px;
       background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
       color: #fff;
       padding: 4px 10px;
       border-radius: 12px;
       font-size: 0.75rem;
       font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      z-index: 2;
     }
 
     .card-content { padding: 1.2rem; }
@@ -164,7 +196,7 @@
     .card-short-desc {
       color: var(--text-muted);
       font-size: 0.85rem;
-      line-height: 1.4;
+      line-height: 1.45;
       margin-bottom: 1rem;
     }
     .view-detail-link {
@@ -175,14 +207,14 @@
       font-weight: 600;
     }
 
-    /* Modal Styling */
+    /* Modal Overlay & Card */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.82);
       backdrop-filter: blur(8px);
       display: flex;
       justify-content: center;
@@ -202,13 +234,13 @@
       background: #161616;
       border: 1px solid #333;
       border-radius: 16px;
-      max-width: 650px;
+      max-width: 640px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
-      transform: scale(0.85) translateY(20px);
+      transform: scale(0.85) translateY(25px);
       transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.85);
       position: relative;
     }
     .modal-overlay.active .modal-card {
@@ -219,7 +251,7 @@
       position: absolute;
       top: 15px;
       right: 15px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.65);
       color: #fff;
       border: none;
       width: 36px;
@@ -235,26 +267,51 @@
     }
     .close-btn:hover { background: var(--primary); color: #000; }
 
+    /* Animated Modal Image */
+    .modal-img-wrap {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: #000;
+      border-radius: 16px 16px 0 0;
+    }
     .modal-img {
       width: 100%;
-      height: 250px;
+      height: 100%;
       object-fit: cover;
     }
+    .modal-overlay.active .modal-img {
+      animation: modalImageReveal 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes modalImageReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0.82);
+        filter: blur(6px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
     .modal-body { padding: 1.8rem; }
     .modal-header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     .modal-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; }
-    .modal-price { color: var(--primary); font-size: 1.6rem; font-weight: 700; }
+    .modal-price { color: var(--primary); font-size: 1.5rem; font-weight: 700; }
 
-    /* Nutrition Grid */
+    /* Nutrition Box */
     .nutrition-box {
       background: #202020;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1.1rem;
       margin: 1.2rem 0;
       border: 1px solid #2d2d2d;
     }
@@ -277,18 +334,18 @@
     .nutri-label { font-size: 0.75rem; color: var(--text-muted); }
 
     /* Recipe / How it is made */
-    .recipe-box { margin: 1.5rem 0; }
+    .recipe-box { margin: 1.4rem 0; }
     .section-subtitle {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--primary);
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
     .recipe-text { color: #d0d0d0; font-size: 0.9rem; line-height: 1.6; }
     .ingredient-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
-    .ing-tag { background: #262626; color: #ccc; font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; }
+    .ing-tag { background: #262626; color: #ccc; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; border: 1px solid #333; }
 
-    /* Order Button */
+    /* WhatsApp Order Button */
     .whatsapp-order-btn {
       display: block;
       width: 100%;
@@ -309,6 +366,7 @@
       .nutrition-grid { grid-template-columns: repeat(2, 1fr); }
       .modal-title { font-size: 1.4rem; }
       .modal-price { font-size: 1.3rem; }
+      .menu-header h1 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -323,22 +381,22 @@
   <!-- Title & Description -->
   <div class="menu-header">
     <h1>Fast Food & Snacks Menu</h1>
-    <p>Har ek item par click karein aur uske preparation method aur calories ki puri details dekhein.</p>
-    <span class="hint-badge">👆 Click any dish to view Recipe & Nutrition</span>
+    <p>Har ek dish par click karein aur uske calories, nutritional values aur banane ka authentic tareeqa dekhein.</p>
+    <span class="hint-pill">👆 Click any card to view Recipe & Nutrition</span>
   </div>
 
   <!-- Menu Grid -->
   <div class="container">
-    <div class="menu-grid" id="fastFoodGrid">
-      <!-- Items dynamically populated by JS -->
-    </div>
+    <div class="menu-grid" id="fastFoodGrid"></div>
   </div>
 
   <!-- Animated Detail Modal Popup -->
   <div class="modal-overlay" id="detailModal" onclick="closeModalOnOutsideClick(event)">
     <div class="modal-card">
       <button class="close-btn" onclick="closeModal()">✕</button>
-      <img src="" alt="" class="modal-img" id="modalImg">
+      <div class="modal-img-wrap">
+        <img src="" alt="" class="modal-img" id="modalImg">
+      </div>
       <div class="modal-body">
         <div class="modal-header-row">
           <h2 class="modal-title" id="modalTitle">Dish Name</h2>
@@ -346,16 +404,16 @@
         </div>
         <div class="veg-indicator">
           <div class="veg-dot"></div>
-          <span>100% Pure Vegetarian</span>
+          <span>100% Pure Vegetarian Special</span>
         </div>
 
         <!-- Nutrition / Calories -->
         <div class="nutrition-box">
-          <div class="nutrition-title">⚡ Nutritional Values</div>
+          <div class="nutrition-title">⚡ Nutritional Values per Serving</div>
           <div class="nutrition-grid">
             <div class="nutri-item">
               <span class="nutri-val" id="modalCalories">0</span>
-              <span class="nutri-label">Calories (kcal)</span>
+              <span class="nutri-label">Calories</span>
             </div>
             <div class="nutri-item">
               <span class="nutri-val" id="modalProtein">0g</span>
@@ -374,11 +432,9 @@
 
         <!-- How it is made -->
         <div class="recipe-box">
-          <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation)</div>
+          <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation Method)</div>
           <p class="recipe-text" id="modalRecipe">Description here...</p>
-          <div class="ingredient-tags" id="modalIngredients">
-            <!-- Tags dynamically populated -->
-          </div>
+          <div class="ingredient-tags" id="modalIngredients"></div>
         </div>
 
         <!-- WhatsApp Order Button -->
@@ -388,13 +444,13 @@
   </div>
 
   <script>
-    // Comprehensive Fast Food Items Data
+    // Fast Food Items Data
     const fastFoodItems = [
       {
         id: 1,
         name: "Double Cheese Gourmet Burger",
         price: "₹149",
-        calories: "450",
+        calories: "450 kcal",
         protein: "14g",
         carbs: "52g",
         fat: "21g",
@@ -407,7 +463,7 @@
         id: 2,
         name: "Farmhouse Loaded Pizza (10 Inch)",
         price: "₹299",
-        calories: "780",
+        calories: "780 kcal",
         protein: "26g",
         carbs: "94g",
         fat: "32g",
@@ -420,7 +476,7 @@
         id: 3,
         name: "Peri-Peri Crispy Fries",
         price: "₹110",
-        calories: "320",
+        calories: "320 kcal",
         protein: "5g",
         carbs: "44g",
         fat: "14g",
@@ -433,7 +489,7 @@
         id: 4,
         name: "Tandoori Paneer Grilled Sandwich",
         price: "₹169",
-        calories: "410",
+        calories: "410 kcal",
         protein: "18g",
         carbs: "48g",
         fat: "16g",
@@ -446,7 +502,7 @@
         id: 5,
         name: "Steamed Veg Momos (8 Pcs)",
         price: "₹120",
-        calories: "260",
+        calories: "260 kcal",
         protein: "8g",
         carbs: "46g",
         fat: "4g",
@@ -459,7 +515,7 @@
         id: 6,
         name: "Creamy Alfredo White Sauce Pasta",
         price: "₹210",
-        calories: "520",
+        calories: "520 kcal",
         protein: "15g",
         carbs: "62g",
         fat: "24g",
@@ -472,7 +528,7 @@
         id: 7,
         name: "Desi Veg Hakka Noodles",
         price: "₹150",
-        calories: "380",
+        calories: "380 kcal",
         protein: "9g",
         carbs: "58g",
         fat: "12g",
@@ -485,7 +541,7 @@
         id: 8,
         name: "Cheesy Garlic Breadsticks (4 Pcs)",
         price: "₹139",
-        calories: "340",
+        calories: "340 kcal",
         protein: "11g",
         carbs: "38g",
         fat: "15g",
@@ -496,13 +552,13 @@
       }
     ];
 
-    // Render Cards
+    // Render Cards in Grid
     const grid = document.getElementById('fastFoodGrid');
     grid.innerHTML = fastFoodItems.map(item => `
       <div class="menu-card" onclick="openDetailModal(${item.id})">
         <div class="card-img-wrap">
           <img src="${item.img}" alt="${item.name}">
-          <span class="calorie-pill">🔥 ${item.calories} kcal</span>
+          <span class="calorie-pill">🔥 ${item.calories}</span>
         </div>
         <div class="card-content">
           <div class="card-title-row">
@@ -511,20 +567,23 @@
           </div>
           <div class="veg-indicator">
             <div class="veg-dot"></div>
-            <span>VEG SPECIAL</span>
+            <span>PURE VEG</span>
           </div>
           <p class="card-short-desc">${item.shortDesc}</p>
-          <span class="view-detail-link">View Recipe & Details →</span>
+          <span class="view-detail-link">View Recipe & Calories →</span>
         </div>
       </div>
     `).join('');
 
-    // Modal Control Functions
+    // Modal Functions
     function openDetailModal(id) {
       const item = fastFoodItems.find(x => x.id === id);
       if (!item) return;
 
-      document.getElementById('modalImg').src = item.img;
+      const imgEl = document.getElementById('modalImg');
+      imgEl.src = item.img;
+      imgEl.alt = item.name;
+
       document.getElementById('modalTitle').innerText = item.name;
       document.getElementById('modalPrice').innerText = item.price;
       document.getElementById('modalCalories').innerText = item.calories;
@@ -533,18 +592,18 @@
       document.getElementById('modalFat').innerText = item.fat;
       document.getElementById('modalRecipe').innerText = item.recipe;
 
-      // Ingredients Tags
+      // Ingredients
       const ingContainer = document.getElementById('modalIngredients');
       ingContainer.innerHTML = item.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
 
-      // WhatsApp Order Link (Replace with your actual restaurant WhatsApp number)
-      const phone = "919876543210"; 
-      const msg = encodeURIComponent(`Hello, I want to order ${item.name} (${item.price}) from your website menu.`);
+      // WhatsApp Order Link (Replace with your actual restaurant phone number)
+      const phone = "919876543210";
+      const msg = encodeURIComponent(`Namaste, I would like to order ${item.name} (${item.price}) from the menu.`);
       document.getElementById('modalOrderBtn').href = `https://wa.me/${phone}?text=${msg}`;
 
       // Open Modal
       document.getElementById('detailModal').classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
@@ -553,12 +612,9 @@
     }
 
     function closeModalOnOutsideClick(e) {
-      if (e.target.id === 'detailModal') {
-        closeModal();
-  }
+      if (e.target.id === 'detailModal') closeModal();
     }
 
-    // Close on Escape key press
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
     });
