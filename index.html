@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Royal Dine | Luxury Restaurant & Fast Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #c59d5f;
-      --primary-hover: #dfb271;
-      --dark-bg: #0c0c0c;
-      --card-bg: #161616;
-      --border-color: #272727;
-      --text: #ffffff;
-      --text-muted: #a5a5a5;
-      --veg-color: #27ae60;
+      /* Royal Crimson & Saffron Gold Palette */
+      --primary: #e63946;
+      --primary-hover: #ff4757;
+      --primary-glow: rgba(230, 57, 70, 0.35);
+      --gold: #f5a623;
+      --gold-hover: #ffc048;
+      --dark-bg: #09090b;
+      --card-bg: #141418;
+      --card-hover: #1b1b22;
+      --border-color: #24242c;
+      --text: #f8f9fa;
+      --text-muted: #9e9ea7;
+      --veg-color: #2ed573;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,118 +31,135 @@
       overflow-x: hidden;
     }
 
-    /* ================= 1. HEADER (Left Menu, Center Logo, Right Order) ================= */
+    /* ================= 1. HEADER ================= */
     header {
       position: sticky;
       top: 0;
-      background: rgba(12, 12, 12, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(12px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 6%;
+      padding: 1.1rem 6%;
       border-bottom: 1px solid var(--border-color);
       z-index: 100;
     }
 
-    /* Left Menu Bar Button */
+    /* Left Menu Drawer Button */
     .menu-bar-btn {
-      background: #1f1f1f;
-      color: var(--primary);
+      background: #18181f;
+      color: var(--gold);
       border: 1px solid var(--border-color);
-      padding: 0.6rem 1.1rem;
-      border-radius: 6px;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       display: flex;
       align-items: center;
       gap: 8px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
-    .menu-bar-btn:hover { background: var(--primary); color: #000; }
+    .menu-bar-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px var(--primary-glow);
+    }
 
-    /* Center Logo & Name */
+    /* Center Logo */
     .header-center-logo {
       text-align: center;
       text-decoration: none;
     }
-    .header-center-logo .logo-icon { font-size: 1.4rem; display: block; margin-bottom: -4px; }
+    .header-center-logo .logo-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: -5px;
+      filter: drop-shadow(0 2px 8px rgba(245, 166, 35, 0.5));
+    }
     .header-center-logo .logo-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--primary);
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 20%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
     }
 
-    /* Right Order Now Button */
+    /* Right Order Button */
     .order-now-nav-btn {
-      background: var(--primary);
-      color: #000;
-      padding: 0.6rem 1.4rem;
-      border-radius: 6px;
+      background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
+      color: #fff;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.9rem;
-      transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(197, 157, 95, 0.25);
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 18px var(--primary-glow);
     }
-    .order-now-nav-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .order-now-nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(230, 57, 70, 0.55);
+    }
 
-    /* ================= SIDEBAR / DRAWER MENU ================= */
+    /* ================= SIDEBAR DRAWER ================= */
     .sidebar-drawer {
       position: fixed;
       top: 0;
       left: -320px;
       width: 300px;
       height: 100%;
-      background: #141414;
+      background: #111116;
       border-right: 1px solid var(--border-color);
       z-index: 1000;
       transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 2rem 1.5rem;
+      padding: 2.2rem 1.8rem;
       display: flex;
       flex-direction: column;
-      box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+      box-shadow: 10px 0 35px rgba(0,0,0,0.85);
     }
     .sidebar-drawer.active { left: 0; }
     .sidebar-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 1.5rem;
+      padding-bottom: 1.2rem;
       border-bottom: 1px solid var(--border-color);
       margin-bottom: 1.5rem;
     }
-    .sidebar-title { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.3rem; }
+    .sidebar-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.4rem; font-weight: 700; }
     .sidebar-close {
       background: none;
       border: none;
       color: var(--text-muted);
       font-size: 1.6rem;
       cursor: pointer;
+      transition: 0.2s;
     }
-    .sidebar-close:hover { color: #fff; }
+    .sidebar-close:hover { color: var(--primary); }
     .sidebar-links a {
       display: block;
       color: var(--text);
       text-decoration: none;
-      padding: 0.75rem 0;
-      font-size: 1rem;
+      padding: 0.85rem 0;
+      font-size: 0.95rem;
       font-weight: 500;
-      border-bottom: 1px solid #1f1f1f;
-      transition: 0.2s;
+      border-bottom: 1px solid #1a1a22;
+      transition: 0.3s;
     }
-    .sidebar-links a:hover { color: var(--primary); padding-left: 6px; }
+    .sidebar-links a:hover { color: var(--gold); padding-left: 8px; }
     .drawer-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(5px);
       z-index: 999;
       display: none;
     }
@@ -146,8 +168,8 @@
     /* ================= 2. HERO VIDEO SECTION ================= */
     .hero-video-section {
       position: relative;
-      height: 85vh;
-      min-height: 520px;
+      height: 86vh;
+      min-height: 540px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -172,63 +194,79 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);
+      background: radial-gradient(circle, rgba(9,9,11,0.5) 0%, rgba(9,9,11,0.9) 100%);
       z-index: 2;
     }
     .hero-content {
       position: relative;
       z-index: 3;
       padding: 0 1.5rem;
-      max-width: 850px;
+      max-width: 860px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(230, 57, 70, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(245, 166, 35, 0.4);
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .hero-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.4rem;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
       line-height: 1.2;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      color: #ffffff;
+      text-shadow: 0 4px 25px rgba(0,0,0,0.9);
     }
     .hero-content p {
       font-size: 1.15rem;
-      color: #e0e0e0;
-      margin-bottom: 2rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      color: #e2e2e8;
+      margin-bottom: 2.2rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
     }
     .hero-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      background: var(--primary);
-      color: #000;
-      padding: 0.75rem 1.6rem;
-      border-radius: 6px;
+      background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
       transition: all 0.3s;
-      display: inline-block;
       border: none;
       cursor: pointer;
+      box-shadow: 0 4px 15px var(--primary-glow);
     }
-    .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(230, 57, 70, 0.6); }
     .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
+      background: rgba(20, 20, 26, 0.8);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      box-shadow: none;
     }
-    .btn-outline:hover { background: var(--primary); color: #000; }
+    .btn-outline:hover { background: var(--gold); color: #000; box-shadow: 0 4px 20px rgba(245, 166, 35, 0.4); }
 
-    /* ================= 3. FAST FOOD CATEGORIES & ITEMS ================= */
+    /* ================= 3. MENU SECTION & ULTRA-PREMIUM CARDS ================= */
     .menu-section {
-      padding: 5rem 6%;
-      max-width: 1300px;
+      padding: 5.5rem 6%;
+      max-width: 1320px;
       margin: 0 auto;
     }
-    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header { text-align: center; margin-bottom: 2.8rem; }
     .section-header h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
+      font-size: 2.7rem;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
     }
+    .section-header h2 span { color: var(--primary); }
     .section-header p { color: var(--text-muted); font-size: 1rem; }
 
     /* Category Buttons */
@@ -237,13 +275,13 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 0.8rem;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
     .tab-btn {
-      background: #1c1c1c;
-      color: var(--text);
+      background: #15151c;
+      color: #d1d1db;
       border: 1px solid var(--border-color);
-      padding: 0.65rem 1.4rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 30px;
       font-size: 0.95rem;
       font-weight: 500;
@@ -251,72 +289,95 @@
       transition: all 0.3s ease;
     }
     .tab-btn:hover, .tab-btn.active {
-      background: var(--primary);
-      color: #000;
+      background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
+      color: #fff;
       border-color: var(--primary);
       transform: translateY(-2px);
+      box-shadow: 0 4px 18px var(--primary-glow);
     }
 
     /* Cards Grid */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 2.2rem;
     }
+
+    /* Ultra-Premium Card Styling */
     .menu-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
     }
     .menu-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
+      background: var(--card-hover);
       border-color: var(--primary);
-      box-shadow: 0 12px 25px rgba(197, 157, 95, 0.2);
+      box-shadow: 0 16px 35px rgba(230, 57, 70, 0.25), 0 0 15px rgba(245, 166, 35, 0.15);
     }
+
+    /* Shimmer Light Sweep on Card */
     .card-img-wrap {
       position: relative;
-      height: 210px;
+      height: 220px;
       overflow: hidden;
-      background: #111;
+      background: #0d0d10;
     }
+    .card-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 25%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(30deg);
+      transition: all 0.8s ease;
+      pointer-events: none;
+    }
+    .menu-card:hover .card-img-wrap::after { left: 140%; }
+
     .card-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease, filter 0.4s ease;
-      filter: brightness(0.95);
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+      filter: brightness(0.92);
     }
     .menu-card:hover .card-img-wrap img {
       transform: scale(1.12);
-      filter: brightness(1.1);
+      filter: brightness(1.08);
     }
+
     .calorie-pill {
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 12px;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(6px);
+      color: var(--gold);
+      padding: 4px 11px;
+      border-radius: 20px;
       font-size: 0.75rem;
-      font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.15);
+      font-weight: 600;
+      border: 1px solid rgba(245, 166, 35, 0.3);
       z-index: 2;
     }
-    .card-content { padding: 1.2rem; }
+
+    .card-content { padding: 1.3rem; }
     .card-title-row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 0.4rem;
     }
-    .card-title { font-size: 1.15rem; font-weight: 600; }
-    .card-price { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
+    .card-title { font-size: 1.15rem; font-weight: 600; color: #fff; }
+    .card-price { color: var(--gold); font-weight: 700; font-size: 1.2rem; }
+    
     .veg-indicator {
       display: flex;
       align-items: center;
@@ -327,25 +388,28 @@
       font-weight: 600;
     }
     .veg-dot { width: 8px; height: 8px; background-color: var(--veg-color); border-radius: 50%; }
-    .card-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; margin-bottom: 1rem; }
+    .card-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; margin-bottom: 1.1rem; }
+    
     .view-3d-hint {
       color: var(--primary);
       font-size: 0.85rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      transition: color 0.3s;
     }
+    .menu-card:hover .view-3d-hint { color: var(--gold); }
 
-    /* ================= 4. 3D ROTATING FOOD MODAL ================= */
+    /* ================= 4. LUXURY FLOATING DISH MODAL ================= */
     .modal-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -356,70 +420,87 @@
       padding: 1rem;
     }
     .modal-overlay.active { opacity: 1; visibility: visible; }
+    
     .modal-card {
-      background: #141414;
-      border: 1px solid #333;
-      border-radius: 16px;
-      max-width: 650px;
+      background: #141419;
+      border: 1px solid #2d2d38;
+      border-radius: 18px;
+      max-width: 660px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
       transform: scale(0.85) translateY(30px);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.95), 0 0 35px var(--primary-glow);
       position: relative;
-      padding: 2rem 1.8rem;
+      padding: 2.2rem 2rem;
     }
     .modal-overlay.active .modal-card { transform: scale(1) translateY(0); }
 
     .close-btn {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #252525;
+      top: 16px;
+      right: 16px;
+      background: #20202a;
       color: #fff;
       border: none;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       font-size: 1.2rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.2s;
+      transition: all 0.2s;
     }
-    .close-btn:hover { background: var(--primary); color: #000; }
+    .close-btn:hover { background: var(--primary); color: #fff; }
 
-    /* 3D Food Spinning Animation */
-    .food-3d-stage {
+    /* Luxury Levitation / Floating Animation */
+    .dish-stage {
       text-align: center;
-      padding: 1rem 0;
-      perspective: 1000px;
+      padding: 1.2rem 0;
+      position: relative;
     }
-    .food-3d-disc {
-      width: 220px;
-      height: 220px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid var(--primary);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(197, 157, 95, 0.4);
-      animation: rotate3DFood 18s linear infinite;
-      transform-style: preserve-3d;
+    .dish-halo {
+      position: relative;
+      width: 230px;
+      height: 230px;
+      margin: 0 auto;
     }
-    .food-3d-disc img {
+    .dish-img {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
       object-fit: cover;
+      border: 4px solid var(--gold);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 30px rgba(230, 57, 70, 0.45);
+      animation: dishFloat 4.5s ease-in-out infinite alternate;
     }
-    @keyframes rotate3DFood {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes dishFloat {
+      0% { transform: translateY(0px) scale(1) rotate(0deg); }
+      50% { transform: translateY(-12px) scale(1.03) rotate(2deg); }
+      100% { transform: translateY(0px) scale(1) rotate(-1deg); }
     }
-    .rotate-hint { font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
+    .dish-pedestal {
+      width: 170px;
+      height: 22px;
+      background: radial-gradient(ellipse at center, rgba(230, 57, 70, 0.6) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      margin: 0.5rem auto 0;
+      filter: blur(5px);
+    }
+    .dish-badge {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 0.6rem;
+      display: block;
+      font-weight: 600;
+    }
 
-    /* Modal Nutrition & Details */
+    /* Modal Content */
     .modal-header-row {
       display: flex;
       justify-content: space-between;
@@ -427,21 +508,21 @@
       margin-top: 1rem;
       margin-bottom: 0.4rem;
     }
-    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; }
-    .modal-price { color: var(--primary); font-size: 1.5rem; font-weight: 700; }
+    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; }
+    .modal-price { color: var(--gold); font-size: 1.6rem; font-weight: 700; }
 
     .nutrition-box {
-      background: #1f1f1f;
-      border-radius: 10px;
-      padding: 1rem;
+      background: #1b1b24;
+      border-radius: 12px;
+      padding: 1.1rem;
       margin: 1.2rem 0;
-      border: 1px solid #2d2d2d;
+      border: 1px solid #292936;
     }
     .nutrition-title {
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--primary);
+      color: var(--gold);
       margin-bottom: 0.8rem;
       font-weight: 600;
     }
@@ -451,67 +532,71 @@
       gap: 0.8rem;
       text-align: center;
     }
-    .nutri-item { background: #141414; padding: 0.6rem 0.4rem; border-radius: 6px; }
-    .nutri-val { font-size: 1.1rem; font-weight: 700; color: #fff; display: block; }
+    .nutri-item { background: #121217; padding: 0.65rem 0.4rem; border-radius: 8px; border: 1px solid #23232f; }
+    .nutri-val { font-size: 1.15rem; font-weight: 700; color: #fff; display: block; }
     .nutri-label { font-size: 0.75rem; color: var(--text-muted); }
 
     .recipe-box { margin: 1.4rem 0; }
-    .section-subtitle { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.4rem; font-weight: 600; }
-    .recipe-text { color: #d0d0d0; font-size: 0.9rem; line-height: 1.6; }
+    .section-subtitle { font-size: 0.95rem; color: var(--gold); margin-bottom: 0.4rem; font-weight: 600; }
+    .recipe-text { color: #d6d6e0; font-size: 0.9rem; line-height: 1.6; }
     .ingredient-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
-    .ing-tag { background: #242424; color: #ccc; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; border: 1px solid #333; }
+    .ing-tag { background: #20202c; color: #d1d1db; font-size: 0.75rem; padding: 4px 11px; border-radius: 12px; border: 1px solid #313142; }
 
     .whatsapp-order-btn {
       display: block;
       width: 100%;
-      background: #25d366;
+      background: linear-gradient(135deg, #25d366 0%, #1eac52 100%);
       color: #fff;
       text-decoration: none;
       text-align: center;
-      padding: 0.9rem;
-      border-radius: 8px;
-      font-weight: 600;
+      padding: 0.95rem;
+      border-radius: 10px;
+      font-weight: 700;
       font-size: 1rem;
-      transition: 0.3s;
-      margin-top: 1.2rem;
+      transition: all 0.3s;
+      margin-top: 1.4rem;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
     }
-    .whatsapp-order-btn:hover { background: #1eb956; }
+    .whatsapp-order-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+    }
 
     /* ================= 5. FOOTER & QUICK LINKS ================= */
     footer {
-      background: #080808;
-      padding: 4.5rem 6% 2rem;
+      background: #060608;
+      padding: 5rem 6% 2rem;
       border-top: 1px solid var(--border-color);
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 2.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
     .footer-col h4 {
-      color: var(--primary);
-      font-size: 1.15rem;
+      color: var(--gold);
+      font-size: 1.2rem;
       margin-bottom: 1.2rem;
       font-family: 'Playfair Display', serif;
     }
     .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
     .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 0.6rem; }
+    .footer-links li { margin-bottom: 0.7rem; }
     .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.9rem;
-      transition: 0.3s;
+      transition: all 0.3s;
       display: inline-block;
     }
-    .footer-links a:hover { color: var(--primary); transform: translateX(4px); }
+    .footer-links a:hover { color: var(--primary); transform: translateX(5px); }
 
     .footer-bottom {
       text-align: center;
       padding-top: 2rem;
-      border-top: 1px solid #1a1a1a;
-      color: #666;
+      border-top: 1px solid #16161f;
+      color: #6c6c78;
       font-size: 0.85rem;
     }
 
@@ -545,12 +630,12 @@
   <div class="drawer-overlay" id="drawerOverlay" onclick="toggleSidebar()"></div>
   <div class="sidebar-drawer" id="sidebarDrawer">
     <div class="sidebar-header">
-      <span class="sidebar-title">Explore</span>
+      <span class="sidebar-title">Navigation</span>
       <button class="sidebar-close" onclick="toggleSidebar()">✕</button>
     </div>
     <div class="sidebar-links">
       <a href="#home" onclick="toggleSidebar()">🏠 Home</a>
-      <a href="#menu-section" onclick="toggleSidebar()">🍔 Fast Food Menu</a>
+      <a href="#menu-section" onclick="toggleSidebar()">🍔 Fast Food Categories</a>
       <a href="about.html" target="_blank">📖 About Us ↗</a>
       <a href="contact.html" target="_blank">📞 Contact & Location ↗</a>
       <a href="privacy-policy.html" target="_blank">🔒 Privacy Policy ↗</a>
@@ -561,25 +646,26 @@
 
   <!-- ================= HERO VIDEO BACKGROUND ================= -->
   <section class="hero-video-section" id="home">
+    <!-- Live Fast Loading Ambient Food Video -->
     <video autoplay muted loop playsinline class="bg-video">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-cooking-food-in-a-pan-42686-large.mp4" type="video/mp4">
     </video>
     <div class="video-overlay"></div>
     <div class="hero-content">
-      <h1>Experience The Art of Fast Food</h1>
-      <p>Authentic taste, freshly crafted recipes & sizzling fast food in Nagaur.</p>
+      <span class="hero-badge">Pure Taste • Premium Quality</span>
+      <h1>Taste The Royal Craftsmanship</h1>
+      <p>Authentic recipes, hand-tossed crusts, and sizzling fast foods prepared fresh daily in Nagaur.</p>
       <div class="hero-btns">
         <a href="#menu-section" class="btn">Explore All Dishes</a>
-        <a href="contact.html" target="_blank" class="btn btn-outline">Find Our Location ↗</a>
+        <a href="contact.html" target="_blank" class="btn btn-outline">Visit Restaurant ↗</a>
       </div>
     </div>
   </section>
-
-  <!-- ================= FAST FOOD MENU SECTION WITH CATEGORY FILTER ================= -->
+  <!-- ================= FAST FOOD MENU SECTION ================= -->
   <section class="menu-section" id="menu-section">
     <div class="section-header">
-      <h2>Fast Food Categories</h2>
-      <p>Kisi bhi category par click karein aur uske sabhi varieties aur 3D food animation dekhein</p>
+      <h2>Our Sizzling <span>Fast Food</span> Menu</h2>
+      <p>Select any category below to view varieties, nutritional values & preparation recipes</p>
     </div>
 
     <!-- Category Tabs -->
@@ -589,39 +675,40 @@
       <button class="tab-btn" onclick="filterCategory('sandwich', this)">🥪 Sandwiches</button>
       <button class="tab-btn" onclick="filterCategory('momos', this)">🥟 Momos & Noodles</button>
       <button class="tab-btn" onclick="filterCategory('fries', this)">🍟 Fries & Sides</button>
-      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Drinks</button>
+      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Mocktails</button>
     </div>
 
     <!-- Menu Cards Grid -->
     <div class="menu-grid" id="menuGrid"></div>
   </section>
 
-  <!-- ================= 3D FOOD DETAIL MODAL POPUP ================= -->
+  <!-- ================= LUXURY FLOATING DISH MODAL POPUP ================= -->
   <div class="modal-overlay" id="detailModal" onclick="closeModalOnOutsideClick(event)">
     <div class="modal-card">
       <button class="close-btn" onclick="closeModal()">✕</button>
 
-      <!-- 3D Rotating Food Disc -->
-      <div class="food-3d-stage">
-        <div class="food-3d-disc">
-          <img src="" alt="" id="modalImg">
+      <!-- Floating Levitation Dish Display -->
+      <div class="dish-stage">
+        <div class="dish-halo">
+          <img src="" alt="" class="dish-img" id="modalImg">
         </div>
-        <span class="rotate-hint">🔄 360° 3D Rotating Dish View</span>
+        <div class="dish-pedestal"></div>
+        <span class="dish-badge">✨ Signature Recipe Presentation</span>
       </div>
 
-      <!-- Item Details -->
+      <!-- Item Title & Price -->
       <div class="modal-header-row">
         <h2 class="modal-title" id="modalTitle">Dish Name</h2>
         <span class="modal-price" id="modalPrice">₹0</span>
       </div>
       <div class="veg-indicator">
         <div class="veg-dot"></div>
-        <span>100% Pure Vegetarian Special</span>
+        <span>100% Pure Vegetarian Delight</span>
       </div>
 
       <!-- Nutrition & Calories -->
       <div class="nutrition-box">
-        <div class="nutrition-title">⚡ Nutritional Values per Serving</div>
+        <div class="nutrition-title">⚡ Nutritional Values (Per Serving)</div>
         <div class="nutrition-grid">
           <div class="nutri-item">
             <span class="nutri-val" id="modalCalories">0</span>
@@ -642,7 +729,7 @@
         </div>
       </div>
 
-      <!-- Preparation Recipe -->
+      <!-- How it is made -->
       <div class="recipe-box">
         <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation Method)</div>
         <p class="recipe-text" id="modalRecipe">Description here...</p>
@@ -654,23 +741,23 @@
     </div>
   </div>
 
-  <!-- ================= FOOTER & ALL QUICK LINKS ================= -->
+  <!-- ================= FOOTER & QUICK LINKS ================= -->
   <footer id="contact">
     <div class="footer-grid">
       <!-- Col 1: About -->
       <div class="footer-col">
         <h4>The Royal Dine</h4>
-        <p>Nagaur's favorite destination for luxury dining, artisanal fast foods, and authentic taste.</p>
+        <p>Nagaur's premier destination for artisanal fast foods, handcrafted beverages and luxurious dining experiences.</p>
         <p>📍 Didwana Road, Nagaur, Rajasthan</p>
         <p>📞 +91 98765 43210</p>
       </div>
 
-      <!-- Col 2: Timings -->
+      <!-- Col 2: Hours -->
       <div class="footer-col">
         <h4>Opening Hours</h4>
         <p>Monday – Friday: 11:00 AM – 11:00 PM</p>
         <p>Saturday – Sunday: 10:00 AM – 11:30 PM</p>
-        <p style="color: var(--primary); margin-top: 0.8rem;">● Dine-in & Takeaway Available</p>
+        <p style="color: var(--gold); margin-top: 0.8rem;">● Fast Delivery & Dine-In</p>
       </div>
 
       <!-- Col 3: Quick Links (Clickable in New Tab) -->
@@ -693,9 +780,9 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
-    // Comprehensive Food Database categorized by types
+    // Food Database with Categories
     const foodDatabase = [
-      // 1. BURGERS VARIETY
+      // 1. BURGERS
       {
         id: 1,
         category: 'burger',
@@ -741,19 +828,19 @@
       {
         id: 4,
         category: 'burger',
-        name: 'Peri-Peri Smoky Cheese Burger',
+        name: 'Peri-Peri Volcano Burger',
         price: '₹159',
         calories: '470 kcal',
         protein: '13g',
         carbs: '50g',
         fat: '22g',
         img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Smoky grilled veg patty dusted with fiery African peri-peri and cheese sauce.',
-        recipe: 'Veggie patty ko flame grill karke uspar authentic African peri-peri seasoning dust ki jati hai aur warm melted cheese blend daala jata hai.',
+        shortDesc: 'Smoky grilled veg patty dusted with fiery African peri-peri and molten cheese.',
+        recipe: 'Veggie patty ko flame grill karke uspar authentic African peri-peri seasoning dust ki jati hai aur warm molten cheese sauce daala jata hai.',
         ingredients: ['Grilled Veggie Patty', 'Peri-Peri Seasoning', 'Melted Cheese Sauce', 'Pickles', 'Lettuce']
       },
 
-      // 2. PIZZAS VARIETY
+      // 2. PIZZAS
       {
         id: 5,
         category: 'pizza',
@@ -797,7 +884,7 @@
         ingredients: ['Hand-stretched Base', 'Tomato Puree', 'Fresh Basil', 'Double Mozzarella']
       },
 
-      // 3. SANDWICHES VARIETY
+      // 3. SANDWICHES
       {
         id: 8,
         category: 'sandwich',
@@ -827,7 +914,7 @@
         ingredients: ['Spiced Potato Masala', 'Beetroot', 'Cucumber', 'Grated Cheese', 'Sandwich Masala']
       },
 
-      // 4. MOMOS & CHINESE
+      // 4. MOMOS & NOODLES
       {
         id: 10,
         category: 'momos',
@@ -932,7 +1019,7 @@
       }
     ];
 
-    // Render Category Items in Grid
+    // Render Cards
     function renderMenu(items) {
       const grid = document.getElementById('menuGrid');
       grid.innerHTML = items.map(item => `
@@ -951,13 +1038,13 @@
               <span>PURE VEG</span>
             </div>
             <p class="card-desc">${item.shortDesc}</p>
-            <span class="view-3d-hint">🔄 Click for 3D View & Recipe →</span>
+            <span class="view-3d-hint">✨ View Recipe & Details →</span>
           </div>
         </div>
       `).join('');
     }
 
-    // Filter Items by category (Burgers, Pizzas, etc.)
+    // Filter Items by category
     function filterCategory(category, btnElement) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       if (btnElement) btnElement.classList.add('active');
@@ -966,7 +1053,7 @@
       renderMenu(filtered);
     }
 
-    // Open 3D Detail Modal
+    // Open Floating Dish Modal
     function openDetailModal(id) {
       const item = foodDatabase.find(x => x.id === id);
       if (!item) return;
@@ -985,12 +1072,12 @@
       const ingEl = document.getElementById('modalIngredients');
       ingEl.innerHTML = item.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
 
-      // WhatsApp Order Link
-      const phone = "919876543210"; // Replace with your restaurant number
+      // WhatsApp Order Link (Replace with your actual restaurant WhatsApp number)
+      const phone = "919876543210"; 
       const msg = encodeURIComponent(`Namaste! I would like to order ${item.name} (${item.price}) from The Royal Dine menu.`);
       document.getElementById('modalOrderBtn').href = `https://wa.me/${phone}?text=${msg}`;
 
-      // Show Modal
+      // Open Modal
       document.getElementById('detailModal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -1020,4 +1107,4 @@
     filterCategory('burger', document.querySelector('.tab-btn.active'));
   </script>
 </body>
-  </html>
+</html>
