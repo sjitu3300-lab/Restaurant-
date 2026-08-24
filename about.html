@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | The Royal Dine Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e63946;
+      --gold: #f5a623;
+      --dark-bg: #09090b;
+      --card-bg: #141419;
+      --border: #24242e;
+      --text: #f8f9fa;
+      --text-muted: #9e9ea7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text); line-height: 1.7; }
+    header { background: #111116; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); text-decoration: none; font-weight: 700; }
+    .nav-btn { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--border); padding: 0.4rem 1.1rem; border-radius: 20px; transition: 0.3s; }
+    .nav-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+    .hero-banner { text-align: center; padding: 4rem 1rem 3rem; background: radial-gradient(circle at center, rgba(230,57,70,0.15) 0%, rgba(9,9,11,1) 80%); }
+    .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #fff; margin-bottom: 0.5rem; }
+    .hero-banner h1 span { color: var(--gold); }
+    .hero-banner p { color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+    .story-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem; margin-bottom: 3rem; }
+    .section-tag { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 0.5rem; display: block; }
+    .story-card h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; margin-bottom: 1.2rem; }
+    .story-card p { color: #d1d1db; margin-bottom: 1.2rem; }
+
+    /* 4-Step Quality Process */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .step-card { background: #181820; border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem; position: relative; transition: 0.3s; }
+    .step-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .step-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 0.6rem; }
+    .step-title { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* Values Grid */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+    .value-box { background: var(--card-bg); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; }
+    .value-box h3 { color: var(--gold); margin-bottom: 0.8rem; font-size: 1.2rem; }
+
+    footer { background: #060608; padding: 2.5rem 6%; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">👑 The Royal Dine</a>
+    <a href="index.html" class="nav-btn">← Back to Home</a>
+  </header>
+
+  <div class="hero-banner">
+    <span class="section-tag">Authentic Taste & Heritage</span>
+    <h1>About <span>The Royal Dine</span></h1>
+    <p>Crafting unforgettable culinary memories through authentic recipes, handpicked spices, and royal hospitality in Nagaur.</p>
+  </div>
+
+  <div class="container">
+    <!-- Story -->
+    <div class="story-card">
+      <span class="section-tag">Our Culinary Journey</span>
+      <h2>A Passion for Authentic Flavors & Pure Ingredients</h2>
+      <p>The Royal Dine ki shuruaat ek simple vision ke sath hui: Nagaur ke food lovers ko ek aisi jagah provide karna jahan pure taste, fresh ingredients aur fine dining luxury ka perfect combination mile. Chahe wo humari signature North Indian Royal Thali ho, wood-fired artisan pizza ho, ya sizzling gourmet burgers—hum har dish ko ek art ki tarah prepare karte hain.</p>
+      <p>Humare chefs har recipe me authentic Indian spices aur modern cooking techniques ka balance banate hain, jisse har bite me rich aroma aur authentic taste ka anubhav hota hai. Hum 100% Pure Vegetarian cuisine serve karte hain jisme hygiene aur freshness sabse pehli priority hoti hai.</p>
+    </div>
+
+    <!-- 4 Step Process -->
+    <div class="story-card">
+      <span class="section-tag">Our Secret Formula</span>
+      <h2>Hamara 4-Step Kitchen & Quality Process</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-title">Daily Fresh Sourcing</div>
+          <p class="step-desc">Hum daily morning me fresh dairy paneer, farm-fresh vegetables aur premium flour select karte hain bina kisi preservatives ke.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-title">In-House Spices</div>
+          <p class="step-desc">Traditional stone-ground khade masale aur chef's secret marinades daily small batches me fresh tayar kiye jate hain.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-title">Live Precision Cooking</div>
+          <p class="step-desc">Har dish ko order aane par live tandoor, stone-oven aur high-flame wok par cooked to perfection banaya jata hai.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-title">Hygiene & Temperature Check</div>
+          <p class="step-desc">Dining table ya delivery box me pack hone se pehle har meal ka temperature aur strict quality check kiya jata hai.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Values -->
+    <div class="values-grid">
+      <div class="value-box">
+        <h3>🌱 100% Pure Veg & Freshness</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Hamari kitchen me bilkul shuddh vegetarian standard follow hota hai. Hum frozen ingredients ke bajaye fresh preparation par believe karte hain.</p>
+      </div>
+      <div class="value-box">
+        <h3>👑 Royal Hospitality</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Hamare har guest ka welcome traditional warmth aur personalized care ke sath kiya jata hai taaki aapka dining experience hamesha memorable rahe.</p>
+      </div>
+      <div class="value-box">
+        <h3>✨ Affordable Luxury</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Five-star ambiance aur high-grade food quality ko hum ek fair aur transparent pricing par offer karte hain taaki pura parivaar sath celebrate kar sake.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 The Royal Dine Restaurant. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
