@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Royal Dine | Luxury Restaurant & Fast Food</title>
+  <title>Foodzilla Fast Food | Crispy, Juicy & Fast!</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -30,7 +30,7 @@
       overflow-x: hidden;
     }
 
-    /* ================= 1. HEADER (Left Menu, Center Logo, Right Profile & Cart) ================= */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -44,7 +44,6 @@
       z-index: 100;
     }
 
-    /* Left Menu Button */
     .menu-bar-btn {
       background: #18181f;
       color: var(--gold);
@@ -61,7 +60,6 @@
     }
     .menu-bar-btn:hover { background: var(--primary); color: #fff; }
 
-    /* Center Logo */
     .header-center-logo {
       text-align: center;
       text-decoration: none;
@@ -69,15 +67,14 @@
     .header-center-logo .logo-icon { font-size: 1.3rem; display: block; margin-bottom: -5px; }
     .header-center-logo .logo-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
       background: linear-gradient(135deg, #fff 20%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
-    /* Right Action Buttons (Profile + Cart) */
     .header-right-actions {
       display: flex;
       align-items: center;
@@ -116,7 +113,7 @@
       transition: all 0.3s ease;
       position: relative;
     }
-    .cart-nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5); }
+    .cart-nav-btn:hover { transform: translateY(-2px); }
     .cart-count-badge {
       background: var(--gold);
       color: #000;
@@ -130,7 +127,7 @@
       justify-content: center;
     }
 
-    /* ================= SIDEBAR DRAWER ================= */
+    /* SIDEBAR DRAWER */
     .sidebar-drawer {
       position: fixed;
       top: 0;
@@ -156,13 +153,7 @@
       margin-bottom: 1.5rem;
     }
     .sidebar-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.4rem; font-weight: 700; }
-    .sidebar-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.6rem;
-      cursor: pointer;
-    }
+    .sidebar-close { background: none; border: none; color: var(--text-muted); font-size: 1.6rem; cursor: pointer; }
     .sidebar-links a {
       display: block;
       color: var(--text);
@@ -176,10 +167,7 @@
     .sidebar-links a:hover { color: var(--gold); padding-left: 8px; }
     .drawer-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.75);
       backdrop-filter: blur(5px);
       z-index: 999;
@@ -187,7 +175,7 @@
     }
     .drawer-overlay.active { display: block; }
 
-    /* ================= 2. HERO VIDEO SECTION ================= */
+    /* HERO SECTION */
     .hero-video-section {
       position: relative;
       height: 84vh;
@@ -197,26 +185,18 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      background: #111 url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
     .bg-video {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
+      top: 50%; left: 50%;
+      min-width: 100%; min-height: 100%;
       transform: translate(-50%, -50%);
       object-fit: cover;
       z-index: 1;
     }
     .video-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: radial-gradient(circle, rgba(9,9,11,0.55) 0%, rgba(9,9,11,0.92) 100%);
       z-index: 2;
     }
@@ -276,7 +256,7 @@
     }
     .btn-outline:hover { background: var(--gold); color: #000; }
 
-    /* ================= 3. MENU SECTION ================= */
+    /* MENU SECTION */
     .menu-section {
       padding: 5rem 5%;
       max-width: 1320px;
@@ -314,7 +294,6 @@
       background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
       color: #fff;
       border-color: var(--primary);
-      transform: translateY(-2px);
       box-shadow: 0 4px 18px var(--primary-glow);
     }
 
@@ -349,17 +328,14 @@
       cursor: pointer;
     }
     .card-img-wrap img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
     .menu-card:hover .card-img-wrap img { transform: scale(1.1); }
 
     .calorie-pill {
-      position: absolute;
-      top: 12px;
-      right: 12px;
+      position: absolute; top: 12px; right: 12px;
       background: rgba(9, 9, 11, 0.85);
       backdrop-filter: blur(6px);
       color: var(--gold);
@@ -373,475 +349,138 @@
 
     .card-content { padding: 1.3rem; display: flex; flex-direction: column; flex-grow: 1; }
     .card-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+      display: flex; justify-content: space-between; align-items: baseline;
       margin-bottom: 0.4rem;
     }
     .card-title { font-size: 1.15rem; font-weight: 600; color: #fff; cursor: pointer; }
     .card-price { color: var(--gold); font-weight: 700; font-size: 1.2rem; }
     
     .veg-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: var(--veg-color);
-      margin-bottom: 0.6rem;
-      font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; color: var(--veg-color);
+      margin-bottom: 0.6rem; font-weight: 600;
     }
     .veg-dot { width: 8px; height: 8px; background-color: var(--veg-color); border-radius: 50%; }
     .card-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.45; margin-bottom: 1.2rem; flex-grow: 1; }
     
-    /* Card Action Buttons */
     .card-action-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.6rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
       margin-top: auto;
     }
     .btn-add-cart {
-      background: #1e1e26;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
+      background: #1e1e26; color: var(--gold);
+      border: 1px solid var(--gold); padding: 0.5rem;
+      border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
     }
     .btn-add-cart:hover { background: var(--gold); color: #000; }
-
     .btn-quick-wa {
-      background: #25d366;
-      color: #fff;
-      border: none;
-      padding: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: 0.2s;
+      background: #25d366; color: #fff; border: none;
+      padding: 0.5rem; border-radius: 6px; font-size: 0.8rem;
+      font-weight: 600; cursor: pointer; text-decoration: none; text-align: center;
     }
     .btn-quick-wa:hover { background: #1eb956; }
 
-    /* ================= 4. SHOPPING CART DRAWER ================= */
+    /* CART DRAWER */
     .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: -420px;
-      width: 400px;
-      max-width: 90vw;
-      height: 100%;
-      background: #131318;
-      border-left: 1px solid var(--border-color);
-      z-index: 1001;
-      transition: right 0.35s ease;
-      display: flex;
-      flex-direction: column;
+      position: fixed; top: 0; right: -420px;
+      width: 400px; max-width: 90vw; height: 100%;
+      background: #131318; border-left: 1px solid var(--border-color);
+      z-index: 1001; transition: right 0.35s ease;
+      display: flex; flex-direction: column;
       box-shadow: -10px 0 35px rgba(0,0,0,0.85);
     }
     .cart-drawer.active { right: 0; }
-    
     .cart-header {
-      padding: 1.4rem;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 1.4rem; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
     }
     .cart-header h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.3rem; }
     .cart-close-btn { background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer; }
-    
-    .cart-items-body {
-      flex-grow: 1;
-      overflow-y: auto;
-      padding: 1.2rem;
-    }
-    .cart-empty-msg { text-align: center; color: var(--text-muted); padding: 3rem 1rem; font-size: 0.95rem; }
+    .cart-items-body { flex-grow: 1; overflow-y: auto; padding: 1.2rem; }
+    .cart-empty-msg { text-align: center; color: var(--text-muted); padding: 3rem 1rem; }
 
     .cart-item-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #1a1a22;
-      padding: 0.8rem;
-      border-radius: 8px;
-      margin-bottom: 0.8rem;
-      border: 1px solid #282834;
+      display: flex; align-items: center; gap: 12px;
+      background: #1a1a22; padding: 0.8rem; border-radius: 8px;
+      margin-bottom: 0.8rem; border: 1px solid #282834;
     }
     .cart-item-img { width: 55px; height: 55px; border-radius: 6px; object-fit: cover; }
     .cart-item-info { flex-grow: 1; }
     .cart-item-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
     .cart-item-price { font-size: 0.85rem; color: var(--gold); font-weight: 700; }
-    
-    .qty-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 4px;
-    }
-    .qty-btn {
-      background: #252532;
-      border: none;
-      color: #fff;
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 700;
-    }
-    .qty-btn:hover { background: var(--primary); }
+    .qty-controls { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .qty-btn { background: #252532; border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: 700; }
     .qty-text { font-size: 0.85rem; font-weight: 600; width: 20px; text-align: center; }
-    .item-del-btn { background: none; border: none; color: #ff5252; cursor: pointer; font-size: 1.1rem; padding: 4px; }
+    .item-del-btn { background: none; border: none; color: #ff5252; cursor: pointer; font-size: 1.1rem; }
 
-    /* Cart Footer & Calculations */
-    .cart-footer {
-      padding: 1.2rem;
-      border-top: 1px solid var(--border-color);
-      background: #0f0f13;
-    }
-    .calc-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-    .calc-row.total-row {
-      font-size: 1.1rem;
-      color: #fff;
-      font-weight: 700;
-      border-top: 1px dashed var(--border-color);
-      padding-top: 0.6rem;
-      margin-top: 0.6rem;
-    }
+    .cart-footer { padding: 1.2rem; border-top: 1px solid var(--border-color); background: #0f0f13; }
+    .calc-row { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+    .calc-row.total-row { font-size: 1.1rem; color: #fff; font-weight: 700; border-top: 1px dashed var(--border-color); padding-top: 0.6rem; margin-top: 0.6rem; }
     .calc-row.total-row span:last-child { color: var(--gold); }
 
-    /* Payment Method Selector */
-    .payment-select-box {
-      margin: 1rem 0;
-      background: #181820;
-      padding: 0.8rem;
-      border-radius: 8px;
-    }
+    .payment-select-box { margin: 1rem 0; background: #181820; padding: 0.8rem; border-radius: 8px; }
     .payment-select-box label { display: block; font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 0.4rem; }
     .pay-options { display: flex; gap: 10px; }
-    .pay-option-label {
-      flex: 1;
-      background: #121217;
-      border: 1px solid var(--border-color);
-      padding: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .pay-option-label { flex: 1; background: #121217; border: 1px solid var(--border-color); padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 6px; }
     .pay-option-label input { accent-color: var(--primary); }
 
     .checkout-btn {
-      width: 100%;
-      background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
-      color: #fff;
-      border: none;
-      padding: 0.85rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: 0.3s;
+      width: 100%; background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
+      color: #fff; border: none; padding: 0.85rem; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem; cursor: pointer;
     }
-    .checkout-btn:hover { transform: translateY(-2px); }
 
-    /* ================= 5. USER AUTH MODAL (LOGIN / REGISTER) ================= */
+    /* AUTH MODAL */
     .auth-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1002;
-      padding: 1rem;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+      display: none; justify-content: center; align-items: center; z-index: 1002; padding: 1rem;
     }
     .auth-modal-overlay.active { display: flex; }
     .auth-card {
-      background: #141419;
-      border: 1px solid #2d2d38;
-      border-radius: 16px;
-      max-width: 480px;
-      width: 100%;
-      padding: 2rem;
-      position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+      background: #141419; border: 1px solid #2d2d38; border-radius: 16px;
+      max-width: 480px; width: 100%; padding: 2rem; position: relative;
     }
-    .auth-tabs {
-      display: flex;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 1.5rem;
-    }
-    .auth-tab-btn {
-      flex: 1;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      padding: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    .auth-tab-btn.active {
-      color: var(--gold);
-      border-bottom: 2px solid var(--gold);
-    }
+    .auth-tabs { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+    .auth-tab-btn { flex: 1; background: none; border: none; color: var(--text-muted); padding: 0.8rem; font-weight: 600; cursor: pointer; }
+    .auth-tab-btn.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
     .form-group { margin-bottom: 1rem; }
     .form-group label { display: block; font-size: 0.8rem; color: #d1d1db; margin-bottom: 0.3rem; }
     .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      background: #0d0d12;
-      border: 1px solid #282834;
-      border-radius: 6px;
-      color: #fff;
-      outline: none;
-      font-family: inherit;
+      width: 100%; padding: 0.75rem; background: #0d0d12; border: 1px solid #282834;
+      border-radius: 6px; color: #fff; outline: none; font-family: inherit;
     }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--primary); }
-    .auth-submit-btn {
-      width: 100%;
-      background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
-      color: #fff;
-      padding: 0.85rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
+    .auth-submit-btn { width: 100%; background: var(--primary); color: #fff; padding: 0.85rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
 
-    /* ================= 6. 3D FOOD DETAIL MODAL ================= */
-    .detail-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(10px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      padding: 1rem;
-    }
-    .detail-modal-overlay.active { display: flex; }
-    .detail-modal-card {
-      background: #141419;
-      border: 1px solid #2d2d38;
-      border-radius: 18px;
-      max-width: 660px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      padding: 2.2rem 2rem;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: #20202a;
-      color: #fff;
-      border: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .close-btn:hover { background: var(--primary); }
-
-    .dish-stage { text-align: center; padding: 0.5rem 0; }
-    .dish-halo {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 0 auto;
-    }
-    .dish-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--gold);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 30px rgba(230, 57, 70, 0.45);
-      animation: dishFloat 4s ease-in-out infinite alternate;
-    }
-    @keyframes dishFloat {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-10px); }
-    }
-
-    .modal-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1rem;
-      margin-bottom: 0.4rem;
-    }
-    .modal-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #fff; }
-    .modal-price { color: var(--gold); font-size: 1.5rem; font-weight: 700; }
-
-    .nutrition-box {
-      background: #1b1b24;
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 1rem 0;
-      border: 1px solid #292936;
-    }
-      .nutrition-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold);
-      margin-bottom: 0.6rem;
-      font-weight: 600;
-    }
-    .nutrition-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.6rem;
-      text-align: center;
-    }
-    .nutri-item { background: #121217; padding: 0.5rem 0.3rem; border-radius: 8px; }
-    .nutri-val { font-size: 1.05rem; font-weight: 700; color: #fff; display: block; }
-    .nutri-label { font-size: 0.7rem; color: var(--text-muted); }
-
-    .recipe-box { margin: 1.2rem 0; }
-    .section-subtitle { font-size: 0.9rem; color: var(--gold); margin-bottom: 0.3rem; font-weight: 600; }
-    .recipe-text { color: #d6d6e0; font-size: 0.85rem; line-height: 1.5; }
-    .ingredient-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
-    .ing-tag { background: #20202c; color: #d1d1db; font-size: 0.75rem; padding: 3px 10px; border-radius: 12px; border: 1px solid #313142; }
-
-    .modal-actions-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.8rem;
-      margin-top: 1.2rem;
-    }
-    .modal-add-cart-btn {
-      background: var(--gold);
-      color: #000;
-      padding: 0.85rem;
-      border-radius: 8px;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .modal-add-cart-btn:hover { background: var(--gold-hover); }
-
-    .modal-wa-btn {
-      background: #25d366;
-      color: #fff;
-      padding: 0.85rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    /* ================= 7. FOOTER ================= */
-    footer {
-      background: #060608;
-      padding: 5rem 5% 2rem;
-      border-top: 1px solid var(--border-color);
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 3.5rem;
-    }
-    .footer-col h4 {
-      color: var(--gold);
-      font-size: 1.2rem;
-      margin-bottom: 1.2rem;
-      font-family: 'Playfair Display', serif;
-    }
+    /* FOOTER */
+    footer { background: #060608; padding: 5rem 5% 2rem; border-top: 1px solid var(--border-color); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3.5rem; }
+    .footer-col h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 1.2rem; font-family: 'Playfair Display', serif; }
     .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
     .footer-links { list-style: none; }
     .footer-links li { margin-bottom: 0.7rem; }
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.3s;
-    }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
     .footer-links a:hover { color: var(--primary); }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid #16161f;
-      color: #6c6c78;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2.2rem; }
-      .header-right-actions { gap: 0.4rem; }
-      .profile-nav-btn span { display: none; }
-      .card-action-row { grid-template-columns: 1fr; }
-    }
+    .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #16161f; color: #6c6c78; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
-  <!-- ================= 1. HEADER ================= -->
+  <!-- HEADER -->
   <header>
-    <!-- Left Menu -->
-    <button class="menu-bar-btn" onclick="toggleSidebar()">
-      <span>☰</span> Menu
-    </button>
-
-    <!-- Center Logo -->
+    <button class="menu-bar-btn" onclick="toggleSidebar()"><span>☰</span> Menu</button>
     <a href="#" class="header-center-logo">
-      <span class="logo-icon">👑</span>
-      <span class="logo-text">The Royal Dine</span>
+      <span class="logo-icon">🍔</span>
+      <span class="logo-text">Foodzilla Fast Food</span>
     </a>
-
-    <!-- Right Profile & Cart -->
     <div class="header-right-actions">
-      <button class="profile-nav-btn" onclick="openAuthModal()" id="userProfileBtn">
-        👤 <span>Login / Account</span>
-      </button>
-      <button class="cart-nav-btn" onclick="toggleCart()">
-        🛒 Cart <span class="cart-count-badge" id="cartCountBadge">0</span>
-      </button>
+      <button class="profile-nav-btn" onclick="openAuthModal()" id="userProfileBtn">👤 <span>Login / Account</span></button>
+      <button class="cart-nav-btn" onclick="toggleCart()">🛒 Cart <span class="cart-count-badge" id="cartCountBadge">0</span></button>
     </div>
   </header>
 
-  <!-- ================= SIDEBAR DRAWER ================= -->
+  <!-- SIDEBAR -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="closeAllDrawers()"></div>
-  
   <div class="sidebar-drawer" id="sidebarDrawer">
     <div class="sidebar-header">
       <span class="sidebar-title">Navigation</span>
@@ -850,7 +489,6 @@
     <div class="sidebar-links">
       <a href="#home" onclick="toggleSidebar()">🏠 Home</a>
       <a href="#menu-section" onclick="toggleSidebar()">🍔 Fast Food Menu</a>
-      <a href="javascript:void(0)" onclick="toggleSidebar(); openAuthModal();">👤 Customer Profile</a>
       <a href="about.html" target="_blank">📖 About Us ↗</a>
       <a href="contact.html" target="_blank">📞 Contact & Location ↗</a>
       <a href="privacy-policy.html" target="_blank">🔒 Privacy Policy ↗</a>
@@ -859,200 +497,104 @@
     </div>
   </div>
 
-  <!-- ================= SHOPPING CART DRAWER ================= -->
+  <!-- CART DRAWER -->
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
       <h3>🛍️ Your Food Cart</h3>
       <button class="cart-close-btn" onclick="toggleCart()">✕</button>
     </div>
-
-    <!-- Cart Items Container -->
     <div class="cart-items-body" id="cartItemsContainer">
       <div class="cart-empty-msg">Aapka cart khali hai. Menu se delicious items add karein!</div>
     </div>
-
-    <!-- Cart Calculations & Checkout -->
     <div class="cart-footer" id="cartFooter" style="display: none;">
-      <div class="calc-row">
-        <span>Item Subtotal:</span>
-        <span id="subtotalVal">₹0</span>
-      </div>
-      <div class="calc-row">
-        <span>GST (5%):</span>
-        <span id="gstVal">₹0</span>
-      </div>
-      <div class="calc-row">
-        <span>Delivery Fee:</span>
-        <span id="deliveryVal">FREE</span>
-      </div>
-      <div class="calc-row total-row">
-        <span>Grand Total:</span>
-        <span id="grandTotalVal">₹0</span>
-      </div>
-
-      <!-- Payment Method Selection -->
+      <div class="calc-row"><span>Item Subtotal:</span><span id="subtotalVal">₹0</span></div>
+      <div class="calc-row"><span>GST (5%):</span><span id="gstVal">₹0</span></div>
+      <div class="calc-row"><span>Delivery Fee:</span><span>FREE</span></div>
+      <div class="calc-row total-row"><span>Grand Total:</span><span id="grandTotalVal">₹0</span></div>
+      
       <div class="payment-select-box">
         <label>Select Payment Option:</label>
         <div class="pay-options">
-          <label class="pay-option-label">
-            <input type="radio" name="paymentType" value="ONLINE" checked>
-            <span>💳 Online UPI / QR</span>
-          </label>
-          <label class="pay-option-label">
-            <input type="radio" name="paymentType" value="COD">
-            <span>💵 Cash on Delivery</span>
-          </label>
+          <label class="pay-option-label"><input type="radio" name="paymentType" value="ONLINE" checked> <span>💳 Online UPI / QR</span></label>
+          <label class="pay-option-label"><input type="radio" name="paymentType" value="COD"> <span>💵 Cash on Delivery</span></label>
         </div>
       </div>
-
       <button class="checkout-btn" onclick="processCheckout()">Place Order & Pay</button>
     </div>
   </div>
 
-  <!-- ================= USER AUTH / PROFILE MODAL ================= -->
+  <!-- AUTH MODAL -->
   <div class="auth-modal-overlay" id="authModal" onclick="closeAuthModalOnOutside(event)">
     <div class="auth-card">
-      <button class="close-btn" onclick="closeAuthModal()">✕</button>
-      
+      <button class="close-btn" onclick="closeAuthModal()" style="top: 16px; right: 16px;">✕</button>
       <div class="auth-tabs">
         <button class="auth-tab-btn active" onclick="switchAuthTab('login', this)">Customer Login</button>
-        <button class="auth-tab-btn" onclick="switchAuthTab('register', this)">Create New Account</button>
+        <button class="auth-tab-btn" onclick="switchAuthTab('register', this)">Create Account</button>
       </div>
-
-      <!-- Login Form -->
       <form id="loginForm" onsubmit="handleLogin(event)">
-        <div class="form-group">
-          <label>Mobile Number / Email</label>
-          <input type="text" id="loginUser" placeholder="Enter phone or email" required>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" id="loginPass" placeholder="Enter password" required>
-        </div>
-        <button type="submit" class="auth-submit-btn">Login to Account</button>
+        <div class="form-group"><label>Mobile Number</label><input type="text" id="loginUser" required></div>
+        <div class="form-group"><label>Password</label><input type="password" id="loginPass" required></div>
+        <button type="submit" class="auth-submit-btn">Login</button>
       </form>
-
-      <!-- Register Form -->
       <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="regName" placeholder="Apna pura naam likhein" required>
-        </div>
-        <div class="form-group">
-          <label>Mobile / WhatsApp Number</label>
-          <input type="tel" id="regPhone" placeholder="+91 98765 XXXXX" required>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" id="regEmail" placeholder="name@example.com" required>
-        </div>
-        <div class="form-group">
-          <label>Complete Delivery Address (Nagaur)</label>
-          <textarea id="regAddress" rows="2" placeholder="House no, Street, Colony, Landmark..." required></textarea>
-        </div>
-        <div class="form-group">
-          <label>Create Password</label>
-          <input type="password" id="regPass" placeholder="Choose a password" required>
-        </div>
-        <button type="submit" class="auth-submit-btn">Create & Save Account</button>
+        <div class="form-group"><label>Full Name</label><input type="text" id="regName" required></div>
+        <div class="form-group"><label>Mobile Number</label><input type="tel" id="regPhone" required></div>
+        <div class="form-group"><label>Delivery Address</label><textarea id="regAddress" rows="2" required></textarea></div>
+        <div class="form-group"><label>Password</label><input type="password" id="regPass" required></div>
+        <button type="submit" class="auth-submit-btn">Register</button>
       </form>
     </div>
   </div>
 
-  <!-- ================= HERO VIDEO BACKGROUND ================= -->
+  <!-- HERO SECTION -->
   <section class="hero-video-section" id="home">
-    <video autoplay muted loop playsinline class="bg-video" id="heroVid">
+    <video autoplay muted loop playsinline class="bg-video">
       <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-cooking-food-in-a-pan-42686-large.mp4" type="video/mp4">
     </video>
     <div class="video-overlay"></div>
     <div class="hero-content">
-      <span class="hero-badge">Pure Taste • Premium Quality</span>
-      <h1>Taste The Royal Craftsmanship</h1>
-      <p>Authentic recipes, hand-tossed crusts, and sizzling fast foods prepared fresh daily in Nagaur.</p>
+      <span class="hero-badge">100% Crispy & Juicy Delight</span>
+      <h1>Fast, Fresh & Furious Fast Food!</h1>
+      <p>Burgers jo mooh me ghul jayein, crispy fries aur cheesy pizzas jo aapki cravings ko turant satisfy karein. Welcome to Foodzilla Fast Food!</p>
       <div class="hero-btns">
-        <a href="#menu-section" class="btn">Explore Menu & Order</a>
-        <a href="contact.html" target="_blank" class="btn btn-outline">Visit Restaurant ↗</a>
+        <a href="#menu-section" class="btn">Explore Expanded Menu</a>
+        <a href="contact.html" target="_blank" class="btn btn-outline">Visit Outlet ↗</a>
       </div>
     </div>
   </section>
 
-  <!-- ================= MENU SECTION ================= -->
+  <!-- MENU SECTION WITH EXPANDED VARIETIES -->
   <section class="menu-section" id="menu-section">
     <div class="section-header">
-      <h2>Our Sizzling <span>Fast Food</span> Menu</h2>
-      <p>Item par click karein ya direct Add to Cart / WhatsApp order karein</p>
+      <h2>Our Expanded <span>Fast Food</span> Menu</h2>
+      <p>Burgers, Pizzas, Sandwiches aur Momos ki dher saari new varieties available!</p>
     </div>
 
-    <!-- Category Tabs -->
     <div class="category-tabs">
-      <button class="tab-btn active" onclick="filterCategory('burger', this)">🍔 Burgers</button>
-      <button class="tab-btn" onclick="filterCategory('pizza', this)">🍕 Pizzas</button>
-      <button class="tab-btn" onclick="filterCategory('sandwich', this)">🥪 Sandwiches</button>
-      <button class="tab-btn" onclick="filterCategory('momos', this)">🥟 Momos & Noodles</button>
-      <button class="tab-btn" onclick="filterCategory('fries', this)">🍟 Fries & Sides</button>
-      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Mocktails</button>
+      <button class="tab-btn active" onclick="filterCategory('burger', this)">🍔 Burgers (5+)</button>
+      <button class="tab-btn" onclick="filterCategory('pizza', this)">🍕 Pizzas (4+)</button>
+      <button class="tab-btn" onclick="filterCategory('sandwich', this)">🥪 Sandwiches (3+)</button>
+      <button class="tab-btn" onclick="filterCategory('momos', this)">🥟 Momos & Pasta (3+)</button>
+      <button class="tab-btn" onclick="filterCategory('fries', this)">🍟 Fries & Sides (2+)</button>
+      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Drinks (2+)</button>
     </div>
 
-    <!-- Menu Grid -->
     <div class="menu-grid" id="menuGrid"></div>
   </section>
 
-  <!-- ================= 3D FOOD DETAIL MODAL ================= -->
-  <div class="detail-modal-overlay" id="detailModal" onclick="closeDetailModalOnOutside(event)">
-    <div class="detail-modal-card">
-      <button class="close-btn" onclick="closeDetailModal()">✕</button>
-
-      <div class="dish-stage">
-        <div class="dish-halo">
-          <img src="" alt="" class="dish-img" id="modalImg">
-        </div>
-      </div>
-
-      <div class="modal-header-row">
-        <h2 class="modal-title" id="modalTitle">Dish Name</h2>
-        <span class="modal-price" id="modalPrice">₹0</span>
-      </div>
-      <div class="veg-indicator">
-        <div class="veg-dot"></div>
-        <span>100% Pure Vegetarian Special</span>
-      </div>
-
-      <div class="nutrition-box">
-        <div class="nutrition-title">⚡ Nutritional Values (Per Serving)</div>
-        <div class="nutrition-grid">
-          <div class="nutri-item"><span class="nutri-val" id="modalCalories">0</span><span class="nutri-label">Calories</span></div>
-          <div class="nutri-item"><span class="nutri-val" id="modalProtein">0g</span><span class="nutri-label">Protein</span></div>
-          <div class="nutri-item"><span class="nutri-val" id="modalCarbs">0g</span><span class="nutri-label">Carbs</span></div>
-          <div class="nutri-item"><span class="nutri-val" id="modalFat">0g</span><span class="nutri-label">Fat</span></div>
-        </div>
-      </div>
-
-      <div class="recipe-box">
-        <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation Method)</div>
-        <p class="recipe-text" id="modalRecipe">Description...</p>
-        <div class="ingredient-tags" id="modalIngredients"></div>
-      </div>
-
-      <div class="modal-actions-row">
-        <button class="modal-add-cart-btn" id="modalAddCartBtn">🛒 Add to Cart</button>
-        <a href="#" target="_blank" class="modal-wa-btn" id="modalWaBtn">📱 WhatsApp Order</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer id="contact">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>The Royal Dine</h4>
-        <p>Nagaur's favorite destination for luxury dining, artisanal fast foods, and authentic taste.</p>
-        <p>📍 Didwana Road, Nagaur, Rajasthan</p>
+        <h4>Foodzilla Fast Food</h4>
+        <p>Nagaur's ultimate destination for quick bites, burgers, pizzas, and endless flavors.</p>
+        <p>📍 Main Market Road, Nagaur, Rajasthan</p>
         <p>📞 +91 98765 43210</p>
       </div>
       <div class="footer-col">
         <h4>Opening Hours</h4>
-        <p>Monday – Sunday: 11:00 AM – 11:30 PM</p>
-        <p style="color: var(--gold); margin-top: 0.8rem;">● Online Delivery & Dine-In Available</p>
+        <p>Monday – Sunday: 10:00 AM – 11:30 PM</p>
+        <p style="color: var(--gold); margin-top: 0.8rem;">● Fast Home Delivery Available</p>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
@@ -1066,171 +608,66 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 The Royal Dine Restaurant. All rights reserved.</p>
+      <p>&copy; 2026 Foodzilla Fast Food. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- SCRIPT -->
   <script>
-    // 1. Food Database
     const foodDatabase = [
-      {
-        id: 1,
-        category: 'burger',
-        name: 'Double Cheese Gourmet Burger',
-        price: 149,
-        calories: '450 kcal',
-        protein: '14g',
-        carbs: '52g',
-        fat: '21g',
-        img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Crispy herb patty, double cheddar cheese, lettuce aur secret chipotle sauce.',
-        recipe: 'Fresh aloo-peas aur Italian herbs se bani crispy patty ko golden fry kiya jata hai. Iske baad toasted brioche bun ke beech melted cheddar cheese, crunchy lettuce, aur secret chipotle mayo ke sath layer kiya jata hai.',
-        ingredients: ['Toasted Brioche Bun', 'Crispy Veg Patty', 'Cheddar Cheese', 'Iceberg Lettuce', 'Chipotle Mayo']
-      },
-      {
-        id: 2,
-        category: 'burger',
-        name: 'Crispy Spicy Paneer Burger',
-        price: 169,
-        calories: '490 kcal',
-        protein: '18g',
-        carbs: '48g',
-        fat: '23g',
-        img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Thick marinated paneer patty coated in spicy crunch and mint tandoori mayo.',
-        recipe: 'Fresh malai paneer slab ko spicy batter me dip karke cornflakes crust ke sath crispy fry kiya jata hai aur tandoori mayo ke sath assemble kiya jata hai.',
-        ingredients: ['Crispy Paneer Slab', 'Sesame Bun', 'Tandoori Mayo', 'Onion Rings']
-      },
-      {
-        id: 3,
-        category: 'burger',
-        name: 'Classic Crunchy Aloo Tikki Burger',
-        price: 89,
-        calories: '360 kcal',
-        protein: '8g',
-        carbs: '54g',
-        fat: '12g',
-        img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Traditional spiced potato patty, sliced onions, tomatoes & tangy sauce.',
-        recipe: 'Desi style mashed potatoes me cumin, coriander aur green chilies mix karke crunchy patty banai jati hai aur sweet-tangy sauce ke sath serve kiya jata hai.',
-        ingredients: ['Potato Spiced Patty', 'Soft Bun', 'Tangy Tomato Relish', 'Cucumber']
-      },
-      {
-        id: 4,
-        category: 'pizza',
-        name: 'Farmhouse Loaded Pizza (10 Inch)',
-        price: 299,
-        calories: '780 kcal',
-        protein: '26g',
-        carbs: '94g',
-        fat: '32g',
-        img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Capsicum, grilled mushrooms, sweet corn aur 100% pure mozzarella cheese.',
-        recipe: 'Hand-tossed dough par basil tomato sauce, 100% mozzarella cheese, fresh capsicum, diced onion, mushrooms aur sweet corn daalkar stone-oven me bake kiya jata hai.',
-        ingredients: ['Fresh Dough', 'Mozzarella Cheese', 'Tomato Sauce', 'Mushrooms', 'Sweet Corn']
-      },
-      {
-        id: 5,
-        category: 'pizza',
-        name: 'Tandoori Paneer Tikka Pizza',
-        price: 329,
-        calories: '820 kcal',
-        protein: '31g',
-        carbs: '90g',
-        fat: '36g',
-        img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Tandoori marinated paneer cubes, red paprika, onions & extra cheese.',
-        recipe: 'Spicy tandoori sauce base par roasted paneer tikka chunks aur red paprika spread karke crispy bake kiya jata hai.',
-        ingredients: ['Tandoori Paneer', 'Red Paprika', 'Mozzarella', 'Tandoori Sauce']
-      },
-      {
-        id: 6,
-        category: 'sandwich',
-        name: 'Tandoori Paneer Grilled Sandwich',
-        price: 169,
-        calories: '410 kcal',
-        protein: '18g',
-        carbs: '48g',
-        fat: '16g',
-        img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Marinated malai paneer, mint chutney aur melted mozzarella in jumbo bread.',
-        recipe: 'Soft malai paneer cubes ko tandoori masala me marinate karke mint chutney aur cheese ke sath golden grill kiya jata hai.',
-        ingredients: ['Jumbo Bread', 'Fresh Malai Paneer', 'Mint Chutney', 'Mozzarella']
-      },
-      {
-        id: 7,
-        category: 'momos',
-        name: 'Steamed Veg Momos (8 Pcs)',
-        price: 120,
-        calories: '260 kcal',
-        protein: '8g',
-        carbs: '46g',
-        fat: '4g',
-        img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Finely minced cabbage, carrot, paneer filling aur authentic spicy red chutney.',
-        recipe: 'Thin flour wrap me cabbage, carrot aur paneer stuffed karke steamer me steam kiya jata hai aur teekhi chutney ke sath serve hota hai.',
-        ingredients: ['Flour Wrapper', 'Cabbage', 'Carrots', 'Paneer', 'Garlic Red Chutney']
-      },
-      {
-        id: 8,
-        category: 'fries',
-        name: 'Peri-Peri Crispy Fries',
-        price: 110,
-        calories: '320 kcal',
-        protein: '5g',
-        carbs: '44g',
-        fat: '14g',
-        img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Crunchy golden potato fries spicy peri-peri dust aur cheesy dip ke sath.',
-        recipe: 'Golden crispy potatoes par African peri-peri seasoning shake karke cheesy mayo dip ke sath serve kiya jata hai.',
-        ingredients: ['Potatoes', 'Peri-Peri Seasoning', 'Cheese Dip']
-      },
-      {
-        id: 9,
-        category: 'beverages',
-        name: 'Thick Belgian Cold Coffee',
-        price: 120,
-        calories: '240 kcal',
-        protein: '6g',
-        carbs: '34g',
-        fat: '9g',
-        img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Espresso blended with rich whole milk, dark chocolate fudge and ice cream scoop.',
-        recipe: 'Fresh espresso shot, chilled whole milk aur Belgian chocolate fudge ko vanilla ice cream ke sath thick blend kiya jata hai.',
-        ingredients: ['Brewed Coffee', 'Whole Milk', 'Vanilla Ice Cream', 'Chocolate Fudge']
-      }
+      // BURGERS
+      { id: 1, category: 'burger', name: 'Monster Cheese Burger', price: 199, calories: '480 kcal', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80', shortDesc: 'Double crispy patty, molten cheddar cheese, lettuce and secret sauce.' },
+      { id: 2, category: 'burger', name: 'Crispy Paneer Supreme Burger', price: 169, calories: '450 kcal', img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80', shortDesc: 'Thick marinated paneer patty with tandoori mayo and crunchy onions.' },
+      { id: 3, category: 'burger', name: 'Peri-Peri Volcano Burger', price: 159, calories: '430 kcal', img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80', shortDesc: 'Spicy grilled veg patty dusted with fiery African peri-peri and cheese.' },
+      { id: 4, category: 'burger', name: 'Mushroom Double Decker Burger', price: 189, calories: '410 kcal', img: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80', shortDesc: 'Sautéed mushrooms, caramelized onions and creamy garlic spread.' },
+      { id: 5, category: 'burger', name: 'Classic Aloo Crunch Burger', price: 89, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80', shortDesc: 'Desi spiced potato patty with tomatoes and tangy relish.' },
+
+      // PIZZAS
+      { id: 6, category: 'pizza', name: 'Loaded Peri-Peri Pizza', price: 349, calories: '780 kcal', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80', shortDesc: 'Loaded with bell peppers, jalapeños, corn and extra mozzarella cheese.' },
+      { id: 7, category: 'pizza', name: 'Tandoori Paneer Tikka Pizza', price: 379, calories: '820 kcal', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80', shortDesc: 'Roasted paneer chunks, onions, red paprika and tandoori drizzle.' },
+      { id: 8, category: 'pizza', name: 'Farmhouse Veggie Supreme Pizza', price: 329, calories: '750 kcal', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80', shortDesc: 'Fresh tomatoes, crisp capsicum, onions, black olives and herbs.' },
+      { id: 9, category: 'pizza', name: 'Double Cheese Margherita', price: 249, calories: '680 kcal', img: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=500&q=80', shortDesc: 'Simple yet delicious with double layer mozzarella and fresh basil.' },
+
+      // SANDWICHES
+      { id: 10, category: 'sandwich', name: 'Tandoori Grilled Sandwich', price: 159, calories: '390 kcal', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80', shortDesc: 'Jumbo bread stuffed with tandoori paneer, mint chutney and cheese.' },
+      { id: 11, category: 'sandwich', name: 'Bombay Masala Cheese Toast', price: 129, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=500&q=80', shortDesc: 'Spiced potato masala, beetroot, cucumber slices and grated cheese.' },
+      { id: 12, category: 'sandwich', name: 'Corn & Spinach Melt Sandwich', price: 149, calories: '360 kcal', img: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=500&q=80', shortDesc: 'Creamy sweet corn and blanched spinach blended with melted cheese.' },
+
+      // MOMOS & PASTA
+      { id: 13, category: 'momos', name: 'Steamed Veg Momos (8 Pcs)', price: 119, calories: '260 kcal', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80', shortDesc: 'Minced veggie filling served with fiery red spicy chutney.' },
+      { id: 14, category: 'momos', name: 'White Sauce Alfredo Pasta', price: 199, calories: '510 kcal', img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=500&q=80', shortDesc: 'Penne pasta tossed in rich garlic, cream and cheese sauce.' },
+      { id: 15, category: 'momos', name: 'Kurkure Fried Momos (6 Pcs)', price: 149, calories: '380 kcal', img: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=500&q=80', shortDesc: 'Crunchy cornflake coated fried momos tossed in schezwan spices.' },
+
+      // FRIES & SIDES
+      { id: 16, category: 'fries', name: 'Loaded Cheese Fries', price: 149, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80', shortDesc: 'Crispy French fries drenched in hot liquid cheese and herbs.' },
+      { id: 17, category: 'fries', name: 'Cheesy Garlic Breadsticks', price: 139, calories: '320 kcal', img: 'https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=500&q=80', shortDesc: 'Freshly baked bread with garlic herb butter and gooey mozzarella.' },
+
+      // BEVERAGES
+      { id: 18, category: 'beverages', name: 'Thick Chocolate Cold Coffee', price: 120, calories: '230 kcal', img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=500&q=80', shortDesc: 'Blended coffee with chocolate syrup and vanilla ice cream.' },
+      { id: 19, category: 'beverages', name: 'Virgin Mint Mojito', price: 99, calories: '110 kcal', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80', shortDesc: 'Fresh garden mint, crushed lime wedges and sparkling club soda.' }
     ];
 
-    // 2. Shopping Cart State
-    let cart = JSON.parse(localStorage.getItem('royalDineCart')) || [];
+    let cart = JSON.parse(localStorage.getItem('foodzillaCart')) || [];
 
     function saveCart() {
-      localStorage.setItem('royalDineCart', JSON.stringify(cart));
+      localStorage.setItem('foodzillaCart', JSON.stringify(cart));
       updateCartUI();
     }
 
     function addToCart(id) {
       const item = foodDatabase.find(x => x.id === id);
-      if (!item) return;
-
       const existing = cart.find(x => x.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...item, qty: 1 });
-      }
+      if (existing) existing.qty++;
+      else cart.push({ ...item, qty: 1 });
       saveCart();
-      toggleCart(true); // Open cart to show item added
+      toggleCart(true);
     }
 
     function changeQty(id, delta) {
       const item = cart.find(x => x.id === id);
       if (!item) return;
       item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(x => x.id !== id);
-      }
+      if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
       saveCart();
     }
 
@@ -1240,19 +677,15 @@
     }
 
     function updateCartUI() {
-      const countEl = document.getElementById('cartCountBadge');
+      document.getElementById('cartCountBadge').innerText = cart.reduce((a, b) => a + b.qty, 0);
       const container = document.getElementById('cartItemsContainer');
       const footer = document.getElementById('cartFooter');
-
-      const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
-      countEl.innerText = totalItems;
 
       if (cart.length === 0) {
         container.innerHTML = '<div class="cart-empty-msg">Aapka cart khali hai. Menu se delicious items add karein!</div>';
         footer.style.display = 'none';
         return;
       }
-
       footer.style.display = 'block';
       container.innerHTML = cart.map(item => `
         <div class="cart-item-row">
@@ -1270,251 +703,125 @@
         </div>
       `).join('');
 
-      // Calculations
-      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const subtotal = cart.reduce((a, b) => a + (b.price * b.qty), 0);
       const gst = Math.round(subtotal * 0.05);
-      const grandTotal = subtotal + gst;
-
       document.getElementById('subtotalVal').innerText = `₹${subtotal}`;
       document.getElementById('gstVal').innerText = `₹${gst}`;
-      document.getElementById('grandTotalVal').innerText = `₹${grandTotal}`;
+      document.getElementById('grandTotalVal').innerText = `₹${subtotal + gst}`;
     }
 
-    // Direct WhatsApp Item Order
-    function getWaOrderLink(name, price) {
-      const phone = "919876543210"; // Restaurant WhatsApp Number
-      const msg = encodeURIComponent(`Namaste! I would like to order: ${name} (₹${price}) from The Royal Dine.`);
-      return `https://wa.me/${phone}?text=${msg}`;
+    function getWaLink(name, price) {
+      return `https://wa.me/919876543210?text=${encodeURIComponent(`Namaste! I want to order ${name} (₹${price}) from Foodzilla Fast Food.`)}`;
     }
 
-    // Process Checkout
     function processCheckout() {
-      const currentUser = JSON.parse(localStorage.getItem('royalDineUser'));
-      if (!currentUser) {
-        alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
+      const user = JSON.parse(localStorage.getItem('foodzillaUser'));
+      if (!user) {
+        alert('Kripya pehle Login ya Account create karein.');
         openAuthModal();
         return;
       }
+      const payMode = document.querySelector('input[name="paymentType"]:checked').value;
+      const subtotal = cart.reduce((a, b) => a + (b.price * b.qty), 0);
+      const total = subtotal + Math.round(subtotal * 0.05);
 
-      const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
-      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
-      const gst = Math.round(subtotal * 0.05);
-      const grandTotal = subtotal + gst;
+      let summary = `🚨 *NEW ORDER - Foodzilla Fast Food*\n👤 Name: ${user.name}\n📞 Phone: ${user.phone}\n📍 Address: ${user.address}\n---------------------------\n`;
+      cart.forEach((i, idx) => summary += `${idx+1}. ${i.name} x ${i.qty} = ₹${i.price * i.qty}\n`);
+      summary += `---------------------------\n*Total: ₹${total}*\n💳 Payment: ${payMode}`;
 
-      let orderSummary = `👑 *The Royal Dine Order Summary*\\n`;
-      orderSummary += `👤 Name: ${currentUser.name}\\n📞 Phone: ${currentUser.phone}\\n📍 Address: ${currentUser.address}\\n---------------------------\\n`;
-      cart.forEach((item, index) => {
-        orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\\n`;
-      });
-      orderSummary += `---------------------------\\nSubtotal: ₹${subtotal}\\nGST (5%): ₹${gst}\\n*Grand Total: ₹${grandTotal}*\\n💳 Payment Method: ${paymentType === 'ONLINE' ? 'Online UPI / QR' : 'Cash on Delivery (COD)'}`;
-
-      if (paymentType === 'ONLINE') {
-        const confirmPay = confirm(`Grand Total: ₹${grandTotal}\\n\\nOnline Payment (UPI/QR) service open ki ja rahi hai. Confirm to proceed?`);
-        if (confirmPay) {
-          window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary + "\\n[Payment Screenshot Attached]")}`, '_blank');
-          cart = [];
-          saveCart();
-          toggleCart(false);
-          alert('Order received! WhatsApp par payment aur confirmation message bhej diya gaya hai.');
-        }
-      } else {
-        alert(`Aapka Cash on Delivery (COD) Order confirm ho gaya hai!\\nTotal: ₹${grandTotal}\\nFood 30-40 min me deliver hoga.`);
-        window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary + "\\n[Cash On Delivery Order]")}`, '_blank');
-        cart = [];
-        saveCart();
-        toggleCart(false);
-      }
+      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(summary)}`, '_blank');
+      cart = [];
+      saveCart();
+      toggleCart(false);
+      alert('Order placed successfully! Kitchen ko WhatsApp notification bhej diya gaya hai.');
     }
 
-    // 3. User Authentication & Google Sheets Integration
-    // Replace with your Google Apps Script Web App URL to save data directly into Google Sheet
-    const GOOGLE_SHEET_WEBHOOK_URL = ""; 
-
-    function handleRegister(e) {
-      e.preventDefault();
-      const userData = {
-        name: document.getElementById('regName').value,
-        phone: document.getElementById('regPhone').value,
-        email: document.getElementById('regEmail').value,
-        address: document.getElementById('regAddress').value,
-        pass: document.getElementById('regPass').value,
-        createdAt: new Date().toISOString()
-      };
-
-      // Save locally
-      localStorage.setItem('royalDineUser', JSON.stringify(userData));
-
-      // Optional: Post to Google Sheets Webhook
-      if (GOOGLE_SHEET_WEBHOOK_URL) {
-        fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(userData)
-        }).catch(err => console.log('Sheet upload error:', err));
-      }
-
-      alert(`Dhanyawad ${userData.name}! Aapka account successfully create ho gaya hai.`);
-      closeAuthModal();
-      checkUserSession();
-    }
-
-    function handleLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById('loginUser').value;
-      const pass = document.getElementById('loginPass').value;
-
-      const savedUser = JSON.parse(localStorage.getItem('royalDineUser'));
-      if (savedUser && (savedUser.phone === user || savedUser.email === user) && savedUser.pass === pass) {
-        alert(`Welcome back, ${savedUser.name}!`);
-        closeAuthModal();
-        checkUserSession();
-      } else {
-        // Fallback demo login
-        const demoUser = { name: user.split('@')[0], phone: user, email: user, address: 'Nagaur, Rajasthan' };
-        localStorage.setItem('royalDineUser', JSON.stringify(demoUser));
-        alert('Login successful!');
-        closeAuthModal();
-        checkUserSession();
-      }
-    }
-
-    function checkUserSession() {
-      const user = JSON.parse(localStorage.getItem('royalDineUser'));
-      const btn = document.getElementById('userProfileBtn');
-      if (user) {
-        btn.innerHTML = `👤 <span>${user.name.split(' ')[0]}</span>`;
-      } else {
-        btn.innerHTML = `👤 <span>Login / Account</span>`;
-      }
-    }
-
-    // Modal & Drawer Controllers
-    function toggleCart(forceOpen) {
-      const cartEl = document.getElementById('cartDrawer');
-      const overlay = document.getElementById('drawerOverlay');
-      if (forceOpen === true) {
-        cartEl.classList.add('active');
-        overlay.classList.add('active');
-      } else {
-        cartEl.classList.toggle('active');
-        overlay.classList.toggle('active');
-      }
-    }
-
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebarDrawer');
-      const overlay = document.getElementById('drawerOverlay');
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
-
-    function closeAllDrawers() {
-      document.getElementById('sidebarDrawer').classList.remove('active');
-      document.getElementById('cartDrawer').classList.remove('active');
-      document.getElementById('drawerOverlay').classList.remove('active');
-    }
-
-    function openAuthModal() {
-      closeAllDrawers();
-      document.getElementById('authModal').classList.add('active');
-    }
-    function closeAuthModal() { document.getElementById('authModal').classList.remove('active'); }
-    function closeAuthModalOnOutside(e) { if (e.target.id === 'authModal') closeAuthModal(); }
-
-    function switchAuthTab(tab, btn) {
-      document.querySelectorAll('.auth-tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (tab === 'login') {
-        document.getElementById('loginForm').style.display = 'block';
-        document.getElementById('registerForm').style.display = 'none';
-      } else {
-        document.getElementById('loginForm').style.display = 'none';
-        document.getElementById('registerForm').style.display = 'block';
-      }
-    }
-
-    // Render Menu Grid
     function renderMenu(items) {
-      const grid = document.getElementById('menuGrid');
-      grid.innerHTML = items.map(item => `
+      document.getElementById('menuGrid').innerHTML = items.map(item => `
         <div class="menu-card">
-          <div class="card-img-wrap" onclick="openDetailModal(${item.id})">
+          <div class="card-img-wrap">
             <img src="${item.img}" alt="${item.name}">
             <span class="calorie-pill">🔥 ${item.calories}</span>
           </div>
           <div class="card-content">
             <div class="card-title-row">
-              <h3 class="card-title" onclick="openDetailModal(${item.id})">${item.name}</h3>
+              <h3 class="card-title">${item.name}</h3>
               <span class="card-price">₹${item.price}</span>
             </div>
-            <div class="veg-indicator">
-              <div class="veg-dot"></div>
-              <span>PURE VEG</span>
-            </div>
+            <div class="veg-indicator"><div class="veg-dot"></div><span>100% PURE VEG</span></div>
             <p class="card-desc">${item.shortDesc}</p>
             <div class="card-action-row">
               <button class="btn-add-cart" onclick="addToCart(${item.id})">🛒 Add to Cart</button>
-              <a href="${getWaOrderLink(item.name, item.price)}" target="_blank" class="btn-quick-wa">📱 WhatsApp</a>
+              <a href="${getWaLink(item.name, item.price)}" target="_blank" class="btn-quick-wa">📱 WhatsApp</a>
             </div>
           </div>
         </div>
       `).join('');
     }
 
-    function filterCategory(category, btnElement) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      if (btnElement) btnElement.classList.add('active');
-      const filtered = foodDatabase.filter(item => item.category === category);
-      renderMenu(filtered);
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderMenu(foodDatabase.filter(i => i.category === cat));
     }
 
-    function openDetailModal(id) {
-      const item = foodDatabase.find(x => x.id === id);
-      if (!item) return;
-
-      document.getElementById('modalImg').src = item.img;
-      document.getElementById('modalTitle').innerText = item.name;
-      document.getElementById('modalPrice').innerText = `₹${item.price}`;
-      document.getElementById('modalCalories').innerText = item.calories;
-      document.getElementById('modalProtein').innerText = item.protein;
-      document.getElementById('modalCarbs').innerText = item.carbs;
-      document.getElementById('modalFat').innerText = item.fat;
-      document.getElementById('modalRecipe').innerText = item.recipe;
-
-      const ingEl = document.getElementById('modalIngredients');
-      ingEl.innerHTML = item.ingredients.map(ing => `<span class="ing-tag">${ing}</span>`).join('');
-
-      document.getElementById('modalAddCartBtn').onclick = () => {
-        addToCart(item.id);
-        closeDetailModal();
-      };
-      document.getElementById('modalWaBtn').href = getWaOrderLink(item.name, item.price);
-
-      document.getElementById('detailModal').classList.add('active');
+    // AUTH
+    function handleRegister(e) {
+      e.preventDefault();
+      const u = { name: document.getElementById('regName').value, phone: document.getElementById('regPhone').value, address: document.getElementById('regAddress').value, pass: document.getElementById('regPass').value };
+      localStorage.setItem('foodzillaUser', JSON.stringify(u));
+      alert(`Welcome ${u.name}! Account created successfully.`);
+      closeAuthModal();
+      checkSession();
+    }
+    function handleLogin(e) {
+      e.preventDefault();
+      const p = document.getElementById('loginUser').value;
+      const u = JSON.parse(localStorage.getItem('foodzillaUser'));
+      if (u && u.phone === p) {
+        alert(`Welcome back, ${u.name}!`);
+        closeAuthModal();
+        checkSession();
+      } else {
+        localStorage.setItem('foodzillaUser', JSON.stringify({ name: 'Foodie', phone: p, address: 'Nagaur' }));
+        alert('Login successful!');
+        closeAuthModal();
+        checkSession();
+      }
+    }
+    function checkSession() {
+      const u = JSON.parse(localStorage.getItem('foodzillaUser'));
+      if (u) document.getElementById('userProfileBtn').innerHTML = `👤 <span>${u.name.split(' ')[0]}</span>`;
     }
 
-    function closeDetailModal() { document.getElementById('detailModal').classList.remove('active'); }
-    function closeDetailModalOnOutside(e) { if (e.target.id === 'detailModal') closeDetailModal(); }
+    function toggleCart(open) {
+      const d = document.getElementById('cartDrawer'), o = document.getElementById('drawerOverlay');
+      if (open === true) { d.classList.add('active'); o.classList.add('active'); }
+      else { d.classList.toggle('active'); o.classList.toggle('active'); }
+    }
+    function toggleSidebar() {
+      document.getElementById('sidebarDrawer').classList.toggle('active');
+      document.getElementById('drawerOverlay').classList.toggle('active');
+    }
+    function closeAllDrawers() {
+      document.getElementById('sidebarDrawer').classList.remove('active');
+      document.getElementById('cartDrawer').classList.remove('active');
+      document.getElementById('drawerOverlay').classList.remove('active');
+    }
+    function openAuthModal() { closeAllDrawers(); document.getElementById('authModal').classList.add('active'); }
+    function closeAuthModal() { document.getElementById('authModal').classList.remove('active'); }
+    function closeAuthModalOnOutside(e) { if (e.target.id === 'authModal') closeAuthModal(); }
+    function switchAuthTab(tab, btn) {
+      document.querySelectorAll('.auth-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('loginForm').style.display = tab === 'login' ? 'block' : 'none';
+      document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
+    }
 
-    // Init on Load
     document.addEventListener('DOMContentLoaded', () => {
       filterCategory('burger', document.querySelector('.tab-btn.active'));
       updateCartUI();
-      checkUserSession();
-      const video = document.getElementById('heroVid');
-      if (video) {
-        video.muted = true;
-        video.play().catch(() => {});
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeDetailModal();
-        closeAuthModal();
-        closeAllDrawers();
-      }
+      checkSession();
     });
   </script>
 </body>
