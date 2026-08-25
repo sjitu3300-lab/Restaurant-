@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foodzilla Fast Food (F3) | Online Ordering & Menu</title>
+  <title>Foodzilla Fast Food | Expanded Menu & Cart</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -164,7 +164,7 @@
     }
     .add-cart-btn:hover { background: var(--primary-hover); }
 
-    /* ================= CART & CHECKOUT SIDEBAR DRAWER ================= */
+    /* Cart & Checkout Sidebar Drawer */
     .cart-drawer-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8);
       backdrop-filter: blur(5px); z-index: 1000; display: none;
@@ -180,7 +180,7 @@
     .cart-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.3rem; }
     .close-cart { background: none; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; }
     
-    .cart-items-list { flex-grow: 1; overflow-y: auto; max-height: 45vh; margin-bottom: 1rem; }
+    .cart-items-list { flex-grow: 1; overflow-y: auto; max-height: 40vh; margin-bottom: 1rem; }
     .cart-item { display: flex; justify-content: space-between; align-items: center; background: #1a1a22; padding: 0.8rem; border-radius: 8px; margin-bottom: 0.8rem; }
     .cart-item-info h5 { font-size: 0.9rem; color: #fff; }
     .cart-item-info p { font-size: 0.8rem; color: var(--gold); font-weight: 600; }
@@ -202,7 +202,6 @@
     }
     .place-order-btn:hover { opacity: 0.9; }
 
-    /* QR Code Box for Online Payment */
     .qr-box { background: #1a1a22; padding: 1rem; border-radius: 8px; text-align: center; margin-bottom: 1rem; display: none; }
     .qr-box img { width: 120px; height: 120px; margin-bottom: 0.5rem; border-radius: 6px; }
 
@@ -216,7 +215,7 @@
 
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo">Foodzilla F3</a>
+    <a href="index.html" class="logo">Foodzilla Fast Food</a>
     <div class="header-right">
       <a href="index.html" class="back-btn">← Home</a>
       <button class="cart-btn" onclick="toggleCartDrawer()">
@@ -227,8 +226,8 @@
 
   <!-- Intro -->
   <div class="menu-header">
-    <h1>Foodzilla Fast Food <span>(F3 Menu)</span></h1>
-    <p>Explore our crispy burgers, cheesy pizzas, momos and beverages. Add to cart & order instantly!</p>
+    <h1>Foodzilla Fast Food <span>(Complete Menu)</span></h1>
+    <p>Explore our wide range of delicious burgers, pizzas, sandwiches, momos & beverages. Add to cart & order instantly!</p>
   </div>
 
   <!-- Main Container -->
@@ -247,7 +246,7 @@
     <div class="menu-grid" id="menuGrid"></div>
   </div>
 
-  <!-- ================= CART & CHECKOUT SIDEBAR ================= -->
+  <!-- ================= CART & CHECKOUT DRAWER ================= -->
   <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
   <div class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
@@ -287,29 +286,38 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // Expanded Food Database for Foodzilla F3
+    // Expanded Food Database for Foodzilla Fast Food with More Varieties
     const foodDatabase = [
-      // Burgers
+      // --- BURGERS (More Varieties Added) ---
       { id: 1, category: 'burger', name: 'Monster Cheese Burger', price: 199, calories: '480 kcal', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80', desc: 'Double crispy patty, molten cheddar cheese, lettuce and secret sauce.', recipe: 'Crispy veggie patty with double cheddar, lettuce and chipotle mayo.', ingredients: ['Bun', 'Double Patty', 'Cheddar', 'Mayo'] },
       { id: 2, category: 'burger', name: 'Crispy Paneer Supreme Burger', price: 169, calories: '450 kcal', img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80', desc: 'Thick marinated paneer patty with tandoori mayo and crunchy onions.', recipe: 'Fried paneer slab with tandoori spices and lettuce.', ingredients: ['Paneer Patty', 'Bun', 'Tandoori Mayo'] },
       { id: 3, category: 'burger', name: 'Classic Aloo Crunch Burger', price: 89, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=500&q=80', desc: 'Desi spiced potato patty with tomatoes and tangy relish.', recipe: 'Spiced potato tikki in soft bun with tomato ketchup.', ingredients: ['Aloo Tikki', 'Bun', 'Ketchup'] },
+      { id: 4, category: 'burger', name: 'Peri-Peri Volcano Burger', price: 159, calories: '430 kcal', img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80', desc: 'Spicy grilled veg patty dusted with fiery African peri-peri and cheese.', recipe: 'Grilled patty with peri-peri dust and hot cheese sauce.', ingredients: ['Veg Patty', 'Peri-Peri', 'Cheese Sauce'] },
+      { id: 11, category: 'burger', name: 'Mushroom Double Decker Burger', price: 189, calories: '410 kcal', img: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80', desc: 'Sautéed mushrooms, caramelized onions and creamy garlic spread.', recipe: 'Pan-seared mushrooms layered over cheese patty.', ingredients: ['Mushrooms', 'Onions', 'Garlic Mayo', 'Cheese'] },
 
-      // Pizzas
-      { id: 4, category: 'pizza', name: 'Loaded Peri-Peri Pizza', price: 349, calories: '780 kcal', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80', desc: 'Loaded with bell peppers, jalapeños, corn and extra mozzarella cheese.', recipe: 'Hand-tossed base with spicy peri-peri sauce and veggies.', ingredients: ['Dough', 'Mozzarella', 'Jalapeños', 'Corn'] },
-      { id: 5, category: 'pizza', name: 'Tandoori Paneer Tikka Pizza', price: 379, calories: '820 kcal', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80', desc: 'Roasted paneer chunks, onions, red paprika and tandoori drizzle.', recipe: 'Pizza baked with tandoori marinated paneer and herbs.', ingredients: ['Paneer Tikka', 'Paprika', 'Mozzarella'] },
+      // --- PIZZAS (More Varieties Added) ---
+      { id: 5, category: 'pizza', name: 'Loaded Peri-Peri Pizza', price: 349, calories: '780 kcal', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80', desc: 'Loaded with bell peppers, jalapeños, corn and extra mozzarella cheese.', recipe: 'Hand-tossed base with spicy peri-peri sauce and veggies.', ingredients: ['Dough', 'Mozzarella', 'Jalapeños', 'Corn'] },
+      { id: 6, category: 'pizza', name: 'Tandoori Paneer Tikka Pizza', price: 379, calories: '820 kcal', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80', desc: 'Roasted paneer chunks, onions, red paprika and tandoori drizzle.', recipe: 'Pizza baked with tandoori marinated paneer and herbs.', ingredients: ['Paneer Tikka', 'Paprika', 'Mozzarella'] },
+      { id: 12, category: 'pizza', name: 'Farmhouse Veggie Supreme Pizza', price: 329, calories: '750 kcal', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80', desc: 'Fresh tomatoes, crisp capsicum, onions, black olives and herbs.', recipe: 'Classic stone-baked veggie pizza with rich tomato base.', ingredients: ['Tomatoes', 'Capsicum', 'Olives', 'Mozzarella'] },
+      { id: 13, category: 'pizza', name: 'Double Cheese Margherita', price: 249, calories: '680 kcal', img: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=500&q=80', desc: 'Simple yet delicious with double layer mozzarella and fresh basil.', recipe: 'Pure Italian style cheese pizza with aromatic olive oil.', ingredients: ['Basil', 'Double Cheese', 'Tomato Puree'] },
 
-      // Sandwiches
-      { id: 6, category: 'sandwich', name: 'Tandoori Grilled Sandwich', price: 159, calories: '390 kcal', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80', desc: 'Jumbo bread stuffed with tandoori paneer, mint chutney and cheese.', recipe: 'Grilled in sandwich press with butter and mint spread.', ingredients: ['Jumbo Bread', 'Paneer', 'Mint Chutney', 'Cheese'] },
+      // --- SANDWICHES (More Varieties Added) ---
+      { id: 7, category: 'sandwich', name: 'Tandoori Grilled Sandwich', price: 159, calories: '390 kcal', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=500&q=80', desc: 'Jumbo bread stuffed with tandoori paneer, mint chutney and cheese.', recipe: 'Grilled in sandwich press with butter and mint spread.', ingredients: ['Jumbo Bread', 'Paneer', 'Mint Chutney', 'Cheese'] },
+      { id: 14, category: 'sandwich', name: 'Bombay Masala Cheese Toast', price: 129, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=500&q=80', desc: 'Spiced potato masala, beetroot, cucumber slices and grated cheese.', recipe: 'Crispy toasted bread loaded with veggies and potato masala.', ingredients: ['Potato Masala', 'Beetroot', 'Cucumber', 'Cheese'] },
+      { id: 15, category: 'sandwich', name: 'Corn & Spinach Melt Sandwich', price: 149, calories: '360 kcal', img: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=500&q=80', desc: 'Creamy sweet corn and blanched spinach blended with melted cheese.', recipe: 'Creamy filling baked between brown bread slices.', ingredients: ['Sweet Corn', 'Spinach', 'White Sauce', 'Cheese'] },
 
-      // Momos & Noodles
-      { id: 7, category: 'momos', name: 'Steamed Veg Momos (8 Pcs)', price: 119, calories: '260 kcal', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80', desc: 'Minced veggie filling served with fiery red spicy chutney.', recipe: 'Steamed wheat wrappers stuffed with vegetables.', ingredients: ['Flour', 'Cabbage', 'Carrot', 'Spicy Chutney'] },
-      { id: 8, category: 'momos', name: 'White Sauce Alfredo Pasta', price: 199, calories: '510 kcal', img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=500&q=80', desc: 'Penne pasta tossed in rich garlic, cream and cheese sauce.', recipe: 'Boiled pasta in dairy cream and parmesan blend.', ingredients: ['Penne', 'Cream', 'Garlic', 'Olives'] },
+      // --- MOMOS & NOODLES ---
+      { id: 8, category: 'momos', name: 'Steamed Veg Momos (8 Pcs)', price: 119, calories: '260 kcal', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=500&q=80', desc: 'Minced veggie filling served with fiery red spicy chutney.', recipe: 'Steamed wheat wrappers stuffed with vegetables.', ingredients: ['Flour', 'Cabbage', 'Carrot', 'Spicy Chutney'] },
+      { id: 9, category: 'momos', name: 'White Sauce Alfredo Pasta', price: 199, calories: '510 kcal', img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=500&q=80', desc: 'Penne pasta tossed in rich garlic, cream and cheese sauce.', recipe: 'Boiled pasta in dairy cream and parmesan blend.', ingredients: ['Penne', 'Cream', 'Garlic', 'Olives'] },
+      { id: 16, category: 'momos', name: 'Kurkure Fried Momos (6 Pcs)', price: 149, calories: '380 kcal', img: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=500&q=80', desc: 'Crunchy cornflake coated fried momos tossed in schezwan spices.', recipe: 'Stuffed momos given a crunchy crust and deep fried.', ingredients: ['Momos', 'Cornflakes Crunch', 'Schezwan Dip'] },
 
-      // Fries & Sides
-      { id: 9, category: 'fries', name: 'Loaded Cheese Fries', price: 149, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80', desc: 'Crispy French fries drenched in hot liquid cheese and herbs.', recipe: 'Double fried potato batons with melted cheddar dip.', ingredients: ['Potatoes', 'Liquid Cheese', 'Herbs'] },
+      // --- FRIES & SIDES ---
+      { id: 10, category: 'fries', name: 'Loaded Cheese Fries', price: 149, calories: '340 kcal', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80', desc: 'Crispy French fries drenched in hot liquid cheese and herbs.', recipe: 'Double fried potato batons with melted cheddar dip.', ingredients: ['Potatoes', 'Liquid Cheese', 'Herbs'] },
+      { id: 17, category: 'fries', name: 'Cheesy Garlic Breadsticks', price: 139, calories: '320 kcal', img: 'https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=500&q=80', desc: 'Freshly baked bread with garlic herb butter and gooey mozzarella.', recipe: 'Oven baked breadsticks loaded with garlic and cheese.', ingredients: ['Artisan Bread', 'Garlic Butter', 'Mozzarella'] },
 
-      // Beverages
-      { id: 10, category: 'beverages', name: 'Thick Chocolate Cold Coffee', price: 120, calories: '230 kcal', img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=500&q=80', desc: 'Blended coffee with chocolate syrup and vanilla ice cream.', recipe: 'Espresso whipped with milk, chocolate fudge and ice cream.', ingredients: ['Coffee', 'Milk', 'Chocolate Fudge'] }
+      // --- BEVERAGES ---
+      { id: 18, category: 'beverages', name: 'Thick Chocolate Cold Coffee', price: 120, calories: '230 kcal', img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=500&q=80', desc: 'Blended coffee with chocolate syrup and vanilla ice cream.', recipe: 'Espresso whipped with milk, chocolate fudge and ice cream.', ingredients: ['Coffee', 'Milk', 'Chocolate Fudge'] }
+           { id: 19, category: 'beverages', name: 'Virgin Mint Mojito', price: 99, calories: '110 kcal', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80', desc: 'Fresh garden mint, crushed lime wedges and sparkling club soda.', recipe: 'Muddled mint leaves and lime with soda over crushed ice.', ingredients: ['Mint', 'Lime', 'Soda', 'Sugar'] }
     ];
 
     let cart = [];
@@ -409,54 +417,6 @@
       updateCartUI();
     }
 
-  function updateCartUI() {
-      const countEl = document.getElementById('cartCount');
-      const listEl = document.getElementById('cartItemsList');
-      const checkoutSec = document.getElementById('checkoutSection');
-      const totalEl = document.getElementById('cartTotalPrice');
-
-      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-      countEl.innerText = totalCount;
-
-      if (cart.length === 0) {
-        listEl.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Your cart is empty!</p>';
-        checkoutSec.style.display = 'none';
-        return;
-      }
-
-      checkoutSec.style.display = 'block';
-      let total = 0;
-      listEl.innerHTML = cart.map(item => {
-        total += item.price * item.qty;
-        return `
-          <div class="cart-item">
-            <div class="cart-item-info">
-              <h5>${item.name}</h5>
-              <p>₹${item.price} x ${item.qty} = ₹${item.price * item.qty}</p>
-            </div>
-            <div class="cart-item-controls">
-              <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-              <span>${item.qty}</span>
-              <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      totalEl.innerText = '₹' + total;
-    }
-
-    function changeQty(id, delta) {
-      const item = cart.find(c => c.id === id);
-      if (item) {
-        item.qty += delta;
-        if (item.qty <= 0) {
-          cart = cart.filter(c => c.id !== id);
-        }
-      }
-      updateCartUI();
-    }
-
     function toggleCartDrawer(forceOpen = false) {
       const drawer = document.getElementById('cartDrawer');
       const overlay = document.getElementById('cartOverlay');
@@ -473,7 +433,6 @@
       document.getElementById('qrBox').style.display = show ? 'block' : 'none';
     }
 
-    // Submit Order (Google Sheets + Phone Notification via WhatsApp)
     function submitOrder() {
       const name = document.getElementById('custName').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
@@ -488,15 +447,12 @@
       const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
       const itemsSummary = cart.map(i => `${i.name} (x${i.qty})`).join(', ');
 
-      // 1. WhatsApp / Phone Notification message link
-      const myWhatsAppNumber = "919876543210"; // Yahan apna restaurant ka WhatsApp/Phone number dalein
-      const msg = encodeURIComponent(`🚨 NEW ORDER - Foodzilla F3\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Address: ${address}\n🍔 Items: ${itemsSummary}\n💰 Total: ₹${total}\n💳 Payment: ${payMode}`);
+      const myWhatsAppNumber = "919876543210"; 
+      const msg = encodeURIComponent(`🚨 NEW ORDER - Foodzilla Fast Food\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Address: ${address}\n🍔 Items: ${itemsSummary}\n💰 Total: ₹${total}\n💳 Payment: ${payMode}`);
       
-      // Open WhatsApp to notify restaurant owner instantly
       window.open(`https://wa.me/${myWhatsAppNumber}?text=${msg}`, '_blank');
 
-      // 2. Google Sheets Integration simulation (Aap Google Apps Script URL yahan connect kar sakte hain)
-      alert(`🎉 Order Successfully Placed!\nThank you ${name}. Your order has been sent to Foodzilla F3 kitchen.`);
+      alert(`🎉 Order Successfully Placed!\nThank you ${name}. Your order has been sent to Foodzilla Fast Food kitchen.`);
       
       cart = [];
       updateCartUI();
