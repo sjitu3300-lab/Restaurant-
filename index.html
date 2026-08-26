@@ -904,14 +904,80 @@ footer.style.display = 'block';
       closeAuthModal();
       checkUserSession();
     }
+// Updated Checkout Function in index.html
+function processCheckout() {
+  const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
+  if (!currentUser) {
+    alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
+    openAuthModal();
+    return;
+  }
 
-    function processCheckout() {
-      const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
-      if (!currentUser) {
-        alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
-        openAuthModal();
-        return;
-      }
+  if (cart.length === 0) {
+    alert('Aapka cart khali hai!');
+    return;
+  }
+
+  const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
+  const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+  const gst = Math.round(subtotal * 0.05);
+  const grandTotal = subtotal + gst;
+  const itemsSummary = cart.map(i => `${i.name} (Qty: ${i.qty}) - ₹${i.price * i.qty}`).join(", ");
+
+  // Order Details Payload
+  const orderPayload = {
+    name: currentUser.name,
+    phone: currentUser.phone,
+    address: currentUser.address,
+    itemsSummary: itemsSummary,
+    subtotal: subtotal,
+    gst: gst,
+    grandTotal: grandTotal,
+    paymentType: paymentType
+  };
+
+  // 1. Agar ONLINE PAYMENT select kiya hai -> payment.html par le jao
+  if (paymentType === 'ONLINE') {
+    localStorage.setItem('foodzillaPendingOrder', JSON.stringify(orderPayload));
+    window.location.href = "payment.html";
+    return;
+  }
+
+  // 2. Agar CASH ON DELIVERY (COD) select kiya hai -> Direct WhatsApp Order & Sheet Save
+  const orderData = {
+    action: "order",
+    name: currentUser.name,
+    phone: currentUser.phone,
+    address: currentUser.address,
+    items: itemsSummary,
+    deliveryStatus: "Pending",
+    paymentStatus: `Cash on Delivery (COD) - ₹${grandTotal}`
+  };
+
+  if (GOOGLE_SHEET_WEBHOOK_URL) {
+    fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    }).catch(err => console.log('Sheet error:', err));
+  }
+
+  let orderSummary = `🦖 *Foodzilla Fast Food Order Summary*\n`;
+  orderSummary += `👤 Name: ${currentUser.name}\n📞 Phone: ${currentUser.phone}\n📍 Address: ${currentUser.address}\n---------------------------\n`;
+  cart.forEach((item, index) => {
+    orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+  });
+  orderSummary += `---------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment: Cash on Delivery (COD)`;
+
+  window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`, '_blank');
+  
+  cart = [];
+  saveCart();
+  toggleCart(false);
+  alert('Cash on Delivery (COD) order placed successfully!');
+}
+
 
       const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
       const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
