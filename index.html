@@ -30,7 +30,7 @@
       overflow-x: hidden;
     }
 
-    /* ================= 1. HEADER ================= */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
@@ -60,10 +60,7 @@
     }
     .menu-bar-btn:hover { background: var(--primary); color: #fff; }
 
-    .header-center-logo {
-      text-align: center;
-      text-decoration: none;
-    }
+    .header-center-logo { text-align: center; text-decoration: none; }
     .header-center-logo .logo-icon { font-size: 1.3rem; display: block; margin-bottom: -5px; }
     .header-center-logo .logo-text {
       font-family: 'Playfair Display', serif;
@@ -75,11 +72,7 @@
       letter-spacing: 1px;
     }
 
-    .header-right-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .header-right-actions { display: flex; align-items: center; gap: 0.75rem; }
 
     .profile-nav-btn {
       background: #18181f;
@@ -127,7 +120,7 @@
       justify-content: center;
     }
 
-    /* ================= SIDEBAR DRAWER ================= */
+    /* SIDEBAR DRAWER */
     .sidebar-drawer {
       position: fixed;
       top: 0;
@@ -167,10 +160,7 @@
     .sidebar-links a:hover { color: var(--gold); padding-left: 8px; }
     .drawer-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.75);
       backdrop-filter: blur(5px);
       z-index: 999;
@@ -178,7 +168,7 @@
     }
     .drawer-overlay.active { display: block; }
 
-    /* ================= 2. HERO SECTION WITH RESTAURANT BACKGROUND IMAGE ================= */
+    /* HERO SECTION */
     .hero-video-section {
       position: relative;
       height: 85vh;
@@ -188,17 +178,11 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      /* Unique High Resolution Restaurant Background Image with Overlay */
       background: linear-gradient(180deg, rgba(9, 9, 11, 0.65) 0%, rgba(9, 9, 11, 0.92) 100%), 
                   url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      padding: 0 1.5rem;
-      max-width: 860px;
-    }
+    .hero-content { position: relative; z-index: 3; padding: 0 1.5rem; max-width: 860px; }
     .hero-badge {
       display: inline-block;
       background: rgba(230, 57, 70, 0.25);
@@ -229,27 +213,19 @@
     .hero-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
     .btn {
       background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
-      color: #fff;
-      padding: 0.75rem 1.6rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      border: none;
-      cursor: pointer;
+      color: #fff; padding: 0.75rem 1.6rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      transition: all 0.3s; border: none; cursor: pointer;
       box-shadow: 0 4px 15px var(--primary-glow);
     }
     .btn:hover { transform: translateY(-3px); }
     .btn-outline {
       background: rgba(20, 20, 26, 0.8);
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      box-shadow: none;
+      color: var(--gold); border: 1px solid var(--gold); box-shadow: none;
     }
     .btn-outline:hover { background: var(--gold); color: #000; }
 
-    /* ================= 3. MENU SECTION ================= */
+    /* MENU SECTION */
     .menu-section { padding: 5rem 5%; max-width: 1320px; margin: 0 auto; }
     .section-header { text-align: center; margin-bottom: 2.8rem; }
     .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.7rem; color: #ffffff; margin-bottom: 0.4rem; }
@@ -258,39 +234,25 @@
 
     .category-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 3.5rem; }
     .tab-btn {
-      background: #15151c;
-      color: #d1d1db;
-      border: 1px solid var(--border-color);
-      padding: 0.65rem 1.4rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      background: #15151c; color: #d1d1db; border: 1px solid var(--border-color);
+      padding: 0.65rem 1.4rem; border-radius: 30px; font-size: 0.9rem;
+      font-weight: 500; cursor: pointer; transition: all 0.3s ease;
     }
     .tab-btn:hover, .tab-btn.active {
       background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
-      color: #fff;
-      border-color: var(--primary);
-      transform: translateY(-2px);
+      color: #fff; border-color: var(--primary); transform: translateY(-2px);
       box-shadow: 0 4px 18px var(--primary-glow);
     }
 
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 2.2rem; }
     .menu-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      display: flex;
-      flex-direction: column;
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      border-radius: 14px; overflow: hidden; transition: all 0.4s ease;
+      display: flex; flex-direction: column;
     }
     .menu-card:hover {
-      transform: translateY(-8px);
-      background: var(--card-hover);
-      border-color: var(--primary);
-      box-shadow: 0 15px 30px rgba(230, 57, 70, 0.25);
+      transform: translateY(-8px); background: var(--card-hover);
+      border-color: var(--primary); box-shadow: 0 15px 30px rgba(230, 57, 70, 0.25);
     }
 
     .card-img-wrap { position: relative; height: 210px; overflow: hidden; background: #0d0d10; cursor: pointer; }
@@ -298,18 +260,10 @@
     .menu-card:hover .card-img-wrap img { transform: scale(1.1); }
 
     .calorie-pill {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(9, 9, 11, 0.85);
-      backdrop-filter: blur(6px);
-      color: var(--gold);
-      padding: 4px 11px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid rgba(245, 166, 35, 0.3);
-      z-index: 2;
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(6px);
+      color: var(--gold); padding: 4px 11px; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(245, 166, 35, 0.3); z-index: 2;
     }
 
     .card-content { padding: 1.3rem; display: flex; flex-direction: column; flex-grow: 1; }
@@ -323,98 +277,50 @@
     
     .card-action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: auto; }
     .btn-add-cart {
-      background: #1e1e26;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
+      background: #1e1e26; color: var(--gold); border: 1px solid var(--gold);
+      padding: 0.5rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: 0.2s;
     }
     .btn-add-cart:hover { background: var(--gold); color: #000; }
 
     .btn-quick-wa {
-      background: #25d366;
-      color: #fff;
-      border: none;
-      padding: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: 0.2s;
+      background: #25d366; color: #fff; border: none; padding: 0.5rem;
+      border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+      text-decoration: none; text-align: center; transition: 0.2s;
     }
     .btn-quick-wa:hover { background: #1eb956; }
 
-    /* ================= 4. OWNER PROFILE SECTION (BOTTOM LEFT / UNIQUE) ================= */
-    .owner-section {
-      padding: 4rem 5%;
-      max-width: 1320px;
-      margin: 0 auto;
-    }
+    /* OWNER SECTION */
+    .owner-section { padding: 4rem 5%; max-width: 1320px; margin: 0 auto; }
     .owner-profile-card {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 2.5rem;
-      align-items: center;
+      display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem; align-items: center;
       background: linear-gradient(145deg, #16161f 0%, #111116 100%);
       border: 1px solid rgba(245, 166, 35, 0.3);
       box-shadow: 0 15px 40px rgba(0,0,0,0.85), 0 0 25px rgba(230,57,70,0.15);
-      border-radius: 16px;
-      padding: 2.5rem;
+      border-radius: 16px; padding: 2.5rem;
     }
-    .owner-avatar-wrap {
-      text-align: center;
-    }
+    .owner-avatar-wrap { text-align: center; }
     .owner-avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--gold);
-      box-shadow: 0 8px 25px rgba(245, 166, 35, 0.3);
-      margin: 0 auto 0.8rem;
-      display: block;
+      width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+      border: 4px solid var(--gold); box-shadow: 0 8px 25px rgba(245, 166, 35, 0.3);
+      margin: 0 auto 0.8rem; display: block;
     }
     .owner-badge {
-      display: inline-block;
-      background: rgba(230, 57, 70, 0.2);
-      color: var(--gold);
-      border: 1px solid rgba(245, 166, 35, 0.4);
-      padding: 0.25rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      display: inline-block; background: rgba(230, 57, 70, 0.2); color: var(--gold);
+      border: 1px solid rgba(245, 166, 35, 0.4); padding: 0.25rem 0.9rem;
+      border-radius: 20px; font-size: 0.75rem; font-weight: 600;
     }
     .owner-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 0.2rem; }
     .owner-designation { color: var(--gold); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; display: block; }
     .owner-quote {
-      font-style: italic;
-      color: #e2e2ea;
-      border-left: 3px solid var(--primary);
-      padding-left: 1rem;
-      margin: 0.8rem 0;
-      font-size: 0.95rem;
+      font-style: italic; color: #e2e2ea; border-left: 3px solid var(--primary);
+      padding-left: 1rem; margin: 0.8rem 0; font-size: 0.95rem;
     }
 
-    /* ================= 5. SHOPPING CART DRAWER ================= */
+    /* CART DRAWER */
     .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: -420px;
-      width: 400px;
-      max-width: 90vw;
-      height: 100%;
-      background: #131318;
-      border-left: 1px solid var(--border-color);
-      z-index: 1001;
-      transition: right 0.35s ease;
-      display: flex;
-      flex-direction: column;
+      position: fixed; top: 0; right: -420px; width: 400px; max-width: 90vw; height: 100%;
+      background: #131318; border-left: 1px solid var(--border-color); z-index: 1001;
+      transition: right 0.35s ease; display: flex; flex-direction: column;
       box-shadow: -10px 0 35px rgba(0,0,0,0.85);
     }
     .cart-drawer.active { right: 0; }
@@ -425,14 +331,8 @@
     .cart-empty-msg { text-align: center; color: var(--text-muted); padding: 3rem 1rem; font-size: 0.95rem; }
 
     .cart-item-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #1a1a22;
-      padding: 0.8rem;
-      border-radius: 8px;
-      margin-bottom: 0.8rem;
-      border: 1px solid #282834;
+      display: flex; align-items: center; gap: 12px; background: #1a1a22;
+      padding: 0.8rem; border-radius: 8px; margin-bottom: 0.8rem; border: 1px solid #282834;
     }
     .cart-item-img { width: 55px; height: 55px; border-radius: 6px; object-fit: cover; }
     .cart-item-info { flex-grow: 1; }
@@ -454,44 +354,22 @@
     .payment-select-box label { display: block; font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 0.4rem; }
     .pay-options { display: flex; gap: 10px; }
     .pay-option-label {
-      flex: 1;
-      background: #121217;
-      border: 1px solid var(--border-color);
-      padding: 0.5rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      flex: 1; background: #121217; border: 1px solid var(--border-color);
+      padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
     }
     .pay-option-label input { accent-color: var(--primary); }
     .checkout-btn {
-      width: 100%;
-      background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
-      color: #fff;
-      border: none;
-      padding: 0.85rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
+      width: 100%; background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
+      color: #fff; border: none; padding: 0.85rem; border-radius: 8px;
+      font-weight: 700; font-size: 0.95rem; cursor: pointer;
     }
 
-    /* ================= 6. USER AUTH MODAL ================= */
+    /* AUTH MODAL */
     .auth-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1002;
-      padding: 1rem;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+      display: none; justify-content: center; align-items: center; z-index: 1002; padding: 1rem;
     }
     .auth-modal-overlay.active { display: flex; }
     .auth-card { background: #141419; border: 1px solid #2d2d38; border-radius: 16px; max-width: 480px; width: 100%; padding: 2rem; position: relative; }
@@ -508,48 +386,21 @@
       width: 100%; background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%); color: #fff; padding: 0.85rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 0.5rem;
     }
 
-    /* ================= 7. 3D FOOD DETAIL MODAL ================= */
+    /* 3D FOOD DETAIL MODAL */
     .detail-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(10px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      padding: 1rem;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(10px);
+      display: none; justify-content: center; align-items: center; z-index: 1000; padding: 1rem;
     }
     .detail-modal-overlay.active { display: flex; }
     .detail-modal-card {
-      background: #141419;
-      border: 1px solid #2d2d38;
-      border-radius: 18px;
-      max-width: 660px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      padding: 2.2rem 2rem;
+      background: #141419; border: 1px solid #2d2d38; border-radius: 18px;
+      max-width: 660px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; padding: 2.2rem 2rem;
     }
     .close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: #20202a;
-      color: #fff;
-      border: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: absolute; top: 16px; right: 16px; background: #20202a; color: #fff;
+      border: none; width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
     }
     .close-btn:hover { background: var(--primary); }
 
@@ -566,7 +417,7 @@
     .modal-price { color: var(--gold); font-size: 1.5rem; font-weight: 700; }
 
     .nutrition-box { background: #1b1b24; border-radius: 12px; padding: 1rem; margin: 1rem 0; border: 1px solid #292936; }
-     .nutrition-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 0.6rem; font-weight: 600; }
+    .nutrition-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 0.6rem; font-weight: 600; }
     .nutrition-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; text-align: center; }
     .nutri-item { background: #121217; padding: 0.5rem 0.3rem; border-radius: 8px; }
     .nutri-val { font-size: 1.05rem; font-weight: 700; color: #fff; display: block; }
@@ -581,8 +432,7 @@
     .modal-actions-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem; }
     .modal-add-cart-btn { background: var(--gold); color: #000; padding: 0.85rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; }
     .modal-wa-btn { background: #25d366; color: #fff; padding: 0.85rem; border-radius: 8px; text-decoration: none; font-weight: 700; text-align: center; }
-
-    /* ================= 8. FOOTER ================= */
+/* FOOTER */
     footer { background: #060608; padding: 5rem 5% 2rem; border-top: 1px solid var(--border-color); }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3.5rem; }
     .footer-col h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 1.2rem; font-family: 'Playfair Display', serif; }
@@ -731,7 +581,7 @@
     <div class="menu-grid" id="menuGrid"></div>
   </section>
 
-  <!-- ================= FOUNDER & OWNER PROFILE (BOTTOM SECTION) ================= -->
+  <!-- FOUNDER & OWNER PROFILE -->
   <section class="owner-section" id="owner-section">
     <div class="owner-profile-card">
       <div class="owner-avatar-wrap">
@@ -819,7 +669,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPT WITH GOOGLE SHEETS LINK CONNECTED -->
   <script>
     const foodDatabase = [
       {
@@ -961,7 +811,7 @@
       const item = foodDatabase.find(x => x.id === id);
       if (!item) return;
       const existing = cart.find(x => x.id === id);
-      if (existing) { existing.qty += 1; } else { cart.push({ ...item, qty: 1 }); }
+      if (existing) { existing.qty++; } else { cart.push({ ...item, qty: 1 }); }
       saveCart();
       toggleCart(true);
     }
@@ -1025,44 +875,18 @@
       return `https://wa.me/${phone}?text=${msg}`;
     }
 
-    function processCheckout() {
-      const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
-      if (!currentUser) {
-        alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
-        openAuthModal();
-        return;
-      }
-
-      const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
-      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
-      const gst = Math.round(subtotal * 0.05);
-      const grandTotal = subtotal + gst;
-
-      let orderSummary = `🦖 *Foodzilla Fast Food Order Summary*\\n`;
-      orderSummary += `👤 Name: ${currentUser.name}\\n📞 Phone: ${currentUser.phone}\\n📍 Address: ${currentUser.address}\\n---------------------------\\n`;
-      cart.forEach((item, index) => {
-        orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\\n`;
-      });
-      orderSummary += `---------------------------\\nSubtotal: ₹${subtotal}\\nGST (5%): ₹${gst}\\n*Grand Total: ₹${grandTotal}*\\n💳 Payment: ${paymentType === 'ONLINE' ? 'Online UPI/QR' : 'Cash on Delivery (COD)'}`;
-
-      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`, '_blank');
-      cart = [];
-      saveCart();
-      toggleCart(false);
-      alert('Order placed successfully! WhatsApp par bill aur confirmation bhej diya gaya hai.');
-    }
-
-    const GOOGLE_SHEET_WEBHOOK_URL = ""; 
+    // Google Sheet Webhook URL Linked Here
+    const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw0U7xDsW7xvR4UnEB2AuU9pG7_gFUdHtRyoYDJjYGHLPtygYALhEIFOCXTHMSrzYlKgQ/exec";
 
     function handleRegister(e) {
       e.preventDefault();
       const userData = {
+        action: "register",
         name: document.getElementById('regName').value,
         phone: document.getElementById('regPhone').value,
         email: document.getElementById('regEmail').value,
         address: document.getElementById('regAddress').value,
-        pass: document.getElementById('regPass').value,
-        createdAt: new Date().toISOString()
+        password: document.getElementById('regPass').value
       };
 
       localStorage.setItem('foodzillaUser', JSON.stringify(userData));
@@ -1079,6 +903,55 @@
       alert(`Dhanyawad ${userData.name}! Foodzilla me aapka account create ho gaya hai.`);
       closeAuthModal();
       checkUserSession();
+    }
+
+    function processCheckout() {
+      const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
+      if (!currentUser) {
+        alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
+        openAuthModal();
+        return;
+      }
+
+      const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const gst = Math.round(subtotal * 0.05);
+      const grandTotal = subtotal + gst;
+
+      const itemsSummary = cart.map(i => `${i.name} (Qty: ${i.qty}) - ₹${i.price * i.qty}`).join(", ");
+
+      const orderData = {
+        action: "order",
+        name: currentUser.name,
+        phone: currentUser.phone,
+        address: currentUser.address,
+        items: itemsSummary,
+        deliveryStatus: "Pending",
+        paymentStatus: paymentType === 'ONLINE' ? `Online UPI (₹${grandTotal})` : `COD (₹${grandTotal})`
+      };
+
+      if (GOOGLE_SHEET_WEBHOOK_URL) {
+        fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        }).catch(err => console.log('Order sheet error:', err));
+      }
+
+      let orderSummary = `🦖 *Foodzilla Fast Food Order Summary*\n`;
+      orderSummary += `👤 Name: ${currentUser.name}\n📞 Phone: ${currentUser.phone}\n📍 Address: ${currentUser.address}\n---------------------------\n`;
+      cart.forEach((item, index) => {
+        orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+      });
+      orderSummary += `---------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment: ${orderData.paymentStatus}`;
+
+      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`, '_blank');
+      
+      cart = [];
+      saveCart();
+      toggleCart(false);
+      alert('Order successfully placed! Details Google Sheet aur WhatsApp par bhej di gayi hain.');
     }
 
     function handleLogin(e) {
