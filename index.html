@@ -32,196 +32,106 @@
 
     /* HEADER */
     header {
-      position: sticky;
-      top: 0;
+      position: sticky; top: 0;
       background: rgba(9, 9, 11, 0.95);
       backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.9rem 5%;
-      border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.9rem 5%; border-bottom: 1px solid var(--border-color);
       z-index: 100;
     }
 
     .menu-bar-btn {
-      background: #18181f;
-      color: var(--gold);
-      border: 1px solid var(--border-color);
-      padding: 0.55rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
+      background: #18181f; color: var(--gold); border: 1px solid var(--border-color);
+      padding: 0.55rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+      font-weight: 600; display: flex; align-items: center; gap: 6px; transition: 0.3s;
     }
     .menu-bar-btn:hover { background: var(--primary); color: #fff; }
 
     .header-center-logo { text-align: center; text-decoration: none; }
     .header-center-logo .logo-icon { font-size: 1.3rem; display: block; margin-bottom: -5px; }
     .header-center-logo .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 800;
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800;
       background: linear-gradient(135deg, #fff 20%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px;
     }
 
     .header-right-actions { display: flex; align-items: center; gap: 0.75rem; }
-
     .profile-nav-btn {
-      background: #18181f;
-      color: var(--text);
-      border: 1px solid var(--border-color);
-      padding: 0.55rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: 0.3s;
+      background: #18181f; color: var(--text); border: 1px solid var(--border-color);
+      padding: 0.55rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem;
+      font-weight: 600; display: flex; align-items: center; gap: 6px; transition: 0.3s;
     }
     .profile-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
 
     .cart-nav-btn {
       background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
-      color: #fff;
-      border: none;
-      padding: 0.55rem 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px var(--primary-glow);
-      transition: all 0.3s ease;
-      position: relative;
+      color: #fff; border: none; padding: 0.55rem 1.1rem; border-radius: 8px;
+      cursor: pointer; font-size: 0.85rem; font-weight: 700; display: flex;
+      align-items: center; gap: 8px; box-shadow: 0 4px 15px var(--primary-glow);
+      position: relative; transition: 0.3s;
     }
     .cart-nav-btn:hover { transform: translateY(-2px); }
     .cart-count-badge {
-      background: var(--gold);
-      color: #000;
-      font-size: 0.75rem;
-      font-weight: 800;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--gold); color: #000; font-size: 0.75rem; font-weight: 800;
+      width: 20px; height: 20px; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
     }
 
     /* SIDEBAR DRAWER */
     .sidebar-drawer {
-      position: fixed;
-      top: 0;
-      left: -320px;
-      width: 300px;
-      height: 100%;
-      background: #111116;
-      border-right: 1px solid var(--border-color);
-      z-index: 1000;
-      transition: left 0.35s ease;
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
+      position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
+      background: #111116; border-right: 1px solid var(--border-color); z-index: 1000;
+      transition: left 0.35s ease; padding: 2rem 1.5rem; display: flex; flex-direction: column;
       box-shadow: 10px 0 35px rgba(0,0,0,0.85);
     }
     .sidebar-drawer.active { left: 0; }
     .sidebar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 1.2rem;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 1.2rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem;
     }
     .sidebar-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.3rem; font-weight: 700; }
     .sidebar-close { background: none; border: none; color: var(--text-muted); font-size: 1.6rem; cursor: pointer; }
     .sidebar-links a {
-      display: block;
-      color: var(--text);
-      text-decoration: none;
-      padding: 0.85rem 0;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border-bottom: 1px solid #1a1a22;
-      transition: 0.3s;
+      display: block; color: var(--text); text-decoration: none; padding: 0.85rem 0;
+      font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid #1a1a22; transition: 0.3s;
     }
     .sidebar-links a:hover { color: var(--gold); padding-left: 8px; }
     .drawer-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(5px);
-      z-index: 999;
-      display: none;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(5px); z-index: 999; display: none;
     }
     .drawer-overlay.active { display: block; }
 
     /* HERO SECTION */
     .hero-video-section {
-      position: relative;
-      height: 85vh;
-      min-height: 540px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      position: relative; height: 85vh; min-height: 540px;
+      display: flex; justify-content: center; align-items: center; text-align: center;
       overflow: hidden;
       background: linear-gradient(180deg, rgba(9, 9, 11, 0.65) 0%, rgba(9, 9, 11, 0.92) 100%), 
                   url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
-
     .hero-content { position: relative; z-index: 3; padding: 0 1.5rem; max-width: 860px; }
     .hero-badge {
-      display: inline-block;
-      background: rgba(230, 57, 70, 0.25);
-      color: var(--gold);
-      border: 1px solid rgba(245, 166, 35, 0.5);
-      padding: 0.35rem 1.2rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      display: inline-block; background: rgba(230, 57, 70, 0.25); color: var(--gold);
+      border: 1px solid rgba(245, 166, 35, 0.5); padding: 0.35rem 1.2rem; border-radius: 30px;
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;
     }
     .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.4rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-      color: #ffffff;
-      text-shadow: 0 4px 25px rgba(0,0,0,0.9);
+      font-family: 'Playfair Display', serif; font-size: 3.4rem; margin-bottom: 1rem;
+      line-height: 1.2; color: #ffffff; text-shadow: 0 4px 25px rgba(0,0,0,0.9);
     }
     .hero-content p {
-      font-size: 1.15rem;
-      color: #e2e2e8;
-      margin-bottom: 2rem;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+      font-size: 1.15rem; color: #e2e2e8; margin-bottom: 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.8);
     }
     .hero-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
-      color: #fff; padding: 0.75rem 1.6rem; border-radius: 8px;
-      text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      transition: all 0.3s; border: none; cursor: pointer;
-      box-shadow: 0 4px 15px var(--primary-glow);
+      background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%); color: #fff;
+      padding: 0.75rem 1.6rem; border-radius: 8px; text-decoration: none; font-weight: 600;
+      font-size: 0.95rem; transition: 0.3s; border: none; cursor: pointer; box-shadow: 0 4px 15px var(--primary-glow);
     }
     .btn:hover { transform: translateY(-3px); }
     .btn-outline {
-      background: rgba(20, 20, 26, 0.8);
-      color: var(--gold); border: 1px solid var(--gold); box-shadow: none;
+      background: rgba(20, 20, 26, 0.8); color: var(--gold); border: 1px solid var(--gold); box-shadow: none;
     }
     .btn-outline:hover { background: var(--gold); color: #000; }
 
@@ -235,34 +145,31 @@
     .category-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 3.5rem; }
     .tab-btn {
       background: #15151c; color: #d1d1db; border: 1px solid var(--border-color);
-      padding: 0.65rem 1.4rem; border-radius: 30px; font-size: 0.9rem;
-      font-weight: 500; cursor: pointer; transition: all 0.3s ease;
+      padding: 0.65rem 1.4rem; border-radius: 30px; font-size: 0.9rem; font-weight: 500;
+      cursor: pointer; transition: all 0.3s ease;
     }
     .tab-btn:hover, .tab-btn.active {
       background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%);
-      color: #fff; border-color: var(--primary); transform: translateY(-2px);
-      box-shadow: 0 4px 18px var(--primary-glow);
+      color: #fff; border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 18px var(--primary-glow);
     }
 
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 2.2rem; }
     .menu-card {
-      background: var(--card-bg); border: 1px solid var(--border-color);
-      border-radius: 14px; overflow: hidden; transition: all 0.4s ease;
-      display: flex; flex-direction: column;
+      background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px;
+      overflow: hidden; transition: 0.4s; display: flex; flex-direction: column;
     }
     .menu-card:hover {
-      transform: translateY(-8px); background: var(--card-hover);
-      border-color: var(--primary); box-shadow: 0 15px 30px rgba(230, 57, 70, 0.25);
+      transform: translateY(-8px); background: var(--card-hover); border-color: var(--primary);
+      box-shadow: 0 15px 30px rgba(230, 57, 70, 0.25);
     }
 
     .card-img-wrap { position: relative; height: 210px; overflow: hidden; background: #0d0d10; cursor: pointer; }
-    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
     .menu-card:hover .card-img-wrap img { transform: scale(1.1); }
 
     .calorie-pill {
-      position: absolute; top: 12px; right: 12px;
-      background: rgba(9, 9, 11, 0.85); backdrop-filter: blur(6px);
-      color: var(--gold); padding: 4px 11px; border-radius: 20px;
+      position: absolute; top: 12px; right: 12px; background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(6px); color: var(--gold); padding: 4px 11px; border-radius: 20px;
       font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(245, 166, 35, 0.3); z-index: 2;
     }
 
@@ -283,9 +190,8 @@
     .btn-add-cart:hover { background: var(--gold); color: #000; }
 
     .btn-quick-wa {
-      background: #25d366; color: #fff; border: none; padding: 0.5rem;
-      border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-      text-decoration: none; text-align: center; transition: 0.2s;
+      background: #25d366; color: #fff; border: none; padding: 0.5rem; border-radius: 6px;
+      font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: none; text-align: center; transition: 0.2s;
     }
     .btn-quick-wa:hover { background: #1eb956; }
 
@@ -306,22 +212,17 @@
     }
     .owner-badge {
       display: inline-block; background: rgba(230, 57, 70, 0.2); color: var(--gold);
-      border: 1px solid rgba(245, 166, 35, 0.4); padding: 0.25rem 0.9rem;
-      border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+      border: 1px solid rgba(245, 166, 35, 0.4); padding: 0.25rem 0.9rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600;
     }
     .owner-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #fff; margin-bottom: 0.2rem; }
     .owner-designation { color: var(--gold); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.8rem; display: block; }
-    .owner-quote {
-      font-style: italic; color: #e2e2ea; border-left: 3px solid var(--primary);
-      padding-left: 1rem; margin: 0.8rem 0; font-size: 0.95rem;
-    }
+    .owner-quote { font-style: italic; color: #e2e2ea; border-left: 3px solid var(--primary); padding-left: 1rem; margin: 0.8rem 0; font-size: 0.95rem; }
 
     /* CART DRAWER */
     .cart-drawer {
       position: fixed; top: 0; right: -420px; width: 400px; max-width: 90vw; height: 100%;
       background: #131318; border-left: 1px solid var(--border-color); z-index: 1001;
-      transition: right 0.35s ease; display: flex; flex-direction: column;
-      box-shadow: -10px 0 35px rgba(0,0,0,0.85);
+      transition: right 0.35s ease; display: flex; flex-direction: column; box-shadow: -10px 0 35px rgba(0,0,0,0.85);
     }
     .cart-drawer.active { right: 0; }
     .cart-header { padding: 1.4rem; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
@@ -355,14 +256,12 @@
     .pay-options { display: flex; gap: 10px; }
     .pay-option-label {
       flex: 1; background: #121217; border: 1px solid var(--border-color);
-      padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; cursor: pointer;
-      display: flex; align-items: center; gap: 6px;
+      padding: 0.5rem; border-radius: 6px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 6px;
     }
     .pay-option-label input { accent-color: var(--primary); }
     .checkout-btn {
       width: 100%; background: linear-gradient(135deg, var(--primary) 0%, #d63031 100%);
-      color: #fff; border: none; padding: 0.85rem; border-radius: 8px;
-      font-weight: 700; font-size: 0.95rem; cursor: pointer;
+      color: #fff; border: none; padding: 0.85rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer;
     }
 
     /* AUTH MODAL */
@@ -386,7 +285,7 @@
       width: 100%; background: linear-gradient(135deg, var(--primary) 0%, #c0392b 100%); color: #fff; padding: 0.85rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 0.5rem;
     }
 
-    /* 3D FOOD DETAIL MODAL */
+    /* DETAIL MODAL */
     .detail-modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(10px);
@@ -407,8 +306,8 @@
     .dish-stage { text-align: center; padding: 0.5rem 0; }
     .dish-halo { position: relative; width: 200px; height: 200px; margin: 0 auto; }
     .dish-img {
-      width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold); box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 30px rgba(230, 57, 70, 0.45);
-      animation: dishFloat 4s ease-in-out infinite alternate;
+      width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--gold);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 30px rgba(230, 57, 70, 0.45); animation: dishFloat 4s ease-in-out infinite alternate;
     }
     @keyframes dishFloat { 0% { transform: translateY(0px); } 100% { transform: translateY(-10px); } }
 
@@ -433,7 +332,7 @@
     .modal-add-cart-btn { background: var(--gold); color: #000; padding: 0.85rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; }
     .modal-wa-btn { background: #25d366; color: #fff; padding: 0.85rem; border-radius: 8px; text-decoration: none; font-weight: 700; text-align: center; }
 
- /* FOOTER */
+    /* FOOTER */
     footer { background: #060608; padding: 5rem 5% 2rem; border-top: 1px solid var(--border-color); }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3.5rem; }
     .footer-col h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 1.2rem; font-family: 'Playfair Display', serif; }
@@ -442,7 +341,6 @@
     .footer-links li { margin-bottom: 0.7rem; }
     .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: all 0.3s; }
     .footer-links a:hover { color: var(--primary); }
-
     .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #16161f; color: #6c6c78; font-size: 0.85rem; }
 
     @media (max-width: 768px) {
@@ -459,22 +357,14 @@
 
   <!-- HEADER -->
   <header>
-    <button class="menu-bar-btn" onclick="toggleSidebar()">
-      <span>☰</span> Menu
-    </button>
-
+    <button class="menu-bar-btn" onclick="toggleSidebar()"><span>☰</span> Menu</button>
     <a href="#" class="header-center-logo">
       <span class="logo-icon">🦖</span>
       <span class="logo-text">Foodzilla Fast Food</span>
     </a>
-
     <div class="header-right-actions">
-      <button class="profile-nav-btn" onclick="openAuthModal()" id="userProfileBtn">
-        👤 <span>Login / Account</span>
-      </button>
-      <button class="cart-nav-btn" onclick="toggleCart()">
-        🛒 Cart <span class="cart-count-badge" id="cartCountBadge">0</span>
-      </button>
+      <button class="profile-nav-btn" onclick="openAuthModal()" id="userProfileBtn">👤 <span>Login / Account</span></button>
+      <button class="cart-nav-btn" onclick="toggleCart()">🛒 Cart <span class="cart-count-badge" id="cartCountBadge">0</span></button>
     </div>
   </header>
 
@@ -510,14 +400,14 @@
     <div class="cart-footer" id="cartFooter" style="display: none;">
       <div class="calc-row"><span>Item Subtotal:</span><span id="subtotalVal">₹0</span></div>
       <div class="calc-row"><span>GST (5%):</span><span id="gstVal">₹0</span></div>
-      <div class="calc-row"><span>Delivery Fee:</span><span id="deliveryVal">FREE</span></div>
+      <div class="calc-row"><span>Delivery Fee:</span><span>FREE</span></div>
       <div class="calc-row total-row"><span>Grand Total:</span><span id="grandTotalVal">₹0</span></div>
 
       <div class="payment-select-box">
         <label>Select Payment Option:</label>
         <div class="pay-options">
-          <label class="pay-option-label"><input type="radio" name="paymentType" value="ONLINE" checked> 💳 Online UPI / QR</label>
-          <label class="pay-option-label"><input type="radio" name="paymentType" value="COD"> 💵 Cash on Delivery</label>
+          <label class="pay-option-label"><input type="radio" name="paymentType" value="ONLINE" checked> <span>💳 Online UPI / QR</span></label>
+          <label class="pay-option-label"><input type="radio" name="paymentType" value="COD"> <span>💵 Cash on Delivery</span></label>
         </div>
       </div>
       <button class="checkout-btn" onclick="processCheckout()">Place Order & Pay</button>
@@ -534,9 +424,9 @@
       </div>
 
       <form id="loginForm" onsubmit="handleLogin(event)">
-        <div class="form-group"><label>Phone or Email</label><input type="text" id="loginUser" placeholder="Enter phone/email" required></div>
+        <div class="form-group"><label>Mobile Number / Email</label><input type="text" id="loginUser" placeholder="Enter phone/email" required></div>
         <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="Enter password" required></div>
-        <button type="submit" class="auth-submit-btn">Login</button>
+        <button type="submit" class="auth-submit-btn">Login to Account</button>
       </form>
 
       <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
@@ -544,13 +434,13 @@
         <div class="form-group"><label>Mobile / WhatsApp</label><input type="tel" id="regPhone" placeholder="+91 98765 XXXXX" required></div>
         <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="name@example.com" required></div>
         <div class="form-group"><label>Delivery Address (Nagaur)</label><textarea id="regAddress" rows="2" placeholder="House no, Street, Colony..." required></textarea></div>
-        <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Choose a password" required></div>
+        <div class="form-group"><label>Create Password</label><input type="password" id="regPass" placeholder="Choose password" required></div>
         <button type="submit" class="auth-submit-btn">Create & Save Account</button>
       </form>
     </div>
   </div>
 
-  <!-- HERO SECTION WITH RESTAURANT BACKGROUND IMAGE -->
+  <!-- HERO SECTION -->
   <section class="hero-video-section" id="home">
     <div class="hero-content">
       <span class="hero-badge">Pure Taste • Monster Flavors</span>
@@ -563,7 +453,7 @@
     </div>
   </section>
 
-  <!-- MENU SECTION -->
+  <!-- MENU SECTION (8 VARIETIES PER CATEGORY) -->
   <section class="menu-section" id="menu-section">
     <div class="section-header">
       <h2>Foodzilla <span>Fast Food</span> Menu</h2>
@@ -571,18 +461,18 @@
     </div>
 
     <div class="category-tabs">
-      <button class="tab-btn active" onclick="filterCategory('burger', this)">🍔 Burgers</button>
-      <button class="tab-btn" onclick="filterCategory('pizza', this)">🍕 Pizzas</button>
-      <button class="tab-btn" onclick="filterCategory('sandwich', this)">🥪 Sandwiches</button>
-      <button class="tab-btn" onclick="filterCategory('momos', this)">🥟 Momos & Chinese</button>
-      <button class="tab-btn" onclick="filterCategory('fries', this)">🍟 Fries & Sides</button>
-      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Drinks</button>
+      <button class="tab-btn active" onclick="filterCategory('burger', this)">🍔 Burgers (8)</button>
+      <button class="tab-btn" onclick="filterCategory('pizza', this)">🍕 Pizzas (8)</button>
+      <button class="tab-btn" onclick="filterCategory('sandwich', this)">🥪 Sandwiches (8)</button>
+      <button class="tab-btn" onclick="filterCategory('momos', this)">🥟 Momos & Pasta (8)</button>
+      <button class="tab-btn" onclick="filterCategory('fries', this)">🍟 Fries & Sides (8)</button>
+      <button class="tab-btn" onclick="filterCategory('beverages', this)">🥤 Shakes & Drinks (8)</button>
     </div>
 
     <div class="menu-grid" id="menuGrid"></div>
   </section>
 
-  <!-- FOUNDER & OWNER PROFILE -->
+  <!-- FOUNDER PROFILE -->
   <section class="owner-section" id="owner-section">
     <div class="owner-profile-card">
       <div class="owner-avatar-wrap">
@@ -606,17 +496,14 @@
   <div class="detail-modal-overlay" id="detailModal" onclick="closeDetailModalOnOutside(event)">
     <div class="detail-modal-card">
       <button class="close-btn" onclick="closeDetailModal()">✕</button>
-
       <div class="dish-stage">
         <div class="dish-halo"><img src="" alt="" class="dish-img" id="modalImg"></div>
       </div>
-
       <div class="modal-header-row">
         <h2 class="modal-title" id="modalTitle">Dish Name</h2>
         <span class="modal-price" id="modalPrice">₹0</span>
       </div>
       <div class="veg-indicator"><div class="veg-dot"></div><span>100% Pure Vegetarian Special</span></div>
-
       <div class="nutrition-box">
         <div class="nutrition-title">⚡ Nutritional Values (Per Serving)</div>
         <div class="nutrition-grid">
@@ -626,13 +513,11 @@
           <div class="nutri-item"><span class="nutri-val" id="modalFat">0g</span><span class="nutri-label">Fat</span></div>
         </div>
       </div>
-
       <div class="recipe-box">
         <div class="section-subtitle">👨‍🍳 Kaise Banaya Jata Hai? (Preparation Method)</div>
         <p class="recipe-text" id="modalRecipe">Description...</p>
         <div class="ingredient-tags" id="modalIngredients"></div>
       </div>
-
       <div class="modal-actions-row">
         <button class="modal-add-cart-btn" id="modalAddCartBtn">🛒 Add to Cart</button>
         <a href="#" target="_blank" class="modal-wa-btn" id="modalWaBtn">📱 WhatsApp Order</a>
@@ -670,135 +555,69 @@
     </div>
   </footer>
 
-  <!-- SCRIPT WITH GOOGLE SHEETS LINK CONNECTED -->
+  <!-- SCRIPT -->
   <script>
+    // Expanded 8-8 Varieties Per Category (Total 48 Items)
     const foodDatabase = [
-      {
-        id: 1,
-        category: 'burger',
-        name: 'Foodzilla Monster Cheese Burger',
-        price: 149,
-        calories: '450 kcal',
-        protein: '14g',
-        carbs: '52g',
-        fat: '21g',
-        img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Crispy herb patty, double cheddar cheese, lettuce aur secret chipotle sauce.',
-        recipe: 'Fresh aloo-peas aur Italian herbs se bani crispy patty ko golden fry kiya jata hai. Iske baad toasted brioche bun ke beech melted cheddar cheese, crunchy lettuce, aur secret chipotle mayo ke sath layer kiya jata hai.',
-        ingredients: ['Toasted Brioche Bun', 'Crispy Veg Patty', 'Cheddar Cheese', 'Iceberg Lettuce', 'Chipotle Mayo']
-      },
-      {
-        id: 2,
-        category: 'burger',
-        name: 'Crispy Spicy Paneer Burger',
-        price: 169,
-        calories: '490 kcal',
-        protein: '18g',
-        carbs: '48g',
-        fat: '23g',
-        img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Thick marinated paneer patty coated in spicy crunch and mint tandoori mayo.',
-        recipe: 'Fresh malai paneer slab ko spicy batter me dip karke cornflakes crust ke sath crispy fry kiya jata hai aur tandoori mayo ke sath assemble kiya jata hai.',
-        ingredients: ['Crispy Paneer Slab', 'Sesame Bun', 'Tandoori Mayo', 'Onion Rings']
-      },
-      {
-        id: 3,
-        category: 'burger',
-        name: 'Classic Crunchy Aloo Tikki Burger',
-        price: 89,
-        calories: '360 kcal',
-        protein: '8g',
-        carbs: '54g',
-        fat: '12g',
-        img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Traditional spiced potato patty, sliced onions, tomatoes & tangy relish.',
-        recipe: 'Desi style mashed potatoes me cumin, coriander aur green chilies mix karke crunchy patty banai jati hai aur sweet-tangy sauce ke sath serve kiya jata hai.',
-        ingredients: ['Potato Spiced Patty', 'Soft Bun', 'Tangy Tomato Relish', 'Cucumber']
-      },
-      {
-        id: 4,
-        category: 'pizza',
-        name: 'Foodzilla Loaded Farmhouse Pizza',
-        price: 299,
-        calories: '780 kcal',
-        protein: '26g',
-        carbs: '94g',
-        fat: '32g',
-        img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Capsicum, grilled mushrooms, sweet corn aur 100% pure mozzarella cheese.',
-        recipe: 'Hand-tossed dough par basil tomato sauce, 100% mozzarella cheese, fresh capsicum, diced onion, mushrooms aur sweet corn daalkar stone-oven me bake kiya jata hai.',
-        ingredients: ['Fresh Dough', 'Mozzarella Cheese', 'Tomato Sauce', 'Mushrooms', 'Sweet Corn']
-      },
-      {
-        id: 5,
-        category: 'pizza',
-        name: 'Tandoori Paneer Tikka Pizza',
-        price: 329,
-        calories: '820 kcal',
-        protein: '31g',
-        carbs: '90g',
-        fat: '36g',
-        img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Tandoori marinated paneer cubes, red paprika, onions & extra cheese.',
-        recipe: 'Spicy tandoori sauce base par roasted paneer tikka chunks aur red paprika spread karke crispy bake kiya jata hai.',
-        ingredients: ['Tandoori Paneer', 'Red Paprika', 'Mozzarella', 'Tandoori Sauce']
-      },
-      {
-        id: 6,
-        category: 'sandwich',
-        name: 'Tandoori Paneer Grilled Sandwich',
-        price: 169,
-        calories: '410 kcal',
-        protein: '18g',
-        carbs: '48g',
-        fat: '16g',
-        img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Marinated malai paneer, mint chutney aur melted mozzarella in jumbo bread.',
-        recipe: 'Soft malai paneer cubes ko tandoori masala me marinate karke mint chutney aur cheese ke sath golden grill kiya jata hai.',
-        ingredients: ['Jumbo Bread', 'Fresh Malai Paneer', 'Mint Chutney', 'Mozzarella']
-      },
-      {
-        id: 7,
-        category: 'momos',
-        name: 'Steamed Veg Momos (8 Pcs)',
-        price: 120,
-        calories: '260 kcal',
-        protein: '8g',
-        carbs: '46g',
-        fat: '4g',
-        img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Finely minced cabbage, carrot, paneer filling aur authentic spicy red chutney.',
-        recipe: 'Thin flour wrap me cabbage, carrot aur paneer stuffed karke steamer me steam kiya jata hai aur teekhi chutney ke sath serve hota hai.',
-        ingredients: ['Flour Wrapper', 'Cabbage', 'Carrots', 'Paneer', 'Garlic Red Chutney']
-      },
-      {
-        id: 8,
-        category: 'fries',
-        name: 'Peri-Peri Crispy Fries',
-        price: 110,
-        calories: '320 kcal',
-        protein: '5g',
-        carbs: '44g',
-        fat: '14g',
-        img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Crunchy golden potato fries spicy peri-peri dust aur cheesy dip ke sath.',
-        recipe: 'Golden crispy potatoes par African peri-peri seasoning shake karke cheesy mayo dip ke sath serve kiya jata hai.',
-        ingredients: ['Potatoes', 'Peri-Peri Seasoning', 'Cheese Dip']
-      },
-      {
-        id: 9,
-        category: 'beverages',
-        name: 'Thick Belgian Cold Coffee',
-        price: 120,
-        calories: '240 kcal',
-        protein: '6g',
-        carbs: '34g',
-        fat: '9g',
-        img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80',
-        shortDesc: 'Espresso blended with rich whole milk, dark chocolate fudge and ice cream scoop.',
-        recipe: 'Fresh espresso shot, chilled whole milk aur Belgian chocolate fudge ko vanilla ice cream ke sath thick blend kiya jata hai.',
-        ingredients: ['Brewed Coffee', 'Whole Milk', 'Vanilla Ice Cream', 'Chocolate Fudge']
-      }
+      // --- BURGERS (8 Varieties) ---
+      { id: 1, category: 'burger', name: 'Monster Cheese Burger', price: 199, calories: '480 kcal', protein: '14g', carbs: '52g', fat: '21g', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80', shortDesc: 'Double crispy patty, molten cheddar cheese, lettuce and secret sauce.', recipe: 'Crispy veggie patty with double cheddar, lettuce and chipotle mayo.', ingredients: ['Bun', 'Double Patty', 'Cheddar', 'Mayo'] },
+      { id: 2, category: 'burger', name: 'Crispy Paneer Supreme Burger', price: 169, calories: '450 kcal', protein: '18g', carbs: '48g', fat: '23g', img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80', shortDesc: 'Thick marinated paneer patty with tandoori mayo and crunchy onions.', recipe: 'Fried paneer slab with tandoori spices and lettuce.', ingredients: ['Paneer Patty', 'Bun', 'Tandoori Mayo'] },
+      { id: 3, category: 'burger', name: 'Classic Aloo Crunch Burger', price: 89, calories: '340 kcal', protein: '8g', carbs: '54g', fat: '12g', img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80', shortDesc: 'Desi spiced potato patty with tomatoes and tangy relish.', recipe: 'Spiced potato tikki in soft bun with tomato ketchup.', ingredients: ['Aloo Tikki', 'Bun', 'Ketchup'] },
+      { id: 4, category: 'burger', name: 'Peri-Peri Volcano Burger', price: 159, calories: '430 kcal', protein: '12g', carbs: '50g', fat: '19g', img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy grilled veg patty dusted with fiery African peri-peri and cheese.', recipe: 'Grilled patty with peri-peri dust and hot cheese sauce.', ingredients: ['Veg Patty', 'Peri-Peri', 'Cheese Sauce'] },
+      { id: 5, category: 'burger', name: 'Mushroom Double Decker Burger', price: 189, calories: '410 kcal', protein: '11g', carbs: '46g', fat: '18g', img: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sautéed mushrooms, caramelized onions and creamy garlic spread.', recipe: 'Pan-seared mushrooms layered over cheese patty.', ingredients: ['Mushrooms', 'Onions', 'Garlic Mayo', 'Cheese'] },
+      { id: 6, category: 'burger', name: 'Tandoori Makhani Burger', price: 139, calories: '390 kcal', protein: '10g', carbs: '48g', fat: '15g', img: 'https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crispy patty drenched in rich makhani gravy and butter.', recipe: 'Patty tossed in buttery makhani tomato sauce.', ingredients: ['Makhani Gravy', 'Butter', 'Crunchy Patty'] },
+      { id: 7, category: 'burger', name: 'Corn & Cheese Crunch Burger', price: 129, calories: '370 kcal', protein: '9g', carbs: '45g', fat: '14g', img: 'https://images.unsplash.com/photo-1586816001966-79b73674cf39?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sweet corn kernels blended with liquid cheese inside a golden crust.', recipe: 'Corn cheese patty fried until golden brown.', ingredients: ['Sweet Corn', 'Liquid Cheese', 'Breadcrumbs'] },
+      { id: 8, category: 'burger', name: 'Jalapeño Popper Burger', price: 179, calories: '440 kcal', protein: '13g', carbs: '51g', fat: '20g', img: 'https://images.unsplash.com/photo-1550317138-10000687a72b?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy jalapeño slices, cheese stuffed patty and spicy mayo.', recipe: 'Spicy jalapeño infused patty with melted cheese.', ingredients: ['Jalapeños', 'Spicy Mayo', 'Cheese Patty'] },
+
+      // --- PIZZAS (8 Varieties) ---
+      { id: 9, category: 'pizza', name: 'Loaded Peri-Peri Pizza', price: 349, calories: '780 kcal', protein: '26g', carbs: '94g', fat: '32g', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80', shortDesc: 'Loaded with bell peppers, jalapeños, corn and extra mozzarella cheese.', recipe: 'Hand-tossed base with spicy peri-peri sauce and veggies.', ingredients: ['Dough', 'Mozzarella', 'Jalapeños', 'Corn'] },
+      { id: 10, category: 'pizza', name: 'Tandoori Paneer Tikka Pizza', price: 379, calories: '820 kcal', protein: '31g', carbs: '90g', fat: '36g', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80', shortDesc: 'Roasted paneer chunks, onions, red paprika and tandoori drizzle.', recipe: 'Pizza baked with tandoori marinated paneer and herbs.', ingredients: ['Paneer Tikka', 'Paprika', 'Mozzarella'] },
+      { id: 11, category: 'pizza', name: 'Farmhouse Veggie Supreme Pizza', price: 329, calories: '750 kcal', protein: '24g', carbs: '88g', fat: '30g', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fresh tomatoes, crisp capsicum, onions, black olives and herbs.', recipe: 'Classic stone-baked veggie pizza with rich tomato base.', ingredients: ['Tomatoes', 'Capsicum', 'Olives', 'Mozzarella'] },
+      { id: 12, category: 'pizza', name: 'Double Cheese Margherita', price: 249, calories: '680 kcal', protein: '22g', carbs: '80g', fat: '27g', img: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80', shortDesc: 'Simple yet delicious with double layer mozzarella and fresh basil.', recipe: 'Pure Italian style cheese pizza with aromatic olive oil.', ingredients: ['Basil', 'Double Cheese', 'Tomato Puree'] },
+      { id: 13, category: 'pizza', name: 'Spicy Mexican Green Wave Pizza', price: 339, calories: '770 kcal', protein: '25g', carbs: '91g', fat: '31g', img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=800&q=80', shortDesc: 'Onion, crisp capsicum, green chillies, tomato and spicy Mexican herbs.', recipe: 'Topped with jalapeños, onions and Mexican spice blend.', ingredients: ['Mexican Herbs', 'Chillies', 'Onions', 'Cheese'] },
+      { id: 14, category: 'pizza', name: 'Mushroom & Olive Feast Pizza', price: 359, calories: '790 kcal', protein: '27g', carbs: '89g', fat: '33g', img: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sautéed mushrooms, black olives, golden corn and extra cheese.', recipe: 'Rich mushroom and olive topping over mozzarella cheese.', ingredients: ['Mushrooms', 'Black Olives', 'Sweet Corn'] },
+      { id: 15, category: 'pizza', name: 'Cheesy Corn & Pineapple Pizza', price: 319, calories: '720 kcal', protein: '21g', carbs: '92g', fat: '28g', img: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sweet corn and juicy pineapple chunks with gooey melted cheese.', recipe: 'Baked with sweet and savory toppings over mozzarella.', ingredients: ['Pineapple', 'Sweet Corn', 'Cheese'] },
+      { id: 16, category: 'pizza', name: 'Four Cheese Burst Pizza', price: 399, calories: '860 kcal', protein: '34g', carbs: '85g', fat: '40g', img: 'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=800&q=80', shortDesc: 'Mozzarella, cheddar, parmesan and liquid cheese loaded inside out.', recipe: 'Blended four distinct cheeses for maximum gooey richness.', ingredients: ['Mozzarella', 'Cheddar', 'Parmesan', 'Liquid Cheese'] },
+
+      // --- SANDWICHES (8 Varieties) ---
+      { id: 17, category: 'sandwich', name: 'Tandoori Paneer Grilled Sandwich', price: 159, calories: '390 kcal', protein: '16g', carbs: '45g', fat: '15g', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80', shortDesc: 'Jumbo bread stuffed with tandoori paneer, mint chutney and cheese.', recipe: 'Grilled in sandwich press with butter and mint spread.', ingredients: ['Jumbo Bread', 'Paneer', 'Mint Chutney', 'Cheese'] },
+      { id: 18, category: 'sandwich', name: 'Bombay Masala Cheese Toast', price: 129, calories: '340 kcal', protein: '11g', carbs: '42g', fat: '13g', img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spiced potato masala, beetroot, cucumber slices and grated cheese.', recipe: 'Crispy toasted bread loaded with veggies and potato masala.', ingredients: ['Potato Masala', 'Beetroot', 'Cucumber', 'Cheese'] },
+        { id: 19, category: 'sandwich', name: 'Corn & Spinach Melt Sandwich', price: 149, calories: '360 kcal', protein: '12g', carbs: '44g', fat: '14g', img: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=800&q=80', shortDesc: 'Creamy sweet corn and blanched spinach blended with melted cheese.', recipe: 'Creamy filling baked between brown bread slices.', ingredients: ['Sweet Corn', 'Spinach', 'White Sauce', 'Cheese'] },
+      { id: 20, category: 'sandwich', name: 'Veggie Supreme Club Sandwich', price: 179, calories: '420 kcal', protein: '14g', carbs: '50g', fat: '17g', img: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80', shortDesc: 'Triple layer sandwich loaded with lettuce, tomatoes, cucumbers and mayo.', recipe: 'Layered multi-deck sandwich with crisp vegetables and mayo.', ingredients: ['Three Bread Slices', 'Lettuce', 'Tomato', 'Mayo'] },
+      { id: 21, category: 'sandwich', name: 'Peri-Peri Paneer Grill Sandwich', price: 169, calories: '400 kcal', protein: '17g', carbs: '46g', fat: '16g', img: 'https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy peri-peri marinated paneer chunks tossed with bell peppers.', recipe: 'Grilled sandwich stuffed with spicy peri-peri paneer.', ingredients: ['Peri-Peri Paneer', 'Bell Peppers', 'Cheese'] },
+      { id: 22, category: 'sandwich', name: 'Garlic Herb Cheese Sandwich', price: 119, calories: '320 kcal', protein: '10g', carbs: '40g', fat: '12g', img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80', shortDesc: 'Roasted garlic butter and Italian herbs loaded with mozzarella cheese.', recipe: 'Toasted bread with rich garlic butter and herbs.', ingredients: ['Garlic Butter', 'Herbs', 'Mozzarella'] },
+      { id: 23, category: 'sandwich', name: 'Aloo Matar Masala Sandwich', price: 99, calories: '300 kcal', protein: '8g', carbs: '43g', fat: '10g', img: 'https://images.unsplash.com/photo-1481070555726-e2fe83bb7725?auto=format&fit=crop&w=800&q=80', shortDesc: 'Desi style mashed potatoes and green peas filling toasted crisp.', recipe: 'Classic home-style aloo matar filling in butter toast.', ingredients: ['Aloo Matar', 'Butter', 'Bread'] },
+      { id: 24, category: 'sandwich', name: 'Chocolate Peanut Butter Sandwich', price: 139, calories: '450 kcal', protein: '12g', carbs: '55g', fat: '20g', img: 'https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&q=80', shortDesc: 'Rich creamy peanut butter and chocolate syrup toasted to sweet perfection.', recipe: 'Sweet dessert sandwich with peanut butter and chocolate.', ingredients: ['Peanut Butter', 'Chocolate Syrup', 'Bread'] },
+
+      // --- MOMOS & PASTA (8 Varieties) ---
+      { id: 25, category: 'momos', name: 'Steamed Veg Momos (8 Pcs)', price: 119, calories: '260 kcal', protein: '8g', carbs: '46g', fat: '4g', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80', shortDesc: 'Minced veggie filling served with fiery red spicy chutney.', recipe: 'Steamed wheat wrappers stuffed with vegetables.', ingredients: ['Flour', 'Cabbage', 'Carrot', 'Spicy Chutney'] },
+      { id: 26, category: 'momos', name: 'White Sauce Alfredo Pasta', price: 199, calories: '510 kcal', protein: '15g', carbs: '62g', fat: '24g', img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=800&q=80', shortDesc: 'Penne pasta tossed in rich garlic, cream and cheese sauce.', recipe: 'Boiled pasta in dairy cream and parmesan blend.', ingredients: ['Penne', 'Cream', 'Garlic', 'Olives'] },
+      { id: 27, category: 'momos', name: 'Kurkure Fried Momos (6 Pcs)', price: 149, calories: '380 kcal', protein: '10g', carbs: '52g', fat: '15g', img: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crunchy cornflake coated fried momos tossed in schezwan spices.', recipe: 'Stuffed momos given a crunchy crust and deep fried.', ingredients: ['Momos', 'Cornflakes Crunch', 'Schezwan Dip'] },
+      { id: 28, category: 'momos', name: 'Red Sauce Arrabbiata Pasta', price: 189, calories: '460 kcal', protein: '13g', carbs: '65g', fat: '17g', img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80', shortDesc: 'Penne pasta in spicy Italian tomato, garlic and basil sauce.', recipe: 'Pasta tossed in spicy arrabbiata tomato sauce.', ingredients: ['Penne', 'Tomato Sauce', 'Garlic', 'Basil'] },
+      { id: 29, category: 'momos', name: 'Tandoori Gravy Momos (6 Pcs)', price: 159, calories: '400 kcal', protein: '12g', carbs: '49g', fat: '18g', img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fried momos tossed in smoky tandoori gravy and cream.', recipe: 'Momos coated in tandoori spiced yogurt gravy.', ingredients: ['Fried Momos', 'Tandoori Gravy', 'Cream'] },
+      { id: 30, category: 'momos', name: 'Desi Veg Hakka Noodles', price: 150, calories: '380 kcal', protein: '9g', carbs: '58g', fat: '12g', img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80', shortDesc: 'High flame wok-tossed noodles with crunchy vegetables.', recipe: 'Wok tossed noodles with veggies and soya sauce.', ingredients: ['Noodles', 'Cabbage', 'Capsicum', 'Soya Sauce'] },
+      { id: 31, category: 'momos', name: 'Schezwan Chilli Garlic Noodles', price: 169, calories: '400 kcal', protein: '9g', carbs: '60g', fat: '13g', img: 'https://images.unsplash.com/photo-1612927601601-6638404738ad?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy wok noodles tossed in fiery schezwan garlic paste.', recipe: 'Noodles tossed in spicy schezwan sauce and garlic.', ingredients: ['Noodles', 'Schezwan Paste', 'Garlic'] },
+      { id: 32, category: 'momos', name: 'Cheese Burst Paneer Momos (6 Pcs)', price: 179, calories: '430 kcal', protein: '14g', carbs: '47g', fat: '20g', img: 'https://images.unsplash.com/photo-1625398407399-f3064c568571?auto=format&fit=crop&w=800&q=80', shortDesc: 'Stuffed with paneer and molten liquid cheese inside steamed wrap.', recipe: 'Steam momos bursting with liquid cheese and paneer.', ingredients: ['Paneer', 'Liquid Cheese', 'Flour Wrapper'] },
+
+      // --- FRIES & SIDES (8 Varieties) ---
+      { id: 33, category: 'fries', name: 'Loaded Cheese Fries', price: 149, calories: '340 kcal', protein: '5g', carbs: '44g', fat: '14g', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crispy French fries drenched in hot liquid cheese and herbs.', recipe: 'Double fried potato batons with melted cheddar dip.', ingredients: ['Potatoes', 'Liquid Cheese', 'Herbs'] },
+      { id: 34, category: 'fries', name: 'Cheesy Garlic Breadsticks', price: 139, calories: '320 kcal', protein: '11g', carbs: '38g', fat: '15g', img: 'https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=800&q=80', shortDesc: 'Freshly baked bread with garlic herb butter and gooey mozzarella.', recipe: 'Oven baked breadsticks loaded with garlic and cheese.', ingredients: ['Artisan Bread', 'Garlic Butter', 'Mozzarella'] },
+      { id: 35, category: 'fries', name: 'Peri-Peri Crispy French Fries', price: 110, calories: '320 kcal', protein: '5g', carbs: '44g', fat: '14g', img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80', shortDesc: 'Golden potato fries tossed in spicy African peri-peri dust.', recipe: 'Fries shaken with spicy peri-peri spice mix.', ingredients: ['Potatoes', 'Peri-Peri Seasoning'] },
+      { id: 36, category: 'fries', name: 'Crispy Veggie Fingers (6 Pcs)', price: 129, calories: '310 kcal', protein: '6g', carbs: '39g', fat: '13g', img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crispy breaded fingers stuffed with mixed vegetables and potatoes.', recipe: 'Deep fried vegetable sticks with crispy crumb coating.', ingredients: ['Mixed Veggies', 'Breadcrumbs', 'Potato'] },
+      { id: 37, category: 'fries', name: 'Spicy Potato Wedges', price: 120, calories: '290 kcal', protein: '4g', carbs: '42g', fat: '11g', img: 'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=800&q=80', shortDesc: 'Skin-on potato wedges seasoned with herbs and baked crisp.', recipe: 'Wedge-cut potatoes seasoned and deep fried crisp.', ingredients: ['Potato Wedges', 'Herbs', 'Paprika'] },
+      { id: 38, category: 'fries', name: 'Cheesy Jalapeño Poppers (5 Pcs)', price: 159, calories: '350 kcal', protein: '7g', carbs: '36g', fat: '19g', img: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=800&q=80', shortDesc: 'Jalapeño peppers and cheese coated in breadcrumbs and fried.', recipe: 'Cheese and jalapeño spheres fried until crisp.', ingredients: ['Jalapeños', 'Cream Cheese', 'Breadcrumbs'] },
+      { id: 39, category: 'fries', name: 'Crispy Onion Rings (8 Pcs)', price: 119, calories: '280 kcal', protein: '4g', carbs: '35g', fat: '12g', img: 'https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=800&q=80', shortDesc: 'Thick cut onion rings in batter and fried golden brown.', recipe: 'Onion rings dipped in batter and fried.', ingredients: ['Onions', 'Batter', 'Breadcrumbs'] },
+      { id: 40, category: 'fries', name: 'Loaded Mexican Nachos with Cheese', price: 179, calories: '390 kcal', protein: '8g', carbs: '48g', fat: '18g', img: 'https://images.unsplash.com/photo-1582169505501-c5332f144d18?auto=format&fit=crop&w=800&q=80', shortDesc: 'Corn tortilla chips topped with liquid cheese, salsa and jalapeños.', recipe: 'Tortilla chips layered with warm melted cheese and salsa.', ingredients: ['Nachos', 'Liquid Cheese', 'Salsa', 'Jalapeños'] },
+
+      // --- BEVERAGES (8 Varieties) ---
+      { id: 41, category: 'beverages', name: 'Thick Chocolate Cold Coffee', price: 120, calories: '230 kcal', protein: '6g', carbs: '34g', fat: '9g', img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80', shortDesc: 'Blended coffee with chocolate syrup and vanilla ice cream.', recipe: 'Espresso whipped with milk, chocolate fudge and ice cream.', ingredients: ['Coffee', 'Milk', 'Chocolate Fudge'] },
+      { id: 42, category: 'beverages', name: 'Virgin Mint Mojito', price: 99, calories: '110 kcal', protein: '1g', carbs: '26g', fat: '0g', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fresh garden mint, crushed lime wedges and sparkling club soda.', recipe: 'Muddled mint leaves and lime with soda over crushed ice.', ingredients: ['Mint', 'Lime', 'Soda', 'Sugar'] },
+      { id: 43, category: 'beverages', name: 'Oreo Thick Brownie Shake', price: 150, calories: '350 kcal', protein: '7g', carbs: '48g', fat: '15g', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80', shortDesc: 'Oreo cookies and chocolate brownie blended thick with milk.', recipe: 'Thick milkshake blended with oreo and brownie chunks.', ingredients: ['Oreo', 'Brownie', 'Milk', 'Ice Cream'] },
+      { id: 44, category: 'beverages', name: 'Refreshing Blue Lagoon Mocktail', price: 110, calories: '130 kcal', protein: '0g', carbs: '30g', fat: '0g', img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80', shortDesc: 'Blue curacao syrup, lemon juice and sparkling soda over ice.', recipe: 'Layered citrus mocktail with blue syrup and soda.', ingredients: ['Blue Curacao', 'Lemon', 'Soda'] },
+      { id: 45, category: 'beverages', name: 'Classic Strawberry Smoothie', price: 130, calories: '210 kcal', protein: '5g', carbs: '32g', fat: '7g', img: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fresh strawberry puree blended with thick yogurt and milk.', recipe: 'Strawberry and yogurt smoothie blended chilled.', ingredients: ['Strawberry', 'Yogurt', 'Milk'] },
+      { id: 46, category: 'beverages', name: 'KitKat Crunchy Milkshake', price: 160, calories: '380 kcal', protein: '8g', carbs: '50g', fat: '16g', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80', shortDesc: 'KitKat chocolate fingers blended into rich creamy milkshake.', recipe: 'Milkshake whipped with crushed kitkat chocolate.', ingredients: ['KitKat', 'Milk', 'Vanilla Ice Cream'] },
+      { id: 47, category: 'beverages', name: 'Tangy Masala Lemonade (Shikanji)', price: 79, calories: '90 kcal', protein: '1g', carbs: '22g', fat: '0g', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80', shortDesc: 'Desi lemon drink infused with roasted cumin and black salt.', recipe: 'Lemon juice spiced with black salt, cumin and jaljeera.', ingredients: ['Lemon', 'Black Salt', 'Cumin Powder', 'Water'] },
+      { id: 48, category: 'beverages', name: 'Mango Delight Fruit Shake', price: 140, calories: '250 kcal', protein: '5g', carbs: '40g', fat: '8g', img: 'https://images.unsplash.com/photo-1546173159-ba727fea9c4a?auto=format&fit=crop&w=800&q=80', shortDesc: 'Ripe mango pulp blended with rich chilled milk and cream.', recipe: 'Mango pulp whipped with cold milk and ice cream.', ingredients: ['Mango Pulp', 'Milk', 'Cream'] }
     ];
 
     let cart = JSON.parse(localStorage.getItem('foodzillaCart')) || [];
@@ -843,7 +662,8 @@
         footer.style.display = 'none';
         return;
       }
-footer.style.display = 'block';
+
+      footer.style.display = 'block';
       container.innerHTML = cart.map(item => `
         <div class="cart-item-row">
           <img src="${item.img}" alt="${item.name}" class="cart-item-img">
@@ -878,6 +698,7 @@ footer.style.display = 'block';
     // Google Sheet Webhook URL Linked Here
     const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw0U7xDsW7xvR4UnEB2AuU9pG7_gFUdHtRyoYDJjYGHLPtygYALhEIFOCXTHMSrzYlKgQ/exec";
 
+    // Register Function (Saves to 'Users' sheet & local)
     function handleRegister(e) {
       e.preventDefault();
       const userData = {
@@ -900,92 +721,75 @@ footer.style.display = 'block';
         }).catch(err => console.log('Sheet error:', err));
       }
 
+      // Phone / WhatsApp Notification alert on registration
+      const regMsg = encodeURIComponent(`🎉 *New Customer Registration - Foodzilla*\n👤 Name: ${userData.name}\n📞 Phone: ${userData.phone}\n📍 Address: ${userData.address}`);
+      window.open(`https://wa.me/919876543210?text=${regMsg}`, '_blank');
+
       alert(`Dhanyawad ${userData.name}! Foodzilla me aapka account create ho gaya hai.`);
       closeAuthModal();
       checkUserSession();
     }
-// Updated Checkout Function in index.html
-function processCheckout() {
-  const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
-  if (!currentUser) {
-    alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
-    openAuthModal();
-    return;
-  }
 
-  if (cart.length === 0) {
-    alert('Aapka cart khali hai!');
-    return;
-  }
+    // Login Function (Scans Sheet / Local storage)
+    function handleLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('loginUser').value.trim();
+      const pass = document.getElementById('loginPass').value.trim();
+      const savedUser = JSON.parse(localStorage.getItem('foodzillaUser'));
 
-  const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
-  const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
-  const gst = Math.round(subtotal * 0.05);
-  const grandTotal = subtotal + gst;
-  const itemsSummary = cart.map(i => `${i.name} (Qty: ${i.qty}) - ₹${i.price * i.qty}`).join(", ");
+      if (savedUser && (savedUser.phone === user || savedUser.email === user) && savedUser.pass === pass) {
+        alert(`Welcome back, ${savedUser.name}!`);
+        closeAuthModal();
+        checkUserSession();
+      } else {
+        // Fallback quick login session
+        const demoUser = { name: user.split('@')[0], phone: user, email: user, address: 'Nagaur, Rajasthan', pass: pass };
+        localStorage.setItem('foodzillaUser', JSON.stringify(demoUser));
+        alert('Login successful!');
+        closeAuthModal();
+        checkUserSession();
+      }
+    }
 
-  // Order Details Payload
-  const orderPayload = {
-    name: currentUser.name,
-    phone: currentUser.phone,
-    address: currentUser.address,
-    itemsSummary: itemsSummary,
-    subtotal: subtotal,
-    gst: gst,
-    grandTotal: grandTotal,
-    paymentType: paymentType
-  };
+    // Updated Checkout Function (Online -> payment.html | COD -> Sheet + WhatsApp)
+    function processCheckout() {
+      const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
+      if (!currentUser) {
+        alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
+        openAuthModal();
+        return;
+      }
 
-  // 1. Agar ONLINE PAYMENT select kiya hai -> payment.html par le jao
-  if (paymentType === 'ONLINE') {
-    localStorage.setItem('foodzillaPendingOrder', JSON.stringify(orderPayload));
-    window.location.href = "payment.html";
-    return;
-  }
-
-  // 2. Agar CASH ON DELIVERY (COD) select kiya hai -> Direct WhatsApp Order & Sheet Save
-  const orderData = {
-    action: "order",
-    name: currentUser.name,
-    phone: currentUser.phone,
-    address: currentUser.address,
-    items: itemsSummary,
-    deliveryStatus: "Pending",
-    paymentStatus: `Cash on Delivery (COD) - ₹${grandTotal}`
-  };
-
-  if (GOOGLE_SHEET_WEBHOOK_URL) {
-    fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderData)
-    }).catch(err => console.log('Sheet error:', err));
-  }
-
-  let orderSummary = `🦖 *Foodzilla Fast Food Order Summary*\n`;
-  orderSummary += `👤 Name: ${currentUser.name}\n📞 Phone: ${currentUser.phone}\n📍 Address: ${currentUser.address}\n---------------------------\n`;
-  cart.forEach((item, index) => {
-    orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
-  });
-  orderSummary += `---------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment: Cash on Delivery (COD)`;
-
-  window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`, '_blank');
-  
-  cart = [];
-  saveCart();
-  toggleCart(false);
-  alert('Cash on Delivery (COD) order placed successfully!');
-}
-
+      if (cart.length === 0) {
+        alert('Aapka cart khali hai!');
+        return;
+      }
 
       const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
       const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
       const gst = Math.round(subtotal * 0.05);
       const grandTotal = subtotal + gst;
-
       const itemsSummary = cart.map(i => `${i.name} (Qty: ${i.qty}) - ₹${i.price * i.qty}`).join(", ");
 
+      const orderPayload = {
+        name: currentUser.name,
+        phone: currentUser.phone,
+        address: currentUser.address,
+        itemsSummary: itemsSummary,
+        subtotal: subtotal,
+        gst: gst,
+        grandTotal: grandTotal,
+        paymentType: paymentType
+      };
+
+        // 1. Online Payment -> payment.html
+      if (paymentType === 'ONLINE') {
+        localStorage.setItem('foodzillaPendingOrder', JSON.stringify(orderPayload));
+        window.location.href = "payment.html";
+        return;
+      }
+
+      // 2. COD -> Google Sheet Orders Tab + WhatsApp Notification
       const orderData = {
         action: "order",
         name: currentUser.name,
@@ -993,7 +797,7 @@ function processCheckout() {
         address: currentUser.address,
         items: itemsSummary,
         deliveryStatus: "Pending",
-        paymentStatus: paymentType === 'ONLINE' ? `Online UPI (₹${grandTotal})` : `COD (₹${grandTotal})`
+        paymentStatus: `Cash on Delivery (COD) - ₹${grandTotal}`
       };
 
       if (GOOGLE_SHEET_WEBHOOK_URL) {
@@ -1002,7 +806,7 @@ function processCheckout() {
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(orderData)
-        }).catch(err => console.log('Order sheet error:', err));
+        }).catch(err => console.log('Sheet error:', err));
       }
 
       let orderSummary = `🦖 *Foodzilla Fast Food Order Summary*\n`;
@@ -1010,33 +814,14 @@ function processCheckout() {
       cart.forEach((item, index) => {
         orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
       });
-      orderSummary += `---------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment: ${orderData.paymentStatus}`;
+      orderSummary += `---------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment: Cash on Delivery (COD)`;
 
       window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`, '_blank');
       
       cart = [];
       saveCart();
       toggleCart(false);
-      alert('Order successfully placed! Details Google Sheet aur WhatsApp par bhej di gayi hain.');
-    }
-
-    function handleLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById('loginUser').value;
-      const pass = document.getElementById('loginPass').value;
-      const savedUser = JSON.parse(localStorage.getItem('foodzillaUser'));
-
-      if (savedUser && (savedUser.phone === user || savedUser.email === user) && savedUser.pass === pass) {
-        alert(`Welcome back, ${savedUser.name}!`);
-        closeAuthModal();
-        checkUserSession();
-      } else {
-        const demoUser = { name: user.split('@')[0], phone: user, email: user, address: 'Nagaur, Rajasthan' };
-        localStorage.setItem('foodzillaUser', JSON.stringify(demoUser));
-        alert('Login successful!');
-        closeAuthModal();
-        checkUserSession();
-      }
+      alert('Cash on Delivery (COD) order placed successfully and notification sent to phone!');
     }
 
     function checkUserSession() {
