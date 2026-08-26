@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online UPI Payment | Foodzilla Fast Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e63946;
+      --gold: #f5a623;
+      --dark-bg: #09090b;
+      --card-bg: #141419;
+      --border: #24242e;
+      --text: #f8f9fa;
+      --text-muted: #9e9ea7;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 3rem;
+    }
+
+    /* Header */
+    header {
+      background: #111116;
+      padding: 1.2rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); text-decoration: none; font-weight: 700; }
+    .back-btn { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; border: 1px solid var(--border); padding: 0.4rem 1.1rem; border-radius: 20px; transition: 0.3s; }
+    .back-btn:hover { color: var(--primary); border-color: var(--primary); }
+
+    .container { max-width: 900px; margin: 2rem auto; padding: 0 1.2rem; }
+
+    .payment-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+    }
+
+    /* Left Side: Order Summary */
+    .order-summary-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.8rem;
+      height: fit-content;
+    }
+    .box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    .customer-detail {
+      background: #0f0f13;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #1f1f28;
+    }
+    .customer-detail p { margin-bottom: 0.2rem; color: #d1d1db; }
+
+    .order-items-list {
+      max-height: 220px;
+      overflow-y: auto;
+      margin-bottom: 1.2rem;
+    }
+    .item-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed #20202a;
+      color: #cfcfd6;
+    }
+
+    .bill-calc-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .bill-calc-row.grand-total {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      border-top: 1px solid var(--border);
+      padding-top: 0.6rem;
+      margin-top: 0.6rem;
+    }
+    .bill-calc-row.grand-total span:last-child { color: var(--gold); }
+
+    /* Right Side: UPI Payment & QR Code */
+    .upi-payment-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .qr-container {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 1rem 0;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      border: 4px solid var(--gold);
+    }
+    .qr-container img {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+    .scan-hint { font-size: 0.85rem; color: var(--gold); font-weight: 600; }
+
+    /* UPI Intent App Buttons */
+    .upi-apps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+    .upi-app-btn {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: 0.3s;
+    }
+    .btn-phonepe { background: #5f259f; }
+    .btn-gpay { background: #1a73e8; }
+    .btn-paytm { background: #00b9f5; color: #000; }
+    .btn-bhim { background: #00796b; }
+    .upi-app-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    /* UPI ID Copy Box */
+    .upi-id-box {
+      background: #1a1a24;
+      border: 1px dashed var(--gold);
+      border-radius: 8px;
+      padding: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .upi-id-text { font-weight: 600; font-size: 0.9rem; color: #fff; }
+    .copy-btn {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    /* Verification Form */
+    .verify-box {
+      background: #0d0d12;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: left;
+    }
+    .verify-box label { display: block; font-size: 0.8rem; color: #d1d1db; margin-bottom: 0.3rem; font-weight: 600; }
+    .verify-box input {
+      width: 100%;
+      padding: 0.75rem;
+      background: #181820;
+      border: 1px solid #282834;
+      border-radius: 6px;
+      color: #fff;
+      outline: none;
+      margin-bottom: 0.8rem;
+      font-family: inherit;
+    }
+    .verify-box input:focus { border-color: var(--gold); }
+    .confirm-paid-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #25d366 0%, #1eac52 100%);
+      color: #fff;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      transition: 0.3s;
+    }
+    .confirm-paid-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+
+    @media (max-width: 768px) {
+      .payment-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">🦖 Foodzilla Fast Food</a>
+    <a href="index.html" class="back-btn">← Cancel / Back to Menu</a>
+  </header>
+
+  <div class="container">
+    <div class="payment-layout">
+      
+      <!-- Left: Order Summary -->
+      <div class="order-summary-box">
+        <h3 class="box-title">📋 Order Summary</h3>
+        
+        <div class="customer-detail">
+          <p><strong>Customer:</strong> <span id="dispName">-</span></p>
+          <p><strong>Mobile:</strong> <span id="dispPhone">-</span></p>
+          <p><strong>Address:</strong> <span id="dispAddress">-</span></p>
+        </div>
+
+        <div class="order-items-list" id="dispItemsList">
+          <!-- Items will be rendered here -->
+        </div>
+
+        <div class="bill-calc-row"><span>Items Subtotal:</span><span id="dispSubtotal">₹0</span></div>
+        <div class="bill-calc-row"><span>GST (5%):</span><span id="dispGst">₹0</span></div>
+        <div class="bill-calc-row"><span>Delivery Fee:</span><span>FREE</span></div>
+        <div class="bill-calc-row grand-total"><span>Total Payable:</span><span id="dispGrandTotal">₹0</span></div>
+      </div>
+
+      <!-- Right: UPI Scan & Direct Payment -->
+      <div class="upi-payment-box">
+        <h3 style="font-family: 'Playfair Display', serif; color: #fff; font-size: 1.4rem; margin-bottom: 0.3rem;">Scan & Pay via UPI</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">PhonePe, Google Pay, Paytm ya kisi bhi UPI App se scan karein</p>
+
+        <!-- Dynamic QR Code -->
+        <div class="qr-container">
+          <img src="" alt="UPI QR Code" id="upiQrImg">
+        </div>
+        <div class="scan-hint">⚡ Exact Bill Amount Auto-Loaded</div>
+
+        <!-- UPI ID Copy -->
+        <div class="upi-id-box" style="margin-top: 1rem;">
+          <span class="upi-id-text" id="merchantUpiId">foodzilla@upi</span>
+          <button class="copy-btn" onclick="copyUpiId()">Copy UPI ID</button>
+        </div>
+
+        <!-- Direct UPI App Buttons -->
+        <div class="upi-apps-grid">
+          <a href="#" id="phonepeBtn" class="upi-app-btn btn-phonepe">🟣 PhonePe</a>
+          <a href="#" id="gpayBtn" class="upi-app-btn btn-gpay">🔵 Google Pay</a>
+          <a href="#" id="paytmBtn" class="upi-app-btn btn-paytm">🔷 Paytm</a>
+          <a href="#" id="bhimBtn" class="upi-app-btn btn-bhim">🟢 Other UPI Apps</a>
+        </div>
+
+        <!-- Verification Step -->
+        <div class="verify-box">
+          <label>Payment karne ke baad 12-Digit UTR / Transaction ID daalein:</label>
+          <input type="text" id="utrNumber" placeholder="e.g. 423589123456" required>
+          <button class="confirm-paid-btn" onclick="confirmPaymentAndOrder()">✓ I Have Paid — Confirm Order</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Aapka UPI ID & Restaurant Name
+    const RESTAURANT_UPI_ID = "9876543210@ybl"; // Apna PhonePe / GPay UPI ID yahan daalein
+    const RESTAURANT_NAME = "Foodzilla Fast Food";
+    const RESTAURANT_PHONE = "919876543210"; // WhatsApp Confirmation Number
+
+    // Google Sheets Webhook URL (Same Apps Script URL)
+    const GOOGLE_SHEET_WEBHOOK_URL = ""; 
+
+    // Retrieve order data from localStorage
+    const pendingOrder = JSON.parse(localStorage.getItem('foodzillaPendingOrder'));
+    const cart = JSON.parse(localStorage.getItem('foodzillaCart')) || [];
+
+    if (!pendingOrder || cart.length === 0) {
+      alert("Koi active order nahi mila! Redirecting to menu...");
+      window.location.href = "index.html";
+    }
+
+    // Populate Order Summary
+    document.getElementById('dispName').innerText = pendingOrder.name;
+    document.getElementById('dispPhone').innerText = pendingOrder.phone;
+    document.getElementById('dispAddress').innerText = pendingOrder.address;
+    document.getElementById('dispSubtotal').innerText = `₹${pendingOrder.subtotal}`;
+    document.getElementById('dispGst').innerText = `₹${pendingOrder.gst}`;
+    document.getElementById('dispGrandTotal').innerText = `₹${pendingOrder.grandTotal}`;
+    document.getElementById('merchantUpiId').innerText = RESTAURANT_UPI_ID;
+
+    // Render Items
+    const itemsList = document.getElementById('dispItemsList');
+    itemsList.innerHTML = cart.map(item => `
+      <div class="item-line">
+        <span>${item.name} x ${item.qty}</span>
+        <span>₹${item.price * item.qty}</span>
+      </div>
+    `).join('');
+
+    // Generate UPI Intent String
+    const upiString = `upi://pay?pa=${RESTAURANT_UPI_ID}&pn=${encodeURIComponent(RESTAURANT_NAME)}&am=${pendingOrder.grandTotal}&cu=INR&tn=${encodeURIComponent('Foodzilla Order')}`;
+
+    // Generate Dynamic QR Code Image using QR Server API
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=0&data=${encodeURIComponent(upiString)}`;
+    document.getElementById('upiQrImg').src = qrUrl;
+
+    // Set Intent Links for Direct App Click
+    document.getElementById('phonepeBtn').href = upiString;
+    document.getElementById('gpayBtn').href = upiString;
+    document.getElementById('paytmBtn').href = upiString;
+    document.getElementById('bhimBtn').href = upiString;
+
+    // Copy UPI ID
+    function copyUpiId() {
+      navigator.clipboard.writeText(RESTAURANT_UPI_ID);
+      alert('UPI ID copied to clipboard: ' + RESTAURANT_UPI_ID);
+    }
+
+    // Confirm Payment
+    function confirmPaymentAndOrder() {
+      const utr = document.getElementById('utrNumber').value.trim();
+      if (!utr) {
+        alert('Kripya payment complete karne ke baad apna UTR ya Transaction ID zaroor darj karein.');
+        return;
+      }
+
+      const orderData = {
+        action: "order",
+        name: pendingOrder.name,
+        phone: pendingOrder.phone,
+        address: pendingOrder.address,
+        items: pendingOrder.itemsSummary,
+        deliveryStatus: "Pending",
+        paymentStatus: `PAID Online UPI (₹${pendingOrder.grandTotal}) | UTR: ${utr}`
+      };
+
+      // 1. Send to Google Sheet
+      if (GOOGLE_SHEET_WEBHOOK_URL) {
+        fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(orderData)
+        }).catch(err => console.log('Sheet error:', err));
+      }
+
+      // 2. Format Receipt for WhatsApp
+      let receipt = `🦖 *Foodzilla Online Paid Order*\n`;
+      receipt += `✅ *Payment Status: PAID VIA UPI*\n`;
+      receipt += `🔖 UTR / Ref No: ${utr}\n`;
+      receipt += `👤 Customer: ${pendingOrder.name}\n📞 Phone: ${pendingOrder.phone}\n📍 Address: ${pendingOrder.address}\n---------------------------\n`;
+      cart.forEach((item, index) => {
+        receipt += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+      });
+      receipt += `---------------------------\nSubtotal: ₹${pendingOrder.subtotal}\nGST (5%): ₹${pendingOrder.gst}\n*Grand Total Paid: ₹${pendingOrder.grandTotal}*`;
+
+      // 3. Clear Cart & Storage
+      localStorage.removeItem('foodzillaCart');
+      localStorage.removeItem('foodzillaPendingOrder');
+
+      alert('Payment Verified & Order Placed! WhatsApp par verified receipt open ki ja rahi hai.');
+      window.location.href = `https://wa.me/${RESTAURANT_PHONE}?text=${encodeURIComponent(receipt)}`;
+    }
+  </script>
+</body>
+  </html>
+  
