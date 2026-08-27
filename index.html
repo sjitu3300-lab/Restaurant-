@@ -564,69 +564,207 @@
 
   <!-- SCRIPT -->
   <script>
-    // Expanded 8-8 Varieties Per Category (Total 48 Items)
-    const foodDatabase = [
-      // --- BURGERS (8 Varieties) ---
-      { id: 1, category: 'burger', name: 'Monster Cheese Burger', price: 199, calories: '480 kcal', protein: '14g', carbs: '52g', fat: '21g', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80', shortDesc: 'Double crispy patty, molten cheddar cheese, lettuce and secret sauce.', recipe: 'Crispy veggie patty with double cheddar, lettuce and chipotle mayo.', ingredients: ['Bun', 'Double Patty', 'Cheddar', 'Mayo'] },
-      { id: 2, category: 'burger', name: 'Crispy Paneer Supreme Burger', price: 169, calories: '450 kcal', protein: '18g', carbs: '48g', fat: '23g', img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80', shortDesc: 'Thick marinated paneer patty with tandoori mayo and crunchy onions.', recipe: 'Fried paneer slab with tandoori spices and lettuce.', ingredients: ['Paneer Patty', 'Bun', 'Tandoori Mayo'] },
-      { id: 3, category: 'burger', name: 'Classic Aloo Crunch Burger', price: 89, calories: '340 kcal', protein: '8g', carbs: '54g', fat: '12g', img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80', shortDesc: 'Desi spiced potato patty with tomatoes and tangy relish.', recipe: 'Spiced potato tikki in soft bun with tomato ketchup.', ingredients: ['Aloo Tikki', 'Bun', 'Ketchup'] },
-      { id: 4, category: 'burger', name: 'Peri-Peri Volcano Burger', price: 159, calories: '430 kcal', protein: '12g', carbs: '50g', fat: '19g', img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy grilled veg patty dusted with fiery African peri-peri and cheese.', recipe: 'Grilled patty with peri-peri dust and hot cheese sauce.', ingredients: ['Veg Patty', 'Peri-Peri', 'Cheese Sauce'] },
-      { id: 5, category: 'burger', name: 'Mushroom Double Decker Burger', price: 189, calories: '410 kcal', protein: '11g', carbs: '46g', fat: '18g', img: 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sautéed mushrooms, caramelized onions and creamy garlic spread.', recipe: 'Pan-seared mushrooms layered over cheese patty.', ingredients: ['Mushrooms', 'Onions', 'Garlic Mayo', 'Cheese'] },
-      { id: 6, category: 'burger', name: 'Tandoori Makhani Burger', price: 139, calories: '390 kcal', protein: '10g', carbs: '48g', fat: '15g', img: 'https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crispy patty drenched in rich makhani gravy and butter.', recipe: 'Patty tossed in buttery makhani tomato sauce.', ingredients: ['Makhani Gravy', 'Butter', 'Crunchy Patty'] },
-      { id: 7, category: 'burger', name: 'Corn & Cheese Crunch Burger', price: 129, calories: '370 kcal', protein: '9g', carbs: '45g', fat: '14g', img: 'https://images.unsplash.com/photo-1586816001966-79b73674cf39?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sweet corn kernels blended with liquid cheese inside a golden crust.', recipe: 'Corn cheese patty fried until golden brown.', ingredients: ['Sweet Corn', 'Liquid Cheese', 'Breadcrumbs'] },
-      { id: 8, category: 'burger', name: 'Jalapeño Popper Burger', price: 179, calories: '440 kcal', protein: '13g', carbs: '51g', fat: '20g', img: 'https://images.unsplash.com/photo-1550317138-10000687a72b?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy jalapeño slices, cheese stuffed patty and spicy mayo.', recipe: 'Spicy jalapeño infused patty with melted cheese.', ingredients: ['Jalapeños', 'Spicy Mayo', 'Cheese Patty'] },
+    // ================= FOODZILLA OFFICIAL MENU DATABASE =================
+const foodDatabase = [
+  // --- 1. VADA PAV ---
+  { id: 101, category: 'vadapav', name: 'Vada Pav (वड़ा पाव)', price: 25, hasSizes: false, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80', desc: 'Classic Mumbai style batata vada in pav with spicy garlic chutney.' },
+  { id: 102, category: 'vadapav', name: 'Schezwan Vada Pav (शेज़वान वड़ा पाव)', price: 40, hasSizes: false, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80', desc: 'Spicy Schezwan sauce layered over hot vada pav.' },
+  { id: 103, category: 'vadapav', name: 'Cheese Vada Pav (चीज़ वड़ा पाव)', price: 50, hasSizes: false, img: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80', desc: 'Melted cheese slice layered over hot crispy vada pav.' },
 
-      // --- PIZZAS (8 Varieties) ---
-      { id: 9, category: 'pizza', name: 'Loaded Peri-Peri Pizza', price: 349, calories: '780 kcal', protein: '26g', carbs: '94g', fat: '32g', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80', shortDesc: 'Loaded with bell peppers, jalapeños, corn and extra mozzarella cheese.', recipe: 'Hand-tossed base with spicy peri-peri sauce and veggies.', ingredients: ['Dough', 'Mozzarella', 'Jalapeños', 'Corn'] },
-      { id: 10, category: 'pizza', name: 'Tandoori Paneer Tikka Pizza', price: 379, calories: '820 kcal', protein: '31g', carbs: '90g', fat: '36g', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80', shortDesc: 'Roasted paneer chunks, onions, red paprika and tandoori drizzle.', recipe: 'Pizza baked with tandoori marinated paneer and herbs.', ingredients: ['Paneer Tikka', 'Paprika', 'Mozzarella'] },
-      { id: 11, category: 'pizza', name: 'Farmhouse Veggie Supreme Pizza', price: 329, calories: '750 kcal', protein: '24g', carbs: '88g', fat: '30g', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fresh tomatoes, crisp capsicum, onions, black olives and herbs.', recipe: 'Classic stone-baked veggie pizza with rich tomato base.', ingredients: ['Tomatoes', 'Capsicum', 'Olives', 'Mozzarella'] },
-      { id: 12, category: 'pizza', name: 'Double Cheese Margherita', price: 249, calories: '680 kcal', protein: '22g', carbs: '80g', fat: '27g', img: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80', shortDesc: 'Simple yet delicious with double layer mozzarella and fresh basil.', recipe: 'Pure Italian style cheese pizza with aromatic olive oil.', ingredients: ['Basil', 'Double Cheese', 'Tomato Puree'] },
-      { id: 13, category: 'pizza', name: 'Spicy Mexican Green Wave Pizza', price: 339, calories: '770 kcal', protein: '25g', carbs: '91g', fat: '31g', img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=800&q=80', shortDesc: 'Onion, crisp capsicum, green chillies, tomato and spicy Mexican herbs.', recipe: 'Topped with jalapeños, onions and Mexican spice blend.', ingredients: ['Mexican Herbs', 'Chillies', 'Onions', 'Cheese'] },
-      { id: 14, category: 'pizza', name: 'Mushroom & Olive Feast Pizza', price: 359, calories: '790 kcal', protein: '27g', carbs: '89g', fat: '33g', img: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sautéed mushrooms, black olives, golden corn and extra cheese.', recipe: 'Rich mushroom and olive topping over mozzarella cheese.', ingredients: ['Mushrooms', 'Black Olives', 'Sweet Corn'] },
-      { id: 15, category: 'pizza', name: 'Cheesy Corn & Pineapple Pizza', price: 319, calories: '720 kcal', protein: '21g', carbs: '92g', fat: '28g', img: 'https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=800&q=80', shortDesc: 'Sweet corn and juicy pineapple chunks with gooey melted cheese.', recipe: 'Baked with sweet and savory toppings over mozzarella.', ingredients: ['Pineapple', 'Sweet Corn', 'Cheese'] },
-      { id: 16, category: 'pizza', name: 'Four Cheese Burst Pizza', price: 399, calories: '860 kcal', protein: '34g', carbs: '85g', fat: '40g', img: 'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=800&q=80', shortDesc: 'Mozzarella, cheddar, parmesan and liquid cheese loaded inside out.', recipe: 'Blended four distinct cheeses for maximum gooey richness.', ingredients: ['Mozzarella', 'Cheddar', 'Parmesan', 'Liquid Cheese'] },
+  // --- 2. BURGER ---
+  { id: 201, category: 'burger', name: 'Aloo Tikki Burger (आलू टिक्की बर्गर)', price: 40, hasSizes: false, img: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=600&q=80', desc: 'Crispy potato patty in soft toasted bun with tangy tomato relish.' },
+  { id: 202, category: 'burger', name: 'Schezwan Burger (शेज़वान बर्गर)', price: 50, hasSizes: false, img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80', desc: 'Crispy patty with fiery red schezwan sauce and onions.' },
+  { id: 203, category: 'burger', name: 'Prime Aloo Tikki Burger (प्राइम आलू टिक्की बर्गर)', price: 70, hasSizes: false, img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80', desc: 'Special seasoned jumbo aloo tikki with creamy herb mayo.' },
+  { id: 204, category: 'burger', name: 'Prime Veg Tikki Burger (प्राइम वेज टिक्की बर्गर)', price: 80, hasSizes: false, img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80', desc: 'Loaded vegetable patty with lettuce, tomatoes and special spread.' },
+  { id: 205, category: 'burger', name: 'Veggie Cheesey Burger (वेजी चीजी बर्गर)', price: 90, hasSizes: false, img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80', desc: 'Loaded with melted cheddar cheese slice and crispy vegetable patty.' },
+  { id: 206, category: 'burger', name: 'Paneer Patty Burger (पनीर पैटी बर्गर)', price: 99, hasSizes: false, img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80', desc: 'Thick marinated cottage cheese patty coated in crunchy crust.' },
+  { id: 207, category: 'burger', name: 'Maharaja Burger (महाराजा बर्गर)', price: 120, hasSizes: false, img: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=600&q=80', desc: 'Double patty stacked with double cheese, veggies and rich dressing.' },
+  { id: 208, category: 'burger', name: 'FZ Special Burger (एफज़ेड स्पेशल बर्गर)', price: 120, hasSizes: false, img: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80', desc: 'Chef special signature recipe with secret spices and loaded cheese.' },
 
-      // --- SANDWICHES (8 Varieties) ---
-      { id: 17, category: 'sandwich', name: 'Tandoori Paneer Grilled Sandwich', price: 159, calories: '390 kcal', protein: '16g', carbs: '45g', fat: '15g', img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80', shortDesc: 'Jumbo bread stuffed with tandoori paneer, mint chutney and cheese.', recipe: 'Grilled in sandwich press with butter and mint spread.', ingredients: ['Jumbo Bread', 'Paneer', 'Mint Chutney', 'Cheese'] },
-      { id: 18, category: 'sandwich', name: 'Bombay Masala Cheese Toast', price: 129, calories: '340 kcal', protein: '11g', carbs: '42g', fat: '13g', img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spiced potato masala, beetroot, cucumber slices and grated cheese.', recipe: 'Crispy toasted bread loaded with veggies and potato masala.', ingredients: ['Potato Masala', 'Beetroot', 'Cucumber', 'Cheese'] },
-        { id: 19, category: 'sandwich', name: 'Corn & Spinach Melt Sandwich', price: 149, calories: '360 kcal', protein: '12g', carbs: '44g', fat: '14g', img: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=800&q=80', shortDesc: 'Creamy sweet corn and blanched spinach blended with melted cheese.', recipe: 'Creamy filling baked between brown bread slices.', ingredients: ['Sweet Corn', 'Spinach', 'White Sauce', 'Cheese'] },
-      { id: 20, category: 'sandwich', name: 'Veggie Supreme Club Sandwich', price: 179, calories: '420 kcal', protein: '14g', carbs: '50g', fat: '17g', img: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80', shortDesc: 'Triple layer sandwich loaded with lettuce, tomatoes, cucumbers and mayo.', recipe: 'Layered multi-deck sandwich with crisp vegetables and mayo.', ingredients: ['Three Bread Slices', 'Lettuce', 'Tomato', 'Mayo'] },
-      { id: 21, category: 'sandwich', name: 'Peri-Peri Paneer Grill Sandwich', price: 169, calories: '400 kcal', protein: '17g', carbs: '46g', fat: '16g', img: 'https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy peri-peri marinated paneer chunks tossed with bell peppers.', recipe: 'Grilled sandwich stuffed with spicy peri-peri paneer.', ingredients: ['Peri-Peri Paneer', 'Bell Peppers', 'Cheese'] },
-      { id: 22, category: 'sandwich', name: 'Garlic Herb Cheese Sandwich', price: 119, calories: '320 kcal', protein: '10g', carbs: '40g', fat: '12g', img: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80', shortDesc: 'Roasted garlic butter and Italian herbs loaded with mozzarella cheese.', recipe: 'Toasted bread with rich garlic butter and herbs.', ingredients: ['Garlic Butter', 'Herbs', 'Mozzarella'] },
-      { id: 23, category: 'sandwich', name: 'Aloo Matar Masala Sandwich', price: 99, calories: '300 kcal', protein: '8g', carbs: '43g', fat: '10g', img: 'https://images.unsplash.com/photo-1481070555726-e2fe83bb7725?auto=format&fit=crop&w=800&q=80', shortDesc: 'Desi style mashed potatoes and green peas filling toasted crisp.', recipe: 'Classic home-style aloo matar filling in butter toast.', ingredients: ['Aloo Matar', 'Butter', 'Bread'] },
-      { id: 24, category: 'sandwich', name: 'Chocolate Peanut Butter Sandwich', price: 139, calories: '450 kcal', protein: '12g', carbs: '55g', fat: '20g', img: 'https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?auto=format&fit=crop&w=800&q=80', shortDesc: 'Rich creamy peanut butter and chocolate syrup toasted to sweet perfection.', recipe: 'Sweet dessert sandwich with peanut butter and chocolate.', ingredients: ['Peanut Butter', 'Chocolate Syrup', 'Bread'] },
+  // --- 3. SANDWICH ---
+  { id: 301, category: 'sandwich', name: 'Veg Grill Sandwich (वेज ग्रिल सैंडविच)', price: 50, hasSizes: false, img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80', desc: 'Fresh cucumber, tomato, capsicum grilled crisp with butter.' },
+  { id: 302, category: 'sandwich', name: 'Veg Cheese Sandwich (वेज चीज़ सैंडविच)', price: 70, hasSizes: false, img: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=600&q=80', desc: 'Loaded vegetable sandwich with melted mozzarella cheese.' },
+  { id: 303, category: 'sandwich', name: 'Cheese & Corn Sandwich (चीज़ एंड कॉर्न सैंडविच)', price: 70, hasSizes: false, img: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80', desc: 'Sweet corn kernels with gooey cheese and Italian herbs.' },
+  { id: 304, category: 'sandwich', name: 'Peri Peri Paneer Sandwich (पेरी पेरी पनीर सैंडविच)', price: 90, hasSizes: false, img: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80', desc: 'Spiced peri-peri marinated paneer cubes grilled in jumbo bread.' },
+  { id: 305, category: 'sandwich', name: 'Cheese Burst Sandwich (चीज़ बर्स्ट सैंडविच)', price: 99, hasSizes: false, img: 'https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=600&q=80', desc: 'Triple layer cheese burst with molten liquid cheddar core.' },
+  { id: 306, category: 'sandwich', name: 'Food Zila Special Sandwich (फूड ज़िला स्पेशल सैंडविच)', price: 119, hasSizes: false, img: 'https://images.unsplash.com/photo-1567234669003-dce7a7a88821?auto=format&fit=crop&w=600&q=80', desc: 'Signature luxury club sandwich with paneer, olives, corn & cheese.' },
 
-      // --- MOMOS & PASTA (8 Varieties) ---
-      { id: 25, category: 'momos', name: 'Steamed Veg Momos (8 Pcs)', price: 119, calories: '260 kcal', protein: '8g', carbs: '46g', fat: '4g', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80', shortDesc: 'Minced veggie filling served with fiery red spicy chutney.', recipe: 'Steamed wheat wrappers stuffed with vegetables.', ingredients: ['Flour', 'Cabbage', 'Carrot', 'Spicy Chutney'] },
-      { id: 26, category: 'momos', name: 'White Sauce Alfredo Pasta', price: 199, calories: '510 kcal', protein: '15g', carbs: '62g', fat: '24g', img: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281290?auto=format&fit=crop&w=800&q=80', shortDesc: 'Penne pasta tossed in rich garlic, cream and cheese sauce.', recipe: 'Boiled pasta in dairy cream and parmesan blend.', ingredients: ['Penne', 'Cream', 'Garlic', 'Olives'] },
-      { id: 27, category: 'momos', name: 'Kurkure Fried Momos (6 Pcs)', price: 149, calories: '380 kcal', protein: '10g', carbs: '52g', fat: '15g', img: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crunchy cornflake coated fried momos tossed in schezwan spices.', recipe: 'Stuffed momos given a crunchy crust and deep fried.', ingredients: ['Momos', 'Cornflakes Crunch', 'Schezwan Dip'] },
-      { id: 28, category: 'momos', name: 'Red Sauce Arrabbiata Pasta', price: 189, calories: '460 kcal', protein: '13g', carbs: '65g', fat: '17g', img: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80', shortDesc: 'Penne pasta in spicy Italian tomato, garlic and basil sauce.', recipe: 'Pasta tossed in spicy arrabbiata tomato sauce.', ingredients: ['Penne', 'Tomato Sauce', 'Garlic', 'Basil'] },
-      { id: 29, category: 'momos', name: 'Tandoori Gravy Momos (6 Pcs)', price: 159, calories: '400 kcal', protein: '12g', carbs: '49g', fat: '18g', img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fried momos tossed in smoky tandoori gravy and cream.', recipe: 'Momos coated in tandoori spiced yogurt gravy.', ingredients: ['Fried Momos', 'Tandoori Gravy', 'Cream'] },
-      { id: 30, category: 'momos', name: 'Desi Veg Hakka Noodles', price: 150, calories: '380 kcal', protein: '9g', carbs: '58g', fat: '12g', img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=80', shortDesc: 'High flame wok-tossed noodles with crunchy vegetables.', recipe: 'Wok tossed noodles with veggies and soya sauce.', ingredients: ['Noodles', 'Cabbage', 'Capsicum', 'Soya Sauce'] },
-      { id: 31, category: 'momos', name: 'Schezwan Chilli Garlic Noodles', price: 169, calories: '400 kcal', protein: '9g', carbs: '60g', fat: '13g', img: 'https://images.unsplash.com/photo-1612927601601-6638404738ad?auto=format&fit=crop&w=800&q=80', shortDesc: 'Spicy wok noodles tossed in fiery schezwan garlic paste.', recipe: 'Noodles tossed in spicy schezwan sauce and garlic.', ingredients: ['Noodles', 'Schezwan Paste', 'Garlic'] },
-      { id: 32, category: 'momos', name: 'Cheese Burst Paneer Momos (6 Pcs)', price: 179, calories: '430 kcal', protein: '14g', carbs: '47g', fat: '20g', img: 'https://images.unsplash.com/photo-1625398407399-f3064c568571?auto=format&fit=crop&w=800&q=80', shortDesc: 'Stuffed with paneer and molten liquid cheese inside steamed wrap.', recipe: 'Steam momos bursting with liquid cheese and paneer.', ingredients: ['Paneer', 'Liquid Cheese', 'Flour Wrapper'] },
+  // --- 4. FRENCH FRIES (Sizes: Small & Large) ---
+  { id: 401, category: 'fries', name: 'Salted Fries (सॉल्टेड फ्राइज़)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 70, Large: 100 }, price: 70, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80', desc: 'Golden crispy potato fries tossed in rock sea salt.' },
+  { id: 402, category: 'fries', name: 'Peri Peri Fries (पेरी पेरी फ्राइज़)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 80, Large: 120 }, price: 80, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80', desc: 'Crispy fries tossed in authentic African spicy peri-peri dust.' },
+  { id: 403, category: 'fries', name: 'Cheesey Messy Peri Peri (चीजी मेसी पेरी पेरी)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 120, Large: 180 }, price: 120, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80', desc: 'Fries loaded with molten liquid cheese and peri-peri seasoning.' },
+  { id: 404, category: 'fries', name: 'Food Zila Fries Special (फूड ज़िला फ्राइज़ स्पेशल)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 149, Large: 199 }, price: 149, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80', desc: 'Signature loaded fries with diced paneer, salsa, olives and double cheese.' },
 
-      // --- FRIES & SIDES (8 Varieties) ---
-      { id: 33, category: 'fries', name: 'Loaded Cheese Fries', price: 149, calories: '340 kcal', protein: '5g', carbs: '44g', fat: '14g', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crispy French fries drenched in hot liquid cheese and herbs.', recipe: 'Double fried potato batons with melted cheddar dip.', ingredients: ['Potatoes', 'Liquid Cheese', 'Herbs'] },
-      { id: 34, category: 'fries', name: 'Cheesy Garlic Breadsticks', price: 139, calories: '320 kcal', protein: '11g', carbs: '38g', fat: '15g', img: 'https://images.unsplash.com/photo-1619881589140-5a2bb6d288d6?auto=format&fit=crop&w=800&q=80', shortDesc: 'Freshly baked bread with garlic herb butter and gooey mozzarella.', recipe: 'Oven baked breadsticks loaded with garlic and cheese.', ingredients: ['Artisan Bread', 'Garlic Butter', 'Mozzarella'] },
-      { id: 35, category: 'fries', name: 'Peri-Peri Crispy French Fries', price: 110, calories: '320 kcal', protein: '5g', carbs: '44g', fat: '14g', img: 'https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80', shortDesc: 'Golden potato fries tossed in spicy African peri-peri dust.', recipe: 'Fries shaken with spicy peri-peri spice mix.', ingredients: ['Potatoes', 'Peri-Peri Seasoning'] },
-      { id: 36, category: 'fries', name: 'Crispy Veggie Fingers (6 Pcs)', price: 129, calories: '310 kcal', protein: '6g', carbs: '39g', fat: '13g', img: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80', shortDesc: 'Crispy breaded fingers stuffed with mixed vegetables and potatoes.', recipe: 'Deep fried vegetable sticks with crispy crumb coating.', ingredients: ['Mixed Veggies', 'Breadcrumbs', 'Potato'] },
-      { id: 37, category: 'fries', name: 'Spicy Potato Wedges', price: 120, calories: '290 kcal', protein: '4g', carbs: '42g', fat: '11g', img: 'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=800&q=80', shortDesc: 'Skin-on potato wedges seasoned with herbs and baked crisp.', recipe: 'Wedge-cut potatoes seasoned and deep fried crisp.', ingredients: ['Potato Wedges', 'Herbs', 'Paprika'] },
-      { id: 38, category: 'fries', name: 'Cheesy Jalapeño Poppers (5 Pcs)', price: 159, calories: '350 kcal', protein: '7g', carbs: '36g', fat: '19g', img: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=800&q=80', shortDesc: 'Jalapeño peppers and cheese coated in breadcrumbs and fried.', recipe: 'Cheese and jalapeño spheres fried until crisp.', ingredients: ['Jalapeños', 'Cream Cheese', 'Breadcrumbs'] },
-      { id: 39, category: 'fries', name: 'Crispy Onion Rings (8 Pcs)', price: 119, calories: '280 kcal', protein: '4g', carbs: '35g', fat: '12g', img: 'https://images.unsplash.com/photo-1639024471283-03518883512d?auto=format&fit=crop&w=800&q=80', shortDesc: 'Thick cut onion rings in batter and fried golden brown.', recipe: 'Onion rings dipped in batter and fried.', ingredients: ['Onions', 'Batter', 'Breadcrumbs'] },
-      { id: 40, category: 'fries', name: 'Loaded Mexican Nachos with Cheese', price: 179, calories: '390 kcal', protein: '8g', carbs: '48g', fat: '18g', img: 'https://images.unsplash.com/photo-1582169505501-c5332f144d18?auto=format&fit=crop&w=800&q=80', shortDesc: 'Corn tortilla chips topped with liquid cheese, salsa and jalapeños.', recipe: 'Tortilla chips layered with warm melted cheese and salsa.', ingredients: ['Nachos', 'Liquid Cheese', 'Salsa', 'Jalapeños'] },
+  // --- 5. ROLLS ---
+  { id: 501, category: 'roll', name: 'Veg Frankie Roll (वेज फ्रैंकी रोल)', price: 70, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Spiced aloo-veg roll wrapped with tangy frankie masala.' },
+  { id: 502, category: 'roll', name: 'Cheese Roll (चीज़ रोल)', price: 90, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Loaded vegetable roll with melted mozzarella and cheese sauce.' },
+  { id: 503, category: 'roll', name: 'Paneer Roll (पनीर रोल)', price: 90, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Soft paneer cubes tossed in spices and wrapped in paratha.' },
+  { id: 504, category: 'roll', name: 'Punjabi Roll (पंजाबी रोल)', price: 99, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Rich north Indian tadka veggies and paneer in crisp wrap.' },
+  { id: 505, category: 'roll', name: 'Paneer Tikka Roll (पनीर टिक्का रोल)', price: 120, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Charcoal roasted paneer tikka chunks with mint chutney.' },
+  { id: 506, category: 'roll', name: 'Soya Chaap Roll (सोया चाप रोल)', price: 120, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Roasted juicy soya chaap wrapped with onion rings and sauces.' },
+  { id: 507, category: 'roll', name: 'Afghani Chaap Roll (अफगानी चाप रोल)', price: 120, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Creamy Afghani cashew-malai marinated chaap in herbed wrap.' },
+  { id: 508, category: 'roll', name: 'Food Zila Special Roll (फूड ज़िला स्पेशल रोल)', price: 150, hasSizes: false, img: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80', desc: 'Loaded luxury jumbo roll with paneer, chaap, corn & double cheese.' },
 
-      // --- BEVERAGES (8 Varieties) ---
-      { id: 41, category: 'beverages', name: 'Thick Chocolate Cold Coffee', price: 120, calories: '230 kcal', protein: '6g', carbs: '34g', fat: '9g', img: 'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=800&q=80', shortDesc: 'Blended coffee with chocolate syrup and vanilla ice cream.', recipe: 'Espresso whipped with milk, chocolate fudge and ice cream.', ingredients: ['Coffee', 'Milk', 'Chocolate Fudge'] },
-      { id: 42, category: 'beverages', name: 'Virgin Mint Mojito', price: 99, calories: '110 kcal', protein: '1g', carbs: '26g', fat: '0g', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fresh garden mint, crushed lime wedges and sparkling club soda.', recipe: 'Muddled mint leaves and lime with soda over crushed ice.', ingredients: ['Mint', 'Lime', 'Soda', 'Sugar'] },
-      { id: 43, category: 'beverages', name: 'Oreo Thick Brownie Shake', price: 150, calories: '350 kcal', protein: '7g', carbs: '48g', fat: '15g', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80', shortDesc: 'Oreo cookies and chocolate brownie blended thick with milk.', recipe: 'Thick milkshake blended with oreo and brownie chunks.', ingredients: ['Oreo', 'Brownie', 'Milk', 'Ice Cream'] },
-      { id: 44, category: 'beverages', name: 'Refreshing Blue Lagoon Mocktail', price: 110, calories: '130 kcal', protein: '0g', carbs: '30g', fat: '0g', img: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80', shortDesc: 'Blue curacao syrup, lemon juice and sparkling soda over ice.', recipe: 'Layered citrus mocktail with blue syrup and soda.', ingredients: ['Blue Curacao', 'Lemon', 'Soda'] },
-      { id: 45, category: 'beverages', name: 'Classic Strawberry Smoothie', price: 130, calories: '210 kcal', protein: '5g', carbs: '32g', fat: '7g', img: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80', shortDesc: 'Fresh strawberry puree blended with thick yogurt and milk.', recipe: 'Strawberry and yogurt smoothie blended chilled.', ingredients: ['Strawberry', 'Yogurt', 'Milk'] },
-      { id: 46, category: 'beverages', name: 'KitKat Crunchy Milkshake', price: 160, calories: '380 kcal', protein: '8g', carbs: '50g', fat: '16g', img: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80', shortDesc: 'KitKat chocolate fingers blended into rich creamy milkshake.', recipe: 'Milkshake whipped with crushed kitkat chocolate.', ingredients: ['KitKat', 'Milk', 'Vanilla Ice Cream'] },
-      { id: 47, category: 'beverages', name: 'Tangy Masala Lemonade (Shikanji)', price: 79, calories: '90 kcal', protein: '1g', carbs: '22g', fat: '0g', img: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80', shortDesc: 'Desi lemon drink infused with roasted cumin and black salt.', recipe: 'Lemon juice spiced with black salt, cumin and jaljeera.', ingredients: ['Lemon', 'Black Salt', 'Cumin Powder', 'Water'] },
-      { id: 48, category: 'beverages', name: 'Mango Delight Fruit Shake', price: 140, calories: '250 kcal', protein: '5g', carbs: '40g', fat: '8g', img: 'https://images.unsplash.com/photo-1546173159-ba727fea9c4a?auto=format&fit=crop&w=800&q=80', shortDesc: 'Ripe mango pulp blended with rich chilled milk and cream.', recipe: 'Mango pulp whipped with cold milk and ice cream.', ingredients: ['Mango Pulp', 'Milk', 'Cream'] }
-    ];
+  // --- 6. PIZZA (Sizes: Small & Large) ---
+  { id: 601, category: 'pizza', name: 'Cheese Margherita Pizza (चीज़ मार्गेरिटा पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 80, Large: 130 }, price: 80, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=600&q=80', desc: 'Classic Italian tomato herb sauce with pure mozzarella cheese.' },
+  { id: 602, category: 'pizza', name: 'Golden Sweet Corn Pizza (गोल्डन स्वीट कॉर्न पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 99, Large: 140 }, price: 99, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=600&q=80', desc: 'Loaded with juicy golden sweet corn and mozzarella cheese.' },
+  { id: 603, category: 'pizza', name: 'Tomato Pizza (टमाटर पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 90, Large: 120 }, price: 90, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80', desc: 'Freshly sliced juicy red tomatoes with herb cheese base.' },
+  { id: 604, category: 'pizza', name: 'Onion Capsicum Pizza (ऑनियन कैप्सिकम पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 99, Large: 149 }, price: 99, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80', desc: 'Crunchy diced onions, fresh capsicum and melted mozzarella.' },
+  { id: 605, category: 'pizza', name: 'Veg Delight Pizza (वेज डिलाइट पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 120, Large: 160 }, price: 120, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80', desc: 'Onions, crisp capsicum, juicy tomatoes and sweet corn.' },
+  { id: 606, category: 'pizza', name: 'Paneer Onion Pizza (पनीर ऑनियन पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 149, Large: 179 }, price: 149, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80', desc: 'Soft cottage cheese cubes and sliced onions over cheese.' },
+  { id: 607, category: 'pizza', name: 'Tandoori Paneer Pizza (तंदूरी पनीर पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 149, Large: 179 }, price: 149, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80', desc: 'Spicy tandoori sauce with roasted paneer tikka chunks and paprika.' },
+  { id: 608, category: 'pizza', name: 'Mexican Pizza (मैक्सिकन पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 199, Large: 249 }, price: 199, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80', desc: 'Jalapenos, Mexican salsa herbs, bell peppers, corn and cheese.' },
+  { id: 609, category: 'pizza', name: 'Fully Loaded Pizza (फुली लोडेड पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 240, Large: 280 }, price: 240, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?auto=format&fit=crop&w=600&q=80', desc: 'Loaded with black olives, sweet corn, paneer, capsicum and mushrooms.' },
+  { id: 610, category: 'pizza', name: 'Cheese Burst Pizza (चीज़ बर्स्ट पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 220, Large: 260 }, price: 220, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=600&q=80', desc: 'Crust overflowing with molten liquid cheese and double mozzarella.' },
+  { id: 611, category: 'pizza', name: 'Food Zila Special Pizza (फूड ज़िला स्पेशल पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 249, Large: 299 }, price: 249, selectedSize: 'Small', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80', desc: 'Signature masterpiece with exotic vegetables, paneer tikka and 4 cheeses.' },
 
+  // --- 7. STEAM MOMOS (Sizes: 6 Pcs & 10 Pcs) ---
+  { id: 701, category: 'momos', name: 'Steam Veg Momos (वेज मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 60, '10 Pcs': 80 }, price: 60, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80', desc: 'Thin wrapper stuffed with minced veggies, served with spicy red chutney.' },
+  { id: 702, category: 'momos', name: 'Steam Paneer Momos (पनीर मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 70, '10 Pcs': 90 }, price: 70, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80', desc: 'Soft malai paneer stuffed momos with authentic garlic chili dip.' },
+
+  // --- 8. FRIED MOMOS (Sizes: 6 Pcs & 10 Pcs) ---
+  { id: 801, category: 'momos', name: 'Fried Veg Momos (फ्राई वेज मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 70, '10 Pcs': 90 }, price: 70, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80', desc: 'Golden crispy fried vegetable momos.' },
+  { id: 802, category: 'momos', name: 'Fried Paneer Momos (फ्राई पनीर मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 80, '10 Pcs': 100 }, price: 80, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80', desc: 'Crispy fried paneer stuffed dumplings with mayonnaise.' },
+
+  // --- 9. KURKURE MOMOS (Sizes: 6 Pcs & 10 Pcs) ---
+  { id: 901, category: 'momos', name: 'Kurkure Veg Momos (कुरकुरे वेज मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 120, '10 Pcs': 140 }, price: 120, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80', desc: 'Super crunchy cornflakes crust outside with juicy veggies inside.' },
+  { id: 902, category: 'momos', name: 'Kurkure Paneer Momos (कुरकुरे पनीर मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 140, '10 Pcs': 160 }, price: 140, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80', desc: 'Extra crunchy paneer momos tossed in special spice rub.' },
+
+  // --- 10. TANDOORI MOMOS (Sizes: 6 Pcs & 10 Pcs) ---
+  { id: 1001, category: 'momos', name: 'Tandoori Masala Momos (तंदूरी मसाला मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 120, '10 Pcs': 150 }, price: 120, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80', desc: 'Charcoal roasted momos tossed in spicy tandoori gravy & butter.' },
+  { id: 1002, category: 'momos', name: 'Tandoori Paneer Momos (तंदूरी पनीर मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 140, '10 Pcs': 160 }, price: 140, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80', desc: 'Charcoal roasted paneer momos in creamy tandoori masala.' },
+  { id: 1003, category: 'momos', name: 'Afghani Momos (अफगानी मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 150, '10 Pcs': 180 }, price: 150, selectedSize: '6 Pcs', img: 'https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80', desc: 'Momos tossed in rich cashew-cream Afghani gravy.' },
+
+  // --- 11. SOYA CHAAP (Sizes: Half & Full) ---
+  { id: 1101, category: 'chaap', name: 'Masala Chaap (मसाला चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80', desc: 'Tender soya chaap roasted with spicy north Indian masala.' },
+  { id: 1102, category: 'chaap', name: 'Achari Chaap (अचारी चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80', desc: 'Tangy pickle-spiced soya chaap roasted in tandoor.' },
+  { id: 1103, category: 'chaap', name: 'Punjabi Soya Chaap (पंजाबी सोया चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80', desc: 'Rich Punjabi style spiced chaap with onions and butter.' },
+  { id: 1104, category: 'chaap', name: 'Lemon Chaap (लेमन चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80', desc: 'Zesty lemon and black pepper marinated tandoori chaap.' },
+  { id: 1105, category: 'chaap', name: 'Malai Chaap (मलाई चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 140, Full: 250 }, price: 140, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80', desc: 'Rich dairy cream, cashew paste and mild cardamom marinade.' },
+  { id: 1106, category: 'chaap', name: 'Afghani Chaap (अफगानी चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80', desc: 'Creamy charcoal roasted chaap with fresh coriander and spices.' },
+
+  // --- 12. PANEER TIKKA (Sizes: Half & Full) ---
+  { id: 1201, category: 'tikka', name: 'Masala Paneer Tikka (मसाला पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80', desc: 'Fresh malai paneer cubes marinated in spiced yogurt and roasted in tandoor.' },
+  { id: 1202, category: 'tikka', name: 'Achari Paneer Tikka (अचारी पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80', desc: 'Pickle-marinated paneer roasted with capsicum and onions.' },
+  { id: 1203, category: 'tikka', name: 'Lemon Paneer Tikka (लेमन पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80', desc: 'Zesty lemon and pepper marinated fresh cottage cheese.' },
+  { id: 1204, category: 'tikka', name: 'Punjabi Paneer Tikka (पंजाबी पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80', desc: 'Classic Punjabi red masala paneer tikka with mint chutney.' },
+  { id: 1205, category: 'tikka', name: 'Malai Paneer Tikka (मलाई पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 150, Full: 250 }, price: 150, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80', desc: 'Melt-in-mouth paneer cubes soaked in rich cashew-cream and cheese.' },
+  { id: 1206, category: 'tikka', name: 'Afghani Paneer Tikka (अफगानी पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=600&q=80', desc: 'Herbed white marinade roasted paneer tikka with chaat masala.' }
+];
+
+
+    // Function to Change Size on Item Card (Small/Large ya 6Pcs/10Pcs ya Half/Full)
+function changeItemSize(itemId, selectedSize) {
+  const item = foodDatabase.find(x => x.id === itemId);
+  if (!item || !item.hasSizes) return;
+
+  item.selectedSize = selectedSize;
+  item.price = item.prices[selectedSize];
+
+  // Update Price and Active Button on Card
+  const card = document.getElementById(`card-${itemId}`);
+  if (card) {
+    const priceEl = card.querySelector('.card-price');
+    if (priceEl) priceEl.innerText = `₹${item.price}`;
+
+    card.querySelectorAll('.size-pill').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-size') === selectedSize);
+    });
+  }
+}
+
+// Updated Render Menu Function with Size Switcher
+function renderMenu(items) {
+  const grid = document.getElementById('menuGrid');
+  grid.innerHTML = items.map(item => {
+    let sizeSelectorHTML = '';
+    if (item.hasSizes && item.sizeLabels) {
+      sizeSelectorHTML = `
+        <div class="size-toggle-container">
+          ${item.sizeLabels.map(s => `
+            <button class="size-pill ${item.selectedSize === s ? 'active' : ''}" 
+                    data-size="${s}" 
+                    onclick="event.stopPropagation(); changeItemSize(${item.id}, '${s}')">
+              ${s} (₹${item.prices[s]})
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    return `
+      <div class="menu-card" id="card-${item.id}">
+        <div class="card-img-wrap" onclick="openDetailModal(${item.id})">
+          <img src="${item.img}" alt="${item.name}">
+        </div>
+        <div class="card-content">
+          <div class="card-title-row">
+            <h3 class="card-title" onclick="openDetailModal(${item.id})">${item.name}</h3>
+            <span class="card-price">₹${item.price}</span>
+          </div>
+          <div class="veg-indicator"><div class="veg-dot"></div><span>100% PURE VEG</span></div>
+          ${sizeSelectorHTML}
+          <p class="card-desc">${item.desc}</p>
+          <div class="card-action-row">
+            <button class="btn-add-cart" onclick="addToCartWithSize(${item.id})">🛒 Add to Cart</button>
+            <a href="${getWaOrderLink(item.name + (item.hasSizes ? ' [' + item.selectedSize + ']' : ''), item.price)}" target="_blank" class="btn-quick-wa">📱 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Add to Cart with selected Size
+function addToCartWithSize(id) {
+  const item = foodDatabase.find(x => x.id === id);
+  if (!item) return;
+
+  const itemNameWithSize = item.hasSizes ? `${item.name} (${item.selectedSize})` : item.name;
+  const cartItemId = item.hasSizes ? `${item.id}-${item.selectedSize}` : `${item.id}`;
+
+  const existing = cart.find(x => x.cartId === cartItemId);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      cartId: cartItemId,
+      id: item.id,
+      name: itemNameWithSize,
+      price: item.price,
+      img: item.img,
+      qty: 1
+    });
+  }
+  saveCart();
+  toggleCart(true);
+   }
+
+    /* Size Switcher Pills */
+.size-toggle-container {
+  display: flex;
+  gap: 6px;
+  margin: 0.5rem 0 0.8rem;
+  flex-wrap: wrap;
+}
+.size-pill {
+  background: #1e1e28;
+  color: #cfcfd6;
+  border: 1px solid #333344;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.size-pill.active {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  font-weight: 700;
+    }
+    
     let cart = JSON.parse(localStorage.getItem('foodzillaCart')) || [];
 
     function saveCart() {
