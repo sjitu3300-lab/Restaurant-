@@ -753,79 +753,82 @@ function checkUserSession() {
   }
 }
 
+// ================= STEP 2 JS: CHECKOUT & DIRECT WHATSAPP DISPATCH =================
 
-    // Updated Checkout Function (Online -> payment.html | COD -> Sheet + WhatsApp)
-    function processCheckout() {
-      const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
-      if (!currentUser) {
-        alert('Kripya pehle Login ya Account create karein taaki delivery details save ho sakein.');
-        openAuthModal();
-        return;
-      }
+// 👉 YAHAN APNA ASLI 10-DIGIT WHATSAPP NUMBER LIKHEIN ('91' ke sath)
+const RESTAURANT_WHATSAPP = "9190797 61984"; 
 
-      if (cart.length === 0) {
-        alert('Aapka cart khali hai!');
-        return;
-      }
+function processCheckout() {
+  const currentUser = JSON.parse(localStorage.getItem('foodzillaUser'));
+  
+  // 1. Agar customer ne details nahi bhari hai to Step 1 ka modal open karein
+  if (!currentUser || !currentUser.name || !currentUser.phone) {
+    alert('Kripya pehle apna Name aur Address enter karein taaki order deliver ho sake.');
+    openAuthModal();
+    return;
+  }
 
-      const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
-      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
-      const gst = Math.round(subtotal * 0.05);
-      const grandTotal = subtotal + gst;
-      const itemsSummary = cart.map(i => `${i.name} (Qty: ${i.qty}) - ₹${i.price * i.qty}`).join(", ");
+  // 2. Agar cart khali hai
+  if (cart.length === 0) {
+    alert('Aapka cart khali hai! Kripya menu se items add karein.');
+    return;
+  }
 
-      const orderPayload = {
-        name: currentUser.name,
-        phone: currentUser.phone,
-        address: currentUser.address,
-        itemsSummary: itemsSummary,
-        subtotal: subtotal,
-        gst: gst,
-        grandTotal: grandTotal,
-        paymentType: paymentType
-      };
+  // 3. Bill Calculations
+  const paymentType = document.querySelector('input[name="paymentType"]:checked').value;
+  const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+  const gst = Math.round(subtotal * 0.05);
+  const grandTotal = subtotal + gst;
+  const itemsSummary = cart.map(i => `${i.name} (Qty: ${i.qty}) - ₹${i.price * i.qty}`).join(", ");
 
-        // 1. Online Payment -> payment.html
-      if (paymentType === 'ONLINE') {
-        localStorage.setItem('foodzillaPendingOrder', JSON.stringify(orderPayload));
-        window.location.href = "payment.html";
-        return;
-      }
+  // 4. Data Google Sheet ke 'Orders' tab me bhejein
+  const orderData = {
+    action: "order",
+    name: currentUser.name,
+    phone: currentUser.phone,
+    address: currentUser.address,
+    items: itemsSummary,
+    deliveryStatus: "Pending",
+    paymentStatus: paymentType === 'ONLINE' ? `Online UPI (₹${grandTotal})` : `Cash on Delivery (₹${grandTotal})`
+  };
 
-      // 2. COD -> Google Sheet Orders Tab + WhatsApp Notification
-      const orderData = {
-        action: "order",
-        name: currentUser.name,
-        phone: currentUser.phone,
-        address: currentUser.address,
-        items: itemsSummary,
-        deliveryStatus: "Pending",
-        paymentStatus: `Cash on Delivery (COD) - ₹${grandTotal}`
-      };
+  if (typeof GOOGLE_SHEET_WEBHOOK_URL !== 'undefined' && GOOGLE_SHEET_WEBHOOK_URL) {
+    fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    }).catch(err => console.log('Sheet upload error:', err));
+  }
 
-      if (GOOGLE_SHEET_WEBHOOK_URL) {
-        fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(orderData)
-        }).catch(err => console.log('Sheet error:', err));
-      }
+  // 5. WhatsApp Bill Message Tayar karein
+  let waMessage = "";
+  
+  if (paymentType === 'ONLINE') {
+    waMessage = `🦖 *Foodzilla Fast Food — Online UPI Order*\n`;
+    waMessage += `👤 Customer: ${currentUser.name}\n📞 Phone: ${currentUser.phone}\n📍 Delivery Address: ${currentUser.address}\n----------------------------------\n`;
+    cart.forEach((item, index) => {
+      waMessage += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+    });
+    waMessage += `----------------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment Mode: Online UPI\n👉 *Please send QR Code / Scanner for payment of ₹${grandTotal}.*`;
+  } else {
+    waMessage = `🦖 *Foodzilla Fast Food — COD Order*\n`;
+    waMessage += `👤 Customer: ${currentUser.name}\n📞 Phone: ${currentUser.phone}\n📍 Delivery Address: ${currentUser.address}\n----------------------------------\n`;
+    cart.forEach((item, index) => {
+      waMessage += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+    });
+    waMessage += `----------------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment Mode: Cash on Delivery (COD)\n👉 *Please confirm my order for kitchen preparation.*`;
+  }
 
-      let orderSummary = `🦖 *Foodzilla Fast Food Order Summary*\n`;
-      orderSummary += `👤 Name: ${currentUser.name}\n📞 Phone: ${currentUser.phone}\n📍 Address: ${currentUser.address}\n---------------------------\n`;
-      cart.forEach((item, index) => {
-        orderSummary += `${index + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
-      });
-      orderSummary += `---------------------------\nSubtotal: ₹${subtotal}\nGST (5%): ₹${gst}\n*Grand Total: ₹${grandTotal}*\n💳 Payment: Cash on Delivery (COD)`;
+  // 6. WhatsApp Direct Open karein
+  window.open(`https://wa.me/${RESTAURANT_WHATSAPP}?text=${encodeURIComponent(waMessage)}`, '_blank');
 
-      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(orderSummary)}`, '_blank');
-      
-      cart = [];
-      saveCart();
-      toggleCart(false);
-      alert('Cash on Delivery (COD) order placed successfully and notification sent to phone!');
-    }
+  // 7. Cart Reset karein
+  cart = [];
+  saveCart();
+  toggleCart(false);
+  alert('🎉 Aapka order receive ho gaya hai aur WhatsApp message generate ho gaya hai!');
+}
 
     function checkUserSession() {
       const user = JSON.parse(localStorage.getItem('foodzillaUser'));
