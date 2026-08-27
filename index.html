@@ -414,28 +414,35 @@
     </div>
   </div>
 
-  <!-- AUTH MODAL -->
+  <!-- ================= STEP 1: CUSTOMER PROFILE MODAL (NO PASSWORD) ================= -->
   <div class="auth-modal-overlay" id="authModal" onclick="closeAuthModalOnOutside(event)">
     <div class="auth-card">
       <button class="close-btn" onclick="closeAuthModal()">✕</button>
-      <div class="auth-tabs">
-        <button class="auth-tab-btn active" onclick="switchAuthTab('login', this)">Customer Login</button>
-        <button class="auth-tab-btn" onclick="switchAuthTab('register', this)">Create Account</button>
+      
+      <div style="text-align: center; margin-bottom: 1.2rem;">
+        <span style="font-size: 2rem;">👤</span>
+        <h3 style="font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.4rem; margin-top: 0.2rem;">Customer Delivery Profile</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Fast delivery ke liye apni details ek baar save karein.</p>
       </div>
 
-      <form id="loginForm" onsubmit="handleLogin(event)">
-        <div class="form-group"><label>Mobile Number / Email</label><input type="text" id="loginUser" placeholder="Enter phone/email" required></div>
-        <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="Enter password" required></div>
-        <button type="submit" class="auth-submit-btn">Login to Account</button>
-      </form>
-
-      <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
-        <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Apna pura naam likhein" required></div>
-        <div class="form-group"><label>Mobile / WhatsApp</label><input type="tel" id="regPhone" placeholder="+91 98765 XXXXX" required></div>
-        <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="name@example.com" required></div>
-        <div class="form-group"><label>Delivery Address (Nagaur)</label><textarea id="regAddress" rows="2" placeholder="House no, Street, Colony..." required></textarea></div>
-        <div class="form-group"><label>Create Password</label><input type="password" id="regPass" placeholder="Choose password" required></div>
-        <button type="submit" class="auth-submit-btn">Create & Save Account</button>
+      <form id="customerProfileForm" onsubmit="saveCustomerProfile(event)">
+        <div class="form-group">
+          <label>Full Name (Pura Naam) *</label>
+          <input type="text" id="custName" placeholder="e.g. Rahul Sharma" required>
+        </div>
+        <div class="form-group">
+          <label>Mobile / WhatsApp Number *</label>
+          <input type="tel" id="custPhone" placeholder="e.g. 9876543210" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address (Optional)</label>
+          <input type="email" id="custEmail" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label>Complete Delivery Address (Nagaur) *</label>
+          <textarea id="custAddress" rows="2" placeholder="House no, Colony, Landmark..." required></textarea>
+        </div>
+        <button type="submit" class="auth-submit-btn">✓ Save Profile Details</button>
       </form>
     </div>
   </div>
@@ -698,58 +705,54 @@
     // Google Sheet Webhook URL Linked Here
     const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw0U7xDsW7xvR4UnEB2AuU9pG7_gFUdHtRyoYDJjYGHLPtygYALhEIFOCXTHMSrzYlKgQ/exec";
 
-    // Register Function (Saves to 'Users' sheet & local)
-    function handleRegister(e) {
-      e.preventDefault();
-      const userData = {
-        action: "register",
-        name: document.getElementById('regName').value,
-        phone: document.getElementById('regPhone').value,
-        email: document.getElementById('regEmail').value,
-        address: document.getElementById('regAddress').value,
-        password: document.getElementById('regPass').value
-      };
+    // ================= STEP 1 JS: SAVE CUSTOMER PROFILE =================
+function saveCustomerProfile(e) {
+  e.preventDefault();
+  
+  const userData = {
+    action: "register",
+    name: document.getElementById('custName').value.trim(),
+    phone: document.getElementById('custPhone').value.trim(),
+    email: document.getElementById('custEmail').value.trim() || "N/A",
+    address: document.getElementById('custAddress').value.trim()
+  };
 
-      localStorage.setItem('foodzillaUser', JSON.stringify(userData));
+  // 1. Browser me save karein
+  localStorage.setItem('foodzillaUser', JSON.stringify(userData));
 
-      if (GOOGLE_SHEET_WEBHOOK_URL) {
-        fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(userData)
-        }).catch(err => console.log('Sheet error:', err));
-      }
+  // 2. Google Sheet ke 'Users' tab me send karein
+  if (typeof GOOGLE_SHEET_WEBHOOK_URL !== 'undefined' && GOOGLE_SHEET_WEBHOOK_URL) {
+    fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    }).catch(err => console.log('Sheet upload error:', err));
+  }
 
-      // Phone / WhatsApp Notification alert on registration
-      const regMsg = encodeURIComponent(`🎉 *New Customer Registration - Foodzilla*\n👤 Name: ${userData.name}\n📞 Phone: ${userData.phone}\n📍 Address: ${userData.address}`);
-      window.open(`https://wa.me/919876543210?text=${regMsg}`, '_blank');
+  alert(`Dhanyawad ${userData.name}! Aapki details save ho gayi hain.`);
+  closeAuthModal();
+  checkUserSession();
+}
 
-      alert(`Dhanyawad ${userData.name}! Foodzilla me aapka account create ho gaya hai.`);
-      closeAuthModal();
-      checkUserSession();
-    }
+// Check Profile Session
+function checkUserSession() {
+  const user = JSON.parse(localStorage.getItem('foodzillaUser'));
+  const btn = document.getElementById('userProfileBtn');
+  
+  if (user && user.name) {
+    btn.innerHTML = `👤 <span>${user.name.split(' ')[0]}</span>`;
+    
+    // Auto fill form if opened again
+    if (document.getElementById('custName')) document.getElementById('custName').value = user.name || '';
+    if (document.getElementById('custPhone')) document.getElementById('custPhone').value = user.phone || '';
+    if (document.getElementById('custEmail')) document.getElementById('custEmail').value = user.email === 'N/A' ? '' : user.email;
+    if (document.getElementById('custAddress')) document.getElementById('custAddress').value = user.address || '';
+  } else {
+    btn.innerHTML = `👤 <span>My Details</span>`;
+  }
+}
 
-    // Login Function (Scans Sheet / Local storage)
-    function handleLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById('loginUser').value.trim();
-      const pass = document.getElementById('loginPass').value.trim();
-      const savedUser = JSON.parse(localStorage.getItem('foodzillaUser'));
-
-      if (savedUser && (savedUser.phone === user || savedUser.email === user) && savedUser.pass === pass) {
-        alert(`Welcome back, ${savedUser.name}!`);
-        closeAuthModal();
-        checkUserSession();
-      } else {
-        // Fallback quick login session
-        const demoUser = { name: user.split('@')[0], phone: user, email: user, address: 'Nagaur, Rajasthan', pass: pass };
-        localStorage.setItem('foodzillaUser', JSON.stringify(demoUser));
-        alert('Login successful!');
-        closeAuthModal();
-        checkUserSession();
-      }
-    }
 
     // Updated Checkout Function (Online -> payment.html | COD -> Sheet + WhatsApp)
     function processCheckout() {
