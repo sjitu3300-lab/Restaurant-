@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foodzilla Fast Food | Nagaur's Best Sizzling Fast Food</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-   <!-- ================= GOOGLE SEARCH REVIEW SCHEMA (RICH SNIPPETS) ================= -->
+  <!-- ================= GOOGLE SEARCH REVIEW SCHEMA (RICH SNIPPETS) ================= -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -29,7 +28,7 @@
     "url": "https://foodzillafastfood.com",
     "telephone": "+919079761984",
     "priceRange": "₹25 - ₹749",
-    "servesCuisine": "Fast Food, Pure Vegetarian, Pizza, Burger, Momos, Waffles, Brownie Bowls",
+    "servesCuisine": "Fast Food, Pure Vegetarian, Pizza, Burger, Momos, Waffles",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -37,6 +36,8 @@
     }
   }
   </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #e63946;
@@ -449,7 +450,7 @@
     .cart-item-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
     .cart-item-price { font-size: 0.85rem; color: var(--gold); font-weight: 700; }
     
-    .qty-controls { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    . .qty-controls { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
     .qty-btn { background: #252532; border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: 700; }
     .qty-btn:hover { background: var(--primary); }
     .qty-text { font-size: 0.85rem; font-weight: 600; width: 20px; text-align: center; }
@@ -460,7 +461,7 @@
     .calc-row.total-row { font-size: 1.1rem; color: #fff; font-weight: 700; border-top: 1px dashed var(--border-color); padding-top: 0.6rem; margin-top: 0.6rem; }
     .calc-row.total-row span:last-child { color: var(--gold); }
 
-    .  .payment-select-box { margin: 1rem 0; background: #181820; padding: 0.8rem; border-radius: 8px; }
+    .payment-select-box { margin: 1rem 0; background: #181820; padding: 0.8rem; border-radius: 8px; }
     .payment-select-box label { display: block; font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 0.4rem; }
     .pay-options { display: flex; gap: 10px; }
     .pay-option-label {
@@ -620,7 +621,6 @@
       <button class="checkout-btn" onclick="processCheckout()">Place Order on WhatsApp</button>
     </div>
   </div>
-
   <!-- CUSTOMER PROFILE MODAL (NO PASSWORD) -->
   <div class="auth-modal-overlay" id="authModal" onclick="closeAuthModalOnOutside(event)">
     <div class="auth-card">
@@ -666,6 +666,7 @@
       </div>
     </div>
   </section>
+
   <!-- MENU SECTION -->
   <section class="menu-section reveal-on-scroll" id="menu-section">
     <div class="section-header">
@@ -796,8 +797,7 @@
       </div>
     </div>
   </div>
-
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="reveal-on-scroll" id="contact">
     <div class="footer-grid">
       <div class="footer-col">
@@ -826,7 +826,8 @@
       <p>&copy; 2026 Foodzilla Fast Food. All rights reserved.</p>
     </div>
   </footer>
-    <!-- JAVASCRIPT -->
+
+  <!-- JAVASCRIPT -->
   <script>
     // ================= COMPLETE OFFICIAL FOODZILLA DATABASE =================
     const foodDatabase = [
@@ -852,30 +853,29 @@
       { id: 1319, category: 'combo', name: 'Family Party Box (For 3-4)', price: 489, originalPrice: 560, hasSizes: false, img: 'https://i.ibb.co/fY2ycng5/IMG-20260829-112216.png?auto=format&fit=crop&w=600&q=80', desc: 'Fully Loaded Pizza (Large) + 2x Prime Aloo Burgers + Kurkure Veg Momos (10 Pcs).' },
       { id: 1320, category: 'combo', name: 'Foodzilla Monster Mega Feast', price: 749, originalPrice: 868, hasSizes: false, img: 'https://i.ibb.co/XxrsLzz6/IMG-20260829-112244.png?auto=format&fit=crop&w=600&q=80', desc: '2x FZ Special Burgers + Tandoori Paneer Pizza (L) + Malai Chaap (Full) + FZ Fries (L).' },
 
-      // --- 2. WAFFLES (From Image: Single 1 Pc. & Double 2 Pcs.) ---
-      { id: 1401, category: 'waffle', name: 'Dark Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 70, 'Double (2 Pcs)': 130 }, price: 70, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/S48D9jRT/1788024208536.png?auto=format&fit=crop&w=600&q=80', desc: 'Crispy golden waffle drizzled with rich dark Belgian chocolate sauce.' },
-      { id: 1402, category: 'waffle', name: 'Milk Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 70, 'Double (2 Pcs)': 130 }, price: 70, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/XrRksHCR/1788024210206.png?auto=format&fit=crop&w=600&q=80', desc: 'Warm waffle layered with smooth and sweet dairy milk chocolate.' },
-      { id: 1403, category: 'waffle', name: 'White Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 80, 'Double (2 Pcs)': 140 }, price: 80, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/Rk09CyzZ/1788024214383.png?auto=format&fit=crop&w=600&q=80', desc: 'Delicate crispy waffle topped with creamy white chocolate ganache.' },
-      { id: 1404, category: 'waffle', name: 'Triple Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 80, 'Double (2 Pcs)': 140 }, price: 80, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/RpLhQTHB/1788024221097.png?auto=format&fit=crop&w=600&q=80', desc: 'Ultimate triple threat with dark, milk, and white chocolate layers.' },
-      { id: 1405, category: 'waffle', name: 'Kitkat Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 100, 'Double (2 Pcs)': 140 }, price: 100, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/3mq1S24y/1788024223507.png?auto=format&fit=crop&w=600&q=80', desc: 'Loaded with crispy crushed Kitkat bars and chocolate drizzle.' },
-      { id: 1406, category: 'waffle', name: 'Nutella Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 120, 'Double (2 Pcs)': 150 }, price: 120, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/N2RDtXBB/1788024226165.png?auto=format&fit=crop&w=600&q=80', desc: 'Generously spread with authentic hazelnut Nutella spread.' },
-      { id: 1407, category: 'waffle', name: 'Pista Kunafa Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 120, 'Double (2 Pcs)': 180 }, price: 120, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/ksLwyNFk/1788024229138.png?auto=format&fit=crop&w=600&q=80', desc: 'Middle Eastern specialty with crispy kunafa crunch & pistachio cream.' },
-      { id: 1408, category: 'waffle', name: 'Biscoff Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 130, 'Double (2 Pcs)': 200 }, price: 130, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/qLrC0M6z/1788024231516.png?auto=format&fit=crop&w=600&q=80', desc: 'Topped with caramelized Lotus Biscoff spread and crushed biscuits.' },
-      { id: 1409, category: 'waffle', name: 'Foodzilla Special Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 130, 'Double (2 Pcs)': 220 }, price: 130, selectedSize: 'Single (1 Pc)', img: 'https://i.ibb.co/d4xXbj5r/1788024232408.jpg?auto=format&fit=crop&w=600&q=80', desc: 'Chef signature waffle overloaded with chocolate, nutella, nuts and brownie.' },
+      // --- 2. WAFFLES ---
+      { id: 1401, category: 'waffle', name: 'Dark Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 70, 'Double (2 Pcs)': 130 }, price: 70, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Crispy golden waffle drizzled with rich dark Belgian chocolate sauce.' },
+      { id: 1402, category: 'waffle', name: 'Milk Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 70, 'Double (2 Pcs)': 130 }, price: 70, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Warm waffle layered with smooth and sweet dairy milk chocolate.' },
+      { id: 1403, category: 'waffle', name: 'White Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 80, 'Double (2 Pcs)': 140 }, price: 80, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Delicate crispy waffle topped with creamy white chocolate ganache.' },
+      { id: 1404, category: 'waffle', name: 'Triple Chocolate Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 80, 'Double (2 Pcs)': 140 }, price: 80, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Ultimate triple threat with dark, milk, and white chocolate layers.' },
+      { id: 1405, category: 'waffle', name: 'Kitkat Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 100, 'Double (2 Pcs)': 140 }, price: 100, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Loaded with crispy crushed Kitkat bars and chocolate drizzle.' },
+      { id: 1406, category: 'waffle', name: 'Nutella Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 120, 'Double (2 Pcs)': 150 }, price: 120, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Generously spread with authentic hazelnut Nutella spread.' },
+      { id: 1407, category: 'waffle', name: 'Pista Kunafa Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 120, 'Double (2 Pcs)': 180 }, price: 120, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Middle Eastern specialty with crispy kunafa crunch & pistachio cream.' },
+      { id: 1408, category: 'waffle', name: 'Biscoff Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 130, 'Double (2 Pcs)': 200 }, price: 130, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Topped with caramelized Lotus Biscoff spread and crushed biscuits.' },
+      { id: 1409, category: 'waffle', name: 'Foodzilla Special Waffle', hasSizes: true, sizeLabels: ['Single (1 Pc)', 'Double (2 Pcs)'], prices: { 'Single (1 Pc)': 130, 'Double (2 Pcs)': 220 }, price: 130, selectedSize: 'Single (1 Pc)', img: 'https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80', desc: 'Chef signature waffle overloaded with chocolate, nutella, nuts and brownie.' },
 
-      // --- 3. BOWLS / BROWNIE BOWLS (From Image: Half Bowl & Full Bowl) ---
-      { id: 1501, category: 'bowl', name: 'Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 140, 'Full Bowl': 250 }, price: 140, selectedSize: 'Half Bowl', img: 'https://i.ibb.co/zHHsyrpZ/1788024236606.png?auto=format&fit=crop&w=600&q=80', desc: 'Gooey walnut brownie chunks served warm with hot chocolate fudge.' },
-      { id: 1502, category: 'bowl', name: 'Triple Chocolate Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 140, 'Full Bowl': 250 }, price: 140, selectedSize: 'Half Bowl', img: 'https://i.ibb.co/6RpszthW/1788024239121.png?auto=format&fit=crop&w=600&q=80', desc: 'Brownie bowl layered with dark, milk and white molten chocolate.' },
-      { id: 1503, category: 'bowl', name: 'Kitkat Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 160, 'Full Bowl': 270 }, price: 160, selectedSize: 'Half Bowl', img: 'https://i.ibb.co/nqZ0yVCf/1788024241979.png?auto=format&fit=crop&w=600&q=80', desc: 'Rich chocolate brownie tossed with crunchy Kitkat fingers and sauce.' },
-      { id: 1504, category: 'bowl', name: 'Nutella Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 160, 'Full Bowl': 270 }, price: 160, selectedSize: 'Half Bowl', img: 'https://i.ibb.co/XZT0HYY1/1788024243791.png?auto=format&fit=crop&w=600&q=80', desc: 'Decadent brownie bowl smothered with creamy Nutella hazelnut spread.' },
-      { id: 1505, category: 'bowl', name: 'Kunafa Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 180, 'Full Bowl': 300 }, price: 180, selectedSize: 'Half Bowl', img: 'https://i.ibb.co/fzqM5CgW/1788024245377.pngauto=format&fit=crop&w=600&q=80', desc: 'Fusion dessert combining warm brownie, crispy kunafa crunch & pistachio.' },
-      { id: 1506, category: 'bowl', name: 'Chocolate Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 140, 'Full Bowl': 200 }, price: 140, selectedSize: 'Half Bowl', img: 'https://i.ibb.co/s9DD1cdm/1788024249706.png?auto=format&fit=crop&w=600&q=80', desc: 'Classic chocolate lover bowl with moist brownie and chocolate drizzle.' },
+      // --- 3. BROWNIE BOWLS ---
+      { id: 1501, category: 'bowl', name: 'Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 140, 'Full Bowl': 250 }, price: 140, selectedSize: 'Half Bowl', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80', desc: 'Gooey walnut brownie chunks served warm with hot chocolate fudge.' },
+      { id: 1502, category: 'bowl', name: 'Triple Chocolate Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 140, 'Full Bowl': 250 }, price: 140, selectedSize: 'Half Bowl', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80', desc: 'Brownie bowl layered with dark, milk and white molten chocolate.' },
+      { id: 1503, category: 'bowl', name: 'Kitkat Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 160, 'Full Bowl': 270 }, price: 160, selectedSize: 'Half Bowl', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80', desc: 'Rich chocolate brownie tossed with crunchy Kitkat fingers and sauce.' },
+      { id: 1504, category: 'bowl', name: 'Nutella Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 160, 'Full Bowl': 270 }, price: 160, selectedSize: 'Half Bowl', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80', desc: 'Decadent brownie bowl smothered with creamy Nutella hazelnut spread.' },
+      { id: 1505, category: 'bowl', name: 'Kunafa Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 180, 'Full Bowl': 300 }, price: 180, selectedSize: 'Half Bowl', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80', desc: 'Fusion dessert combining warm brownie, crispy kunafa crunch & pistachio.' },
+      { id: 1506, category: 'bowl', name: 'Chocolate Brownie Bowl', hasSizes: true, sizeLabels: ['Half Bowl', 'Full Bowl'], prices: { 'Half Bowl': 140, 'Full Bowl': 200 }, price: 140, selectedSize: 'Half Bowl', img: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80', desc: 'Classic chocolate lover bowl with moist brownie and chocolate drizzle.' },
 
       // --- 4. VADA PAV ---
       { id: 101, category: 'vadapav', name: 'Vada Pav (वड़ा पाव)', price: 25, hasSizes: false, img: 'https://i.ibb.co/p6XQFhy0/IMG-20260829-122934.png?auto=format&fit=crop&w=600&q=80', desc: 'Classic Mumbai style batata vada in pav with spicy garlic chutney.' },
       { id: 102, category: 'vadapav', name: 'Schezwan Vada Pav (शेज़वान वड़ा पाव)', price: 40, hasSizes: false, img: 'https://i.ibb.co/KcDzj755/IMG-20260829-122957.png?auto=format&fit=crop&w=600&q=80', desc: 'Spicy Schezwan sauce layered over hot vada pav.' },
       { id: 103, category: 'vadapav', name: 'Cheese Vada Pav (चीज़ वड़ा पाव)', price: 50, hasSizes: false, img: 'https://i.ibb.co/21pmSJTS/IMG-20260829-123011.png?auto=format&fit=crop&w=600&q=80', desc: 'Melted cheese slice layered over hot crispy vada pav.' },
-
       // --- 5. BURGERS ---
       { id: 201, category: 'burger', name: 'Aloo Tikki Burger (आलू टिक्की बर्गर)', price: 40, hasSizes: false, img: 'https://i.ibb.co/pBvtsrjD/1787995355824.png?auto=format&fit=crop&w=600&q=80', desc: 'Crispy potato patty in soft toasted bun with tangy tomato relish.' },
       { id: 202, category: 'burger', name: 'Schezwan Burger (शेज़वान बर्गर)', price: 50, hasSizes: false, img: 'https://i.ibb.co/8tRYXr1/1787995363653.png?auto=format&fit=crop&w=600&q=80', desc: 'Crispy patty with fiery red schezwan sauce and onions.' },
@@ -894,7 +894,7 @@
       { id: 305, category: 'sandwich', name: 'Cheese Burst Sandwich (चीज़ बर्स्ट सैंडविच)', price: 99, hasSizes: false, img: 'https://i.ibb.co/wFF1gKTN/1787996028488.png?auto=format&fit=crop&w=600&q=80', desc: 'Triple layer cheese burst with molten liquid cheddar core.' },
       { id: 306, category: 'sandwich', name: 'Food Zila Special Sandwich (फूड ज़िला स्पेशल सैंडविच)', price: 119, hasSizes: false, img: 'https://i.ibb.co/pvMNygZr/1787996047024.png?auto=format&fit=crop&w=600&q=80', desc: 'Signature luxury club sandwich with paneer, olives, corn & cheese.' },
 
-      // --- 7. FRENCH FRIES (Sizes: Small & Large) ---
+      // --- 7. FRENCH FRIES ---
       { id: 401, category: 'fries', name: 'Salted Fries (सॉल्टेड फ्राइज़)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 70, Large: 100 }, price: 70, selectedSize: 'Small', img: 'https://i.ibb.co/wNKYsy3V/1787990659786.png?auto=format&fit=crop&w=600&q=80', desc: 'Golden crispy potato fries tossed in rock sea salt.' },
       { id: 402, category: 'fries', name: 'Peri Peri Fries (पेरी पेरी फ्राइज़)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 80, Large: 120 }, price: 80, selectedSize: 'Small', img: 'https://i.ibb.co/fYsYHLhV/1787990663629.png?auto=format&fit=crop&w=600&q=80', desc: 'Crispy fries tossed in authentic African spicy peri-peri dust.' },
       { id: 403, category: 'fries', name: 'Cheesey Messy Peri Peri (चीजी मेसी पेरी पेरी)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 120, Large: 180 }, price: 120, selectedSize: 'Small', img: 'https://i.ibb.co/21b6nMdj/1787990667855.png?auto=format&fit=crop&w=600&q=80', desc: 'Fries loaded with molten liquid cheese and peri-peri seasoning.' },
@@ -910,7 +910,7 @@
       { id: 507, category: 'roll', name: 'Afghani Chaap Roll (अफगानी चाप रोल)', price: 120, hasSizes: false, img: 'https://i.ibb.co/SD4ZW5wC/1787990686851.png?auto=format&fit=crop&w=600&q=80', desc: 'Creamy Afghani cashew-malai marinated chaap in herbed wrap.' },
       { id: 508, category: 'roll', name: 'Food Zila Special Roll (फूड ज़िला स्पेशल रोल)', price: 150, hasSizes: false, img: 'https://i.ibb.co/0Vn1DZHb/1787990689711.png?auto=format&fit=crop&w=600&q=80', desc: 'Loaded luxury jumbo roll with paneer, chaap, corn & double cheese.' },
 
-      // --- 9. PIZZAS (Sizes: Small & Large) ---
+      // --- 9. PIZZAS ---
       { id: 601, category: 'pizza', name: 'Cheese Margherita Pizza (चीज़ मार्गेरिटा पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 80, Large: 130 }, price: 80, selectedSize: 'Small', img: 'https://i.ibb.co/tP29JFSn/1787993778036.png?auto=format&fit=crop&w=600&q=80', desc: 'Classic Italian tomato herb sauce with pure mozzarella cheese.' },
       { id: 602, category: 'pizza', name: 'Golden Sweet Corn Pizza (गोल्डन स्वीट कॉर्न पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 99, Large: 140 }, price: 99, selectedSize: 'Small', img: 'https://i.ibb.co/gbrM0c7j/1787993782625.png?auto=format&fit=crop&w=600&q=80', desc: 'Loaded with juicy golden sweet corn and mozzarella cheese.' },
       { id: 603, category: 'pizza', name: 'Tomato Pizza (टमाटर पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 90, Large: 120 }, price: 90, selectedSize: 'Small', img: 'https://i.ibb.co/PsHgFLJQ/1787993784595.png?auto=format&fit=crop&w=600&q=80', desc: 'Freshly sliced juicy red tomatoes with herb cheese base.' },
@@ -923,7 +923,7 @@
       { id: 610, category: 'pizza', name: 'Cheese Burst Pizza (चीज़ बर्स्ट पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 220, Large: 260 }, price: 220, selectedSize: 'Small', img: 'https://i.ibb.co/GvQhHn5g/1787994216538.png?auto=format&fit=crop&w=600&q=80', desc: 'Crust overflowing with molten liquid cheese and double mozzarella.' },
       { id: 611, category: 'pizza', name: 'Food Zila Special Pizza (फूड ज़िला स्पेशल पिज़्ज़ा)', hasSizes: true, sizeLabels: ['Small', 'Large'], prices: { Small: 249, Large: 299 }, price: 249, selectedSize: 'Small', img: 'https://i.ibb.co/Wvkmcdhc/1787994260810.png?auto=format&fit=crop&w=600&q=80', desc: 'Signature masterpiece with exotic vegetables, paneer tikka and 4 cheeses.' },
 
-      // --- 10. MOMOS (Sizes: 6 Pcs & 10 Pcs) ---
+      // --- 10. MOMOS ---
       { id: 701, category: 'momos', name: 'Steam Veg Momos (स्टीम वेज मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 60, '10 Pcs': 80 }, price: 60, selectedSize: '6 Pcs', img: 'https://i.ibb.co/N2WBzCD1/1787988681190.png?auto=format&fit=crop&w=600&q=80', desc: 'Thin wrapper stuffed with minced veggies, served with spicy red chutney.' },
       { id: 702, category: 'momos', name: 'Steam Paneer Momos (स्टीम पनीर मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 70, '10 Pcs': 90 }, price: 70, selectedSize: '6 Pcs', img: 'https://i.ibb.co/fBYzXH1/1787988688003.png?auto=format&fit=crop&w=600&q=80', desc: 'Soft malai paneer stuffed momos with authentic garlic chili dip.' },
       { id: 801, category: 'momos', name: 'Fried Veg Momos (फ्राई वेज मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 70, '10 Pcs': 90 }, price: 70, selectedSize: '6 Pcs', img: 'https://i.ibb.co/23RjVMz6/1787988692008.png?auto=format&fit=crop&w=600&q=80', desc: 'Golden crispy fried vegetable momos.' },
@@ -934,7 +934,7 @@
       { id: 1002, category: 'momos', name: 'Tandoori Paneer Momos (तंदूरी पनीर मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 140, '10 Pcs': 160 }, price: 140, selectedSize: '6 Pcs', img: 'https://i.ibb.co/fdP6Z7B4/1787988767999.png?auto=format&fit=crop&w=600&q=80', desc: 'Charcoal roasted paneer momos in creamy tandoori masala.' },
       { id: 1003, category: 'momos', name: 'Afghani Momos (अफगानी मोमोज)', hasSizes: true, sizeLabels: ['6 Pcs', '10 Pcs'], prices: { '6 Pcs': 150, '10 Pcs': 180 }, price: 150, selectedSize: '6 Pcs', img: 'https://i.ibb.co/LzRKFtcm/1787988781697.png?auto=format&fit=crop&w=600&q=80', desc: 'Momos tossed in rich cashew-cream Afghani gravy.' },
 
-      // --- 11. SOYA CHAAP (Sizes: Half & Full) ---
+      // --- 11. SOYA CHAAP ---
       { id: 1101, category: 'chaap', name: 'Masala Chaap (मसाला चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/WvhcbPPF/1787996128851.png?auto=format&fit=crop&w=600&q=80', desc: 'Tender soya chaap roasted with spicy north Indian masala.' },
       { id: 1102, category: 'chaap', name: 'Achari Chaap (अचारी चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/zVqZHsM6/1787996203123.png?auto=format&fit=crop&w=600&q=80', desc: 'Tangy pickle-spiced soya chaap roasted in tandoor.' },
       { id: 1103, category: 'chaap', name: 'Punjabi Soya Chaap (पंजाबी सोया चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/YBSw0jyM/1787996336889.png?auto=format&fit=crop&w=600&q=80', desc: 'Rich Punjabi style spiced chaap with onions and butter.' },
@@ -942,7 +942,7 @@
       { id: 1105, category: 'chaap', name: 'Malai Chaap (मलाई चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 140, Full: 250 }, price: 140, selectedSize: 'Half', img: 'https://i.ibb.co/DD15jp1x/1787996353648.png?auto=format&fit=crop&w=600&q=80', desc: 'Rich dairy cream, cashew paste and mild cardamom marinade.' },
       { id: 1106, category: 'chaap', name: 'Afghani Chaap (अफगानी चाप)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/xSBfpM6R/1787996373020.png?auto=format&fit=crop&w=600&q=80', desc: 'Creamy charcoal roasted chaap with fresh coriander and spices.' },
 
-      // --- 12. PANEER TIKKA (Sizes: Half & Full) ---
+      // --- 12. PANEER TIKKA ---
       { id: 1201, category: 'tikka', name: 'Masala Paneer Tikka (मसाला पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/nMrqFDXR/IMG-20260829-123213.png?auto=format&fit=crop&w=600&q=80', desc: 'Fresh malai paneer cubes marinated in spiced yogurt and roasted in tandoor.' },
       { id: 1202, category: 'tikka', name: 'Achari Paneer Tikka (अचारी पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/nMrqFDXR/IMG-20260829-123213.png?auto=format&fit=crop&w=600&q=80', desc: 'Pickle-marinated paneer roasted with capsicum and onions.' },
       { id: 1203, category: 'tikka', name: 'Lemon Paneer Tikka (लेमन पनीर टिक्का)', hasSizes: true, sizeLabels: ['Half', 'Full'], prices: { Half: 130, Full: 220 }, price: 130, selectedSize: 'Half', img: 'https://i.ibb.co/JjVpYGnd/IMG-20260829-123156.png?auto=format&fit=crop&w=600&q=80', desc: 'Zesty lemon and pepper marinated fresh cottage cheese.' },
@@ -957,8 +957,6 @@
       localStorage.setItem('foodzillaCart', JSON.stringify(cart));
       updateCartUI();
     }
-
-    // Toast Notification Trigger
     function showToast(message) {
       const toast = document.getElementById('toastNotification');
       const msgEl = document.getElementById('toastMsg');
@@ -969,7 +967,6 @@
       }, 2500);
     }
 
-    // Fly to Cart Animation Function
     function flyToCartAnimation(imgElement) {
       if (!imgElement) return;
       const cartBtn = document.getElementById('cartNavBtn');
@@ -986,7 +983,8 @@
       document.body.appendChild(flyer);
 
       flyer.getBoundingClientRect();
-setTimeout(() => {
+
+      setTimeout(() => {
         flyer.style.top = `${cartRect.top}px`;
         flyer.style.left = `${cartRect.left}px`;
         flyer.style.width = '20px';
@@ -1101,12 +1099,13 @@ setTimeout(() => {
 
       const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
       const gst = Math.round(subtotal * 0.05);
-      const deliveryFee = subtotal >= 299 ? 0 : 30;
-      const grandTotal = subtotal + gst + deliveryFee;
+      let deliveryFee = subtotal >= 299 ? 0 : 30;
+      let deliveryText = deliveryFee === 0 ? "FREE 🎉" : "₹30";
+      let grandTotal = subtotal + gst + deliveryFee;
 
       document.getElementById('subtotalVal').innerText = `₹${subtotal}`;
       document.getElementById('gstVal').innerText = `₹${gst}`;
-      document.getElementById('deliveryVal').innerHTML = deliveryFee === 0 ? "FREE 🎉" : "₹30";
+      document.getElementById('deliveryVal').innerHTML = deliveryText;
       document.getElementById('grandTotalVal').innerText = `₹${grandTotal}`;
     }
 
@@ -1115,7 +1114,6 @@ setTimeout(() => {
       const msg = encodeURIComponent(`Namaste Foodzilla! I would like to order: ${name} (₹${price}).`);
       return `https://wa.me/${phone}?text=${msg}`;
     }
-
     const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw0U7xDsW7xvR4UnEB2AuU9pG7_gFUdHtRyoYDJjYGHLPtygYALhEIFOCXTHMSrzYlKgQ/exec";
 
     function saveCustomerProfile(e) {
@@ -1140,6 +1138,7 @@ setTimeout(() => {
       closeAuthModal();
       checkUserSession();
     }
+
     const RESTAURANT_WHATSAPP = "919079761984"; 
 
     function processCheckout() {
@@ -1290,15 +1289,9 @@ setTimeout(() => {
     function filterCategory(category, btnElement) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       if (btnElement) btnElement.classList.add('active');
-
-      if (category === 'all') {
-        renderMenu(foodDatabase);
-      } else {
-        const filtered = foodDatabase.filter(item => item.category === category);
-        renderMenu(filtered);
-      }
+      const filtered = foodDatabase.filter(item => item.category === category);
+      renderMenu(filtered);
     }
-
     function openDetailModal(id) {
       const item = foodDatabase.find(x => x.id === id);
       if (!item) return;
@@ -1321,7 +1314,7 @@ setTimeout(() => {
     function closeDetailModal() { document.getElementById('detailModal').classList.remove('active'); }
     function closeDetailModalOnOutside(e) { if (e.target.id === 'detailModal') closeDetailModal(); }
 
-   // ================= AI REVIEW ENGINE & LIVE WALL LOGIC =================
+    // ================= PERMANENT REVIEW ENGINE =================
     let selectedReviewStars = 5;
 
     const aiSuggestionsMaster = {
@@ -1350,37 +1343,7 @@ setTimeout(() => {
         "Normal fast food experience. Next time better service ki umeed hai."
       ]
     };
-// ================= PERMANENT AI REVIEW ENGINE (LOCALSTORAGE + SHEET SYNC) =================
-    let selectedReviewStars = 5;
 
-    const aiSuggestionsMaster = {
-      5: [
-        "Nagaur ka number 1 fast food spot! Monster Burger aur Dark Chocolate Waffle lajawaab hain!",
-        "Outstanding taste and super fast service! 100% Pure Veg aur authentic flavors.",
-        "Foodzilla ke Kurkure Momos aur Nutella Brownie Bowl ultimate hain. Must visit in Nagaur!",
-        "Best pizza, waffle and burger in Nagaur! Fresh toppings aur amazing cheese pull.",
-        "Clean kitchen, polite staff aur luxury taste in every bite. Foodzilla is my favorite!",
-        "Party aur hangout ke liye Nagaur me sabse best fast food restaurant. 5 Stars!"
-      ],
-      4: [
-        "Khana bohot tasty aur fresh tha! Nagaur me affordable price par best taste.",
-        "Monster Cheese Burger aur Peri-Peri Fries ka crunch zabardast tha. Great job!",
-        "Tandoori Paneer Momos aur Brownie Bowl dono delicious the. Fast service!",
-        "Foodzilla ka ambiance aur hygiene bohot achha laga. Family ke liye best spot.",
-        "Piping hot packaging aur fresh ingredients. Taste 10/10 tha, minor wait time tha.",
-        "Value for money combos! Nagaur me fast food ke liye highly recommended."
-      ],
-      3: [
-        "Taste theek-thaak tha, par delivery thodi aur fast ho sakti thi.",
-        "Food quality achhi thi, par French fries thodi aur crispy honi chahiye.",
-        "Portion size theek tha, packaging aur food temperature par dhyan dein.",
-        "Average experience. Taste achha hai par service me improvement possible hai.",
-        "Makhani burger ka taste theek tha, sauce thoda extra hona chahiye tha.",
-        "Normal fast food experience. Next time better service ki umeed hai."
-      ]
-    };
-
-    // Permanent Review List (Loads from LocalStorage)
     let liveCustomerReviews = JSON.parse(localStorage.getItem('foodzillaLiveReviews')) || [
       { name: "Rahul Soni", rating: 5, text: "Nagaur ka number 1 fast food spot! Monster Burger aur Dark Chocolate Waffle lajawaab hain!", time: "Nagaur • Verified Dine-in" },
       { name: "Pooja Sharma", rating: 5, text: "Outstanding taste and super fast service! 100% Pure Veg aur authentic flavors.", time: "Didwana Road • Takeaway" },
@@ -1413,7 +1376,7 @@ setTimeout(() => {
 
     function renderAiPills(stars) {
       const container = document.getElementById('suggestionsContainer');
-      const list = aiSuggestionsMaster[stars] || aiSuggestionsMaster;
+      const list = aiSuggestionsMaster[stars] || aiSuggestionsMaster[5];
 
       container.innerHTML = list.map((text, idx) => `
         <div class="suggestion-pill ${idx === 0 ? 'selected' : ''}" onclick="applyReviewText(this, '${text.replace(/'/g, "\\'")}')">
@@ -1421,6 +1384,32 @@ setTimeout(() => {
         </div>
       `).join('');
 
+      document.getElementById('reviewMessageText').value = list[0];
+    }
+
+    function applyReviewText(el, text) {
+      document.querySelectorAll('.suggestion-pill').forEach(p => p.classList.remove('selected'));
+      if (el) el.classList.add('selected');
+      document.getElementById('reviewMessageText').value = text;
+    }
+
+    function handleInWebsiteReview(e) {
+      e.preventDefault();
+      const name = document.getElementById('reviewAuthorName').value.trim();
+      const msg = document.getElementById('reviewMessageText').value.trim();
+
+      if (!name || !msg) return;
+
+      const newRev = {
+        name: name,
+        rating: selectedReviewStars,
+        text: msg,
+        time: "Nagaur • Just now"
+      };
+
+      liveCustomerReviews.unshift(newRev);
+      saveReviewsPermanently();
+      renderLiveReviewsFeed();
 
       if (typeof GOOGLE_SHEET_WEBHOOK_URL !== 'undefined' && GOOGLE_SHEET_WEBHOOK_URL) {
         fetch(GOOGLE_SHEET_WEBHOOK_URL, {
@@ -1436,7 +1425,7 @@ setTimeout(() => {
         }).catch(err => console.log('Sheet error:', err));
       }
 
-      alert(`🎉 Shukriya ${name}! Aapka review live wall par publish ho gaya hai.`);
+      alert(`🎉 Shukriya ${name}! Aapka review permanently live wall par publish ho gaya hai.`);
       document.getElementById('reviewMessageText').value = '';
     }
 
@@ -1455,8 +1444,7 @@ setTimeout(() => {
         </div>
       `).join('');
     }
-
-    // Scroll Reveal Intersection Observer Setup
+      // Scroll Reveal Intersection Observer Setup
     function observeScrollElements() {
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -1491,4 +1479,3 @@ setTimeout(() => {
   </script>
 </body>
 </html>
-      
