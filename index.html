@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Foodzilla Fast Food | Nagaur's Best Sizzling Fast Food</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+   <!-- ================= GOOGLE SEARCH REVIEW SCHEMA (RICH SNIPPETS) ================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Restaurant",
+    "name": "Foodzilla Fast Food",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ginani Gali, Near Nursing Ji Mandir, Opp. Suparshwa Vatika, Didwana Road",
+      "addressLocality": "Nagaur",
+      "addressRegion": "Rajasthan",
+      "postalCode": "341001",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "27.2070",
+      "longitude": "73.7423"
+    },
+    "url": "https://foodzillafastfood.com",
+    "telephone": "+919079761984",
+    "priceRange": "₹25 - ₹749",
+    "servesCuisine": "Fast Food, Pure Vegetarian, Pizza, Burger, Momos, Waffles, Brownie Bowls",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "250"
+    }
+  }
+  </script>
   <style>
     :root {
       --primary: #e63946;
@@ -1318,13 +1350,47 @@ setTimeout(() => {
         "Normal fast food experience. Next time better service ki umeed hai."
       ]
     };
+// ================= PERMANENT AI REVIEW ENGINE (LOCALSTORAGE + SHEET SYNC) =================
+    let selectedReviewStars = 5;
 
-    let liveCustomerReviews = [
+    const aiSuggestionsMaster = {
+      5: [
+        "Nagaur ka number 1 fast food spot! Monster Burger aur Dark Chocolate Waffle lajawaab hain!",
+        "Outstanding taste and super fast service! 100% Pure Veg aur authentic flavors.",
+        "Foodzilla ke Kurkure Momos aur Nutella Brownie Bowl ultimate hain. Must visit in Nagaur!",
+        "Best pizza, waffle and burger in Nagaur! Fresh toppings aur amazing cheese pull.",
+        "Clean kitchen, polite staff aur luxury taste in every bite. Foodzilla is my favorite!",
+        "Party aur hangout ke liye Nagaur me sabse best fast food restaurant. 5 Stars!"
+      ],
+      4: [
+        "Khana bohot tasty aur fresh tha! Nagaur me affordable price par best taste.",
+        "Monster Cheese Burger aur Peri-Peri Fries ka crunch zabardast tha. Great job!",
+        "Tandoori Paneer Momos aur Brownie Bowl dono delicious the. Fast service!",
+        "Foodzilla ka ambiance aur hygiene bohot achha laga. Family ke liye best spot.",
+        "Piping hot packaging aur fresh ingredients. Taste 10/10 tha, minor wait time tha.",
+        "Value for money combos! Nagaur me fast food ke liye highly recommended."
+      ],
+      3: [
+        "Taste theek-thaak tha, par delivery thodi aur fast ho sakti thi.",
+        "Food quality achhi thi, par French fries thodi aur crispy honi chahiye.",
+        "Portion size theek tha, packaging aur food temperature par dhyan dein.",
+        "Average experience. Taste achha hai par service me improvement possible hai.",
+        "Makhani burger ka taste theek tha, sauce thoda extra hona chahiye tha.",
+        "Normal fast food experience. Next time better service ki umeed hai."
+      ]
+    };
+
+    // Permanent Review List (Loads from LocalStorage)
+    let liveCustomerReviews = JSON.parse(localStorage.getItem('foodzillaLiveReviews')) || [
       { name: "Rahul Soni", rating: 5, text: "Nagaur ka number 1 fast food spot! Monster Burger aur Dark Chocolate Waffle lajawaab hain!", time: "Nagaur • Verified Dine-in" },
       { name: "Pooja Sharma", rating: 5, text: "Outstanding taste and super fast service! 100% Pure Veg aur authentic flavors.", time: "Didwana Road • Takeaway" },
       { name: "Vikas Choudhary", rating: 4, text: "Monster Cheese Burger aur Peri-Peri Fries ka crunch zabardast tha. Great job!", time: "Nagaur • Home Delivery" },
       { name: "Ankit Jain", rating: 5, text: "Foodzilla ke Kurkure Momos aur Nutella Brownie Bowl ultimate hain. Must visit in Nagaur!", time: "Nagaur • Verified Dine-in" }
     ];
+
+    function saveReviewsPermanently() {
+      localStorage.setItem('foodzillaLiveReviews', JSON.stringify(liveCustomerReviews));
+    }
 
     function selectRating(stars) {
       selectedReviewStars = stars;
@@ -1355,31 +1421,6 @@ setTimeout(() => {
         </div>
       `).join('');
 
-      document.getElementById('reviewMessageText').value = list[0];
-    }
-
-    function applyReviewText(el, text) {
-      document.querySelectorAll('.suggestion-pill').forEach(p => p.classList.remove('selected'));
-      if (el) el.classList.add('selected');
-      document.getElementById('reviewMessageText').value = text;
-    }
-
-    function handleInWebsiteReview(e) {
-      e.preventDefault();
-      const name = document.getElementById('reviewAuthorName').value.trim();
-      const msg = document.getElementById('reviewMessageText').value.trim();
-
-      if (!name || !msg) return;
-
-      const newRev = {
-        name: name,
-        rating: selectedReviewStars,
-        text: msg,
-        time: "Nagaur • Just now"
-      };
-
-      liveCustomerReviews.unshift(newRev);
-      renderLiveReviewsFeed();
 
       if (typeof GOOGLE_SHEET_WEBHOOK_URL !== 'undefined' && GOOGLE_SHEET_WEBHOOK_URL) {
         fetch(GOOGLE_SHEET_WEBHOOK_URL, {
