@@ -163,18 +163,6 @@
       transform: translateY(0);
     }
 
-    /* Scroll Reveal Animation Classes */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(35px);
-      transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-      will-change: opacity, transform;
-    }
-    .reveal-on-scroll.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* SIDEBAR DRAWER */
     .sidebar-drawer {
       position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
@@ -396,9 +384,7 @@
       border-radius: 10px;
       padding: 1.1rem;
       margin-bottom: 1rem;
-      animation: fadeInReview 0.4s ease-out;
     }
-    @keyframes fadeInReview { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     .review-item-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
     .rev-name { font-weight: 600; color: #fff; font-size: 0.95rem; }
     .rev-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
@@ -450,13 +436,13 @@
     .cart-item-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
     .cart-item-price { font-size: 0.85rem; color: var(--gold); font-weight: 700; }
     
-    . .qty-controls { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .qty-controls { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
     .qty-btn { background: #252532; border: none; color: #fff; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: 700; }
     .qty-btn:hover { background: var(--primary); }
     .qty-text { font-size: 0.85rem; font-weight: 600; width: 20px; text-align: center; }
     .item-del-btn { background: none; border: none; color: #ff5252; cursor: pointer; font-size: 1.1rem; padding: 4px; }
 
-    .cart-footer { padding: 1.2rem; border-top: 1px solid var(--border-color); background: #0f0f13; }
+    ..cart-footer { padding: 1.2rem; border-top: 1px solid var(--border-color); background: #0f0f13; }
     .calc-row { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem; }
     .calc-row.total-row { font-size: 1.1rem; color: #fff; font-weight: 700; border-top: 1px dashed var(--border-color); padding-top: 0.6rem; margin-top: 0.6rem; }
     .calc-row.total-row span:last-child { color: var(--gold); }
@@ -563,7 +549,7 @@
   </div>
 
   <!-- HEADER -->
-  <header class="reveal-on-scroll">
+  <header>
     <button class="menu-bar-btn" onclick="toggleSidebar()"><span>☰</span> Menu</button>
     <a href="#" class="header-center-logo">
       <span class="logo-icon">🦖</span>
@@ -621,6 +607,7 @@
       <button class="checkout-btn" onclick="processCheckout()">Place Order on WhatsApp</button>
     </div>
   </div>
+
   <!-- CUSTOMER PROFILE MODAL (NO PASSWORD) -->
   <div class="auth-modal-overlay" id="authModal" onclick="closeAuthModalOnOutside(event)">
     <div class="auth-card">
@@ -655,7 +642,7 @@
   </div>
 
   <!-- HERO SECTION -->
-  <section class="hero-video-section reveal-on-scroll" id="home">
+  <section class="hero-video-section" id="home">
     <div class="hero-content">
       <span class="hero-badge">Pure Taste • Monster Flavors</span>
       <h1>Taste The Monster Crunch at Foodzilla</h1>
@@ -668,13 +655,13 @@
   </section>
 
   <!-- MENU SECTION -->
-  <section class="menu-section reveal-on-scroll" id="menu-section">
+  <section class="menu-section" id="menu-section">
     <div class="section-header">
       <h2>Foodzilla <span>Special Menu</span> Card</h2>
       <p>Select category to view official varieties, sizes & rates</p>
     </div>
 
-    <div class="category-tabs reveal-on-scroll">
+    <div class="category-tabs">
       <button class="tab-btn active" onclick="filterCategory('combo', this)">🎁 Combo Packs (20)</button>
       <button class="tab-btn" onclick="filterCategory('waffle', this)">🧇 Waffles (9)</button>
       <button class="tab-btn" onclick="filterCategory('bowl', this)">🍨 Brownie Bowls (6)</button>
@@ -693,7 +680,7 @@
   </section>
 
   <!-- ================= DIRECT IN-WEBSITE AI REVIEW SECTION ================= -->
-  <section class="review-section reveal-on-scroll" id="reviews-section">
+  <section class="review-section" id="reviews-section">
     <div class="section-header">
       <h2>Foodzilla <span>Customer Wall of Love</span></h2>
       <p>Real feedback from our valued food lovers in Nagaur</p>
@@ -742,8 +729,7 @@
           <button type="submit" class="submit-review-btn">🚀 Submit Review to Wall</button>
         </form>
       </div>
-
-      <!-- Right: Live Customer Reviews Feed -->
+    <!-- Right: Live Customer Reviews Feed -->
       <div class="recent-reviews-card">
         <h3 class="card-box-title">💬 Live Customer Feed</h3>
         <div class="reviews-feed-container" id="liveReviewsFeed">
@@ -754,7 +740,7 @@
   </section>
 
   <!-- FOUNDER PROFILE -->
-  <section class="owner-section reveal-on-scroll" id="owner-section">
+  <section class="owner-section" id="owner-section">
     <div class="owner-profile-card">
       <div class="owner-avatar-wrap">
         <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=500&q=80" alt="Founder & Owner" class="owner-avatar">
@@ -797,8 +783,9 @@
       </div>
     </div>
   </div>
-    <!-- FOOTER -->
-  <footer class="reveal-on-scroll" id="contact">
+
+  <!-- FOOTER -->
+  <footer id="contact">
     <div class="footer-grid">
       <div class="footer-col">
         <h4>Foodzilla Fast Food</h4>
@@ -876,6 +863,7 @@
       { id: 101, category: 'vadapav', name: 'Vada Pav (वड़ा पाव)', price: 25, hasSizes: false, img: 'https://i.ibb.co/p6XQFhy0/IMG-20260829-122934.png?auto=format&fit=crop&w=600&q=80', desc: 'Classic Mumbai style batata vada in pav with spicy garlic chutney.' },
       { id: 102, category: 'vadapav', name: 'Schezwan Vada Pav (शेज़वान वड़ा पाव)', price: 40, hasSizes: false, img: 'https://i.ibb.co/KcDzj755/IMG-20260829-122957.png?auto=format&fit=crop&w=600&q=80', desc: 'Spicy Schezwan sauce layered over hot vada pav.' },
       { id: 103, category: 'vadapav', name: 'Cheese Vada Pav (चीज़ वड़ा पाव)', price: 50, hasSizes: false, img: 'https://i.ibb.co/21pmSJTS/IMG-20260829-123011.png?auto=format&fit=crop&w=600&q=80', desc: 'Melted cheese slice layered over hot crispy vada pav.' },
+
       // --- 5. BURGERS ---
       { id: 201, category: 'burger', name: 'Aloo Tikki Burger (आलू टिक्की बर्गर)', price: 40, hasSizes: false, img: 'https://i.ibb.co/pBvtsrjD/1787995355824.png?auto=format&fit=crop&w=600&q=80', desc: 'Crispy potato patty in soft toasted bun with tangy tomato relish.' },
       { id: 202, category: 'burger', name: 'Schezwan Burger (शेज़वान बर्गर)', price: 50, hasSizes: false, img: 'https://i.ibb.co/8tRYXr1/1787995363653.png?auto=format&fit=crop&w=600&q=80', desc: 'Crispy patty with fiery red schezwan sauce and onions.' },
@@ -885,8 +873,7 @@
       { id: 206, category: 'burger', name: 'Paneer Patty Burger (पनीर पैटी बर्गर)', price: 99, hasSizes: false, img: 'https://i.ibb.co/PszQTChy/1787995582576.png?auto=format&fit=crop&w=600&q=80', desc: 'Thick marinated cottage cheese patty coated in crunchy crust.' },
       { id: 207, category: 'burger', name: 'Maharaja Burger (महाराजा बर्गर)', price: 120, hasSizes: false, img: 'https://i.ibb.co/QhbB08m/1787995670383.png?auto=format&fit=crop&w=600&q=80', desc: 'Double patty stacked with double cheese, veggies and rich dressing.' },
       { id: 208, category: 'burger', name: 'FZ Special Burger (एफज़ेड स्पेशल बर्गर)', price: 120, hasSizes: false, img: 'https://i.ibb.co/1YLTFJyJ/1787995637360.png?auto=format&fit=crop&w=600&q=80', desc: 'Chef special signature recipe with secret spices and loaded cheese.' },
-
-      // --- 6. SANDWICHES ---
+  // --- 6. SANDWICHES ---
       { id: 301, category: 'sandwich', name: 'Veg Grill Sandwich (वेज ग्रिल सैंडविच)', price: 50, hasSizes: false, img: 'https://i.ibb.co/h1n5THPG/1787995783523.png?auto=format&fit=crop&w=600&q=80', desc: 'Fresh cucumber, tomato, capsicum grilled crisp with butter.' },
       { id: 302, category: 'sandwich', name: 'Veg Cheese Sandwich (वेज चीज़ सैंडविच)', price: 70, hasSizes: false, img: 'https://i.ibb.co/67TXxvf3/1787995861915.png?auto=format&fit=crop&w=600&q=80', desc: 'Loaded vegetable sandwich with melted mozzarella cheese.' },
       { id: 303, category: 'sandwich', name: 'Cheese & Corn Sandwich (चीज़ एंड कॉर्न सैंडविच)', price: 70, hasSizes: false, img: 'https://i.ibb.co/HTSkZJHs/1787995919395.png?auto=format&fit=crop&w=600&q=80', desc: 'Sweet corn kernels with gooey cheese and Italian herbs.' },
@@ -957,6 +944,7 @@
       localStorage.setItem('foodzillaCart', JSON.stringify(cart));
       updateCartUI();
     }
+
     function showToast(message) {
       const toast = document.getElementById('toastNotification');
       const msgEl = document.getElementById('toastMsg');
@@ -1114,6 +1102,7 @@
       const msg = encodeURIComponent(`Namaste Foodzilla! I would like to order: ${name} (₹${price}).`);
       return `https://wa.me/${phone}?text=${msg}`;
     }
+
     const GOOGLE_SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw0U7xDsW7xvR4UnEB2AuU9pG7_gFUdHtRyoYDJjYGHLPtygYALhEIFOCXTHMSrzYlKgQ/exec";
 
     function saveCustomerProfile(e) {
@@ -1262,7 +1251,7 @@
           `₹${item.price}`;
 
         return `
-          <div class="menu-card reveal-on-scroll" id="card-${item.id}">
+          <div class="menu-card" id="card-${item.id}">
             <div class="card-img-wrap" onclick="openDetailModal(${item.id})">
               <img src="${item.img}" alt="${item.name}">
             </div>
@@ -1282,8 +1271,6 @@
           </div>
         `;
       }).join('');
-
-      observeScrollElements();
     }
 
     function filterCategory(category, btnElement) {
@@ -1292,6 +1279,7 @@
       const filtered = foodDatabase.filter(item => item.category === category);
       renderMenu(filtered);
     }
+
     function openDetailModal(id) {
       const item = foodDatabase.find(x => x.id === id);
       if (!item) return;
@@ -1444,21 +1432,6 @@
         </div>
       `).join('');
     }
-      // Scroll Reveal Intersection Observer Setup
-    function observeScrollElements() {
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-        observer.observe(el);
-      });
-    }
 
     document.addEventListener('DOMContentLoaded', () => {
       filterCategory('combo', document.querySelector('.tab-btn.active'));
@@ -1466,7 +1439,6 @@
       checkUserSession();
       renderLiveReviewsFeed();
       selectRating(5);
-      observeScrollElements();
     });
 
     document.addEventListener('keydown', (e) => {
